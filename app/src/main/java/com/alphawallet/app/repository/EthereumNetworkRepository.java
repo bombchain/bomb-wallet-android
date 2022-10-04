@@ -14,6 +14,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import static com.alphawallet.ethereum.EthereumNetworkBase.BOMB_ID;
 
 import static com.alphawallet.ethereum.EthereumNetworkBase.MAINNET_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.GNOSIS_ID;
@@ -58,7 +59,13 @@ public class EthereumNetworkRepository extends EthereumNetworkBase
     {
         KnownContract knownContract = readContracts();
         if (knownContract == null) return;
-
+        if (networkFilters == null || networkFilters.contains(BOMB_ID))
+        {
+            for (UnknownToken unknownToken: knownContract.getBOMB())
+            {
+                popularTokens.put(unknownToken.address.toLowerCase(), new ContractLocator(unknownToken.address, BOMB_ID));
+            }
+        }
         if (networkFilters == null || networkFilters.contains(MAINNET_ID))
         {
             for (UnknownToken unknownToken: knownContract.getMainNet())

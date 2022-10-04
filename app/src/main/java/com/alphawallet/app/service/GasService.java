@@ -8,7 +8,7 @@ import static com.alphawallet.app.entity.tokenscript.TokenscriptFunction.ZERO_AD
 import static com.alphawallet.app.repository.TokenRepository.getWeb3jService;
 import static com.alphawallet.app.repository.TokensRealmSource.TICKER_DB;
 import static com.alphawallet.ethereum.EthereumNetworkBase.ARTIS_TAU1_ID;
-import static com.alphawallet.ethereum.EthereumNetworkBase.MAINNET_ID;
+import static com.alphawallet.ethereum.EthereumNetworkBase.BOMB_ID;
 
 import android.text.TextUtils;
 
@@ -72,7 +72,7 @@ public class GasService implements ContractGasProvider
     private static final String REWARD_PERCENTILES = "[REWARD_PERCENTILES]";
 
     private static final String FEE_HISTORY = "{\"jsonrpc\":\"2.0\",\"method\":\"eth_feeHistory\",\"params\":[\""+ BLOCK_COUNT +"\", \""+ NEWEST_BLOCK +"\",["+ REWARD_PERCENTILES +"]],\"id\":1}";
-    private final String WHALE_ACCOUNT = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"; //used for calculating gas estimate where a tx would exceed the limits with default gas settings
+    private final String WHALE_ACCOUNT = "0x49707808908f0C2450B3F2672E012eDBf49eD808"; //used for calculating gas estimate where a tx would exceed the limits with default gas settings
     private final EthereumNetworkRepositoryType networkRepository;
     private final OkHttpClient httpClient;
     private final RealmManager realmManager;
@@ -93,7 +93,7 @@ public class GasService implements ContractGasProvider
         this.httpClient = httpClient;
         this.realmManager = realm;
         gasFetchDisposable = null;
-        this.currentChainId = MAINNET_ID;
+        this.currentChainId = BOMB_ID;
 
         web3j = null;
         KeyProvider keyProvider = KeyProviderFactory.get();

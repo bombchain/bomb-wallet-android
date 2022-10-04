@@ -17,7 +17,7 @@ AlphaWallet and TokenScript have been used by tokenisation projects like FIFA an
 ⭐ Star us on GitHub — it helps!
 
 [![alphawallet open source wallet android preview](dmz/src/main/resources/static/readme/alphawallet-open-source-ethereum-wallet.jpg)](https://alphawallet.com/)
-<a href='https://play.google.com/store/apps/details?id=io.stormbird.wallet&hl=en&utm_source=github-readme&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get AlphaWallet Open Source Wallet on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' height="100"/></a>
+<a href='https://play.google.com/store/apps/details?id=com.bombmoney.wallet&hl=en&utm_source=github-readme&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get AlphaWallet Open Source Wallet on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' height="100"/></a>
 
 ## About AlphaWallet - Features
 

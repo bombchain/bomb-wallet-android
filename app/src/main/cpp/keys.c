@@ -63,7 +63,7 @@ Java_com_alphawallet_app_repository_KeyProviderJNIImpl_getRampKey( JNIEnv* env, 
 #if (HAS_KEYS == 1)
     return getDecryptedKey(env, rampKey);
 #else
-    const jstring key = "asfjkdhvcmbnekjfhskjdhfskjdhfskjdhfsdkjf"; // <-- replace with your Ramp key
+    const jstring key = "k2o8eyxqrjq9o8d3e45gg8fndgjh74ucs3ezowyu"; // <-- replace with your Ramp key
     return (*env)->NewStringUTF(env, key);
 #endif
 }
@@ -108,7 +108,7 @@ Java_com_alphawallet_app_repository_KeyProviderJNIImpl_getBSCExplorerKey( JNIEnv
 #if (HAS_KEYS == 1)
     return getBSCExplorerKey(env);
 #else
-    return (*env)->NewStringUTF(env, "");
+    return (*env)->NewStringUTF(env, "UY6KBJR8J9N9WB8PKTY88NA6WCWTSQ3YFC");
 #endif
 }
 
@@ -118,7 +118,7 @@ Java_com_alphawallet_app_repository_KeyProviderJNIImpl_getEtherscanKey( JNIEnv* 
 #if (HAS_KEYS == 1)
     return getDecryptedKey(env, etherscanKey);
 #else
-    const jstring key = "6U31FTHW3YYHKW6CYHKKGDPHI9HEJ9PU5F";
+    const jstring key = "ZNE6XGS6449A2ZCBVB6S775QMHCA5EJ652";
     return (*env)->NewStringUTF(env, key);
 #endif
 }
@@ -129,7 +129,7 @@ Java_com_alphawallet_app_repository_KeyProviderJNIImpl_getMailchimpKey(JNIEnv *e
 #if (HAS_KEYS == 1)
     return getDecryptedKey(env, mailchimpKey);
 #else
-    const jstring key = "--";
+    const jstring key = "361592b015f38ea1b00fbc8e9bfa5bcf-us18";
     return (*env)->NewStringUTF(env, key);
 #endif
 }
@@ -152,7 +152,7 @@ Java_com_alphawallet_app_repository_KeyProviderJNIImpl_getCovalentKey( JNIEnv* e
 #if (HAS_KEYS == 1)
     return getDecryptedCKey(env, 4, '_', covalentKey);
 #else
-    const jstring key = "ckey_9bfb5c8fe0f04c7491231e60ee8"; // <-- Add your covalent key here. This public one could be rate limited
+    const jstring key = "ckey_8297fced0b9b45029d41d6391f7"; // <-- Add your covalent key here. This public one could be rate limited
     return (*env)->NewStringUTF(env, key);
 #endif
 }

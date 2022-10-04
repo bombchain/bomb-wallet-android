@@ -19,6 +19,7 @@ import static com.alphawallet.ethereum.EthereumNetworkBase.OPTIMISTIC_MAIN_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.POA_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.RINKEBY_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.GNOSIS_ID;
+import static com.alphawallet.ethereum.EthereumNetworkBase.BOMB_ID;
 import static org.web3j.protocol.core.methods.request.Transaction.createEthCallTransaction;
 
 import android.text.TextUtils;
@@ -696,6 +697,7 @@ public class TickerService
         put(MAINNET_ID, "ethereum");
         put(GNOSIS_ID, "xdai");
         put(BINANCE_MAIN_ID, "binance-smart-chain");
+        put(BOMB_ID, "binance-smart-chain");
         put(POLYGON_ID, "polygon-pos");
         put(CLASSIC_ID, "ethereum-classic");
         put(FANTOM_ID, "fantom");
@@ -729,6 +731,7 @@ public class TickerService
     // Update from https://api.coingecko.com/api/v3/coins/list
     public static final Map<Long, String> chainPairs = new HashMap<Long, String>(){{
         put(MAINNET_ID, "ethereum");
+        put(BOMB_ID, "bomb-money");
         put(CLASSIC_ID, "ethereum-classic");
         put(POA_ID, "poa-network");
         put(GNOSIS_ID, "xdai");

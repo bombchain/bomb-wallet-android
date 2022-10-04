@@ -26,7 +26,7 @@ public class QRParserTest
     public void should_parse_magic_link()
     {
         QRParser parser = QRParser.getInstance(null);
-        String url = "https://aw.app/";
+        String url = "https://bomb.app/";
         QRResult result = parser.parse(url);
         assertThat(result.type, equalTo(EIP681Type.MAGIC_LINK));
         assertThat(result.getAddress(), equalTo(url));

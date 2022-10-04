@@ -5,6 +5,7 @@ import com.alphawallet.ethereum.NetworkInfo;
 
 import static com.alphawallet.ethereum.EthereumNetworkBase.ARTIS_SIGMA1_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.ARTIS_TAU1_ID;
+import static com.alphawallet.ethereum.EthereumNetworkBase.BOMB_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.CLASSIC_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.GOERLI_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.KOVAN_ID;
@@ -22,22 +23,24 @@ import static com.alphawallet.ethereum.EthereumNetworkBase.GNOSIS_ID;
 public class MagicLinkInfo
 {
     //domains for DMZ
-    public static final String mainnetMagicLinkDomain = "aw.app";
+    public static final String bombMagicLinkDomain = "bomb.app";
+    public static final String mainnetMagicLinkDomain = "eth.bomb.app";
     private static final String legacyMagicLinkDomain = "app.awallet.io";
-    private static final String classicMagicLinkDomain = "classic.aw.app";
-    private static final String callistoMagicLinkDomain = "callisto.aw.app";
-    private static final String kovanMagicLinkDomain = "kovan.aw.app";
-    private static final String ropstenMagicLinkDomain = "ropsten.aw.app";
-    private static final String rinkebyMagicLinkDomain = "rinkeby.aw.app";
-    private static final String poaMagicLinkDomain = "poa.aw.app";
-    private static final String sokolMagicLinkDomain = "sokol.aw.app";
-    private static final String xDaiMagicLinkDomain = "xdai.aw.app";
-    private static final String goerliMagicLinkDomain = "goerli.aw.app";
-    private static final String artisSigma1MagicLinkDomain = "artissigma1.aw.app";
-    private static final String artisTau1MagicLinkDomain = "artistau1.aw.app";
-    private static final String customMagicLinkDomain = "custom.aw.app";
+    private static final String classicMagicLinkDomain = "classic.bomb.app";
+    private static final String callistoMagicLinkDomain = "callisto.bomb.app";
+    private static final String kovanMagicLinkDomain = "kovan.bomb.app";
+    private static final String ropstenMagicLinkDomain = "ropsten.bomb.app";
+    private static final String rinkebyMagicLinkDomain = "rinkeby.bomb.app";
+    private static final String poaMagicLinkDomain = "poa.bomb.app";
+    private static final String sokolMagicLinkDomain = "sokol.bomb.app";
+    private static final String xDaiMagicLinkDomain = "xdai.bomb.app";
+    private static final String goerliMagicLinkDomain = "goerli.bomb.app";
+    private static final String artisSigma1MagicLinkDomain = "artissigma1.bomb.app";
+    private static final String artisTau1MagicLinkDomain = "artistau1.bomb.app";
+    private static final String customMagicLinkDomain = "custom.bomb.app";
 
     //Etherscan domains
+    private static final String bombEtherscan = "https://bombscan.com/";
     private static final String mainNetEtherscan = "https://cn.etherscan.com/";
     private static final String classicEtherscan = "https://blockscout.com/etc/mainnet/";
     private static final String callistoEtherscan = "https://etherscan.io/"; //TODO: determine callisto etherscan
@@ -59,7 +62,7 @@ public class MagicLinkInfo
         }
         else
         {
-            return EthereumNetworkBase.getNetworkByChain(MAINNET_ID).name;
+            return EthereumNetworkBase.getNetworkByChain(BOMB_ID).name;
         }
     }
 
@@ -67,8 +70,10 @@ public class MagicLinkInfo
         switch ((int)networkId) {
             case 0:
                 return legacyMagicLinkDomain;
-            case (int)MAINNET_ID:
+            case (int)BOMB_ID:
             default:
+                return bombMagicLinkDomain;
+            case (int)MAINNET_ID:
                 return mainnetMagicLinkDomain;
             case (int)KOVAN_ID:
                 return kovanMagicLinkDomain;
@@ -97,8 +102,10 @@ public class MagicLinkInfo
     //To test, alter the else statement to return the network you wish to test
     public static long getNetworkIdFromDomain(String domain) {
         switch(domain) {
-            case mainnetMagicLinkDomain:
+            case bombMagicLinkDomain:
             default:
+                return BOMB_ID;
+            case mainnetMagicLinkDomain:
                 return MAINNET_ID;
             case legacyMagicLinkDomain:
                 return MAINNET_ID;
@@ -128,8 +135,10 @@ public class MagicLinkInfo
     //TODO: Refactor to use the centralised source
     public static String getEtherscanURLbyNetwork(long networkId) {
         switch ((int)networkId) {
-            case (int)MAINNET_ID:
+            case (int)BOMB_ID:
             default:
+                return bombEtherscan;
+            case (int)MAINNET_ID:
                 return mainNetEtherscan;
             case (int)KOVAN_ID:
                 return kovanEtherscan;
@@ -160,13 +169,13 @@ public class MagicLinkInfo
 
         long chainId = 0;
         //split out the chainId from the magiclink
-        int index = link.indexOf(mainnetMagicLinkDomain);
+        int index = link.indexOf(bombMagicLinkDomain);
         int dSlash = link.indexOf("://");
         int legacy = link.indexOf(legacyMagicLinkDomain);
         //try new style link
         if (index > 0 && dSlash > 0)
         {
-            String domain = link.substring(dSlash+3, index + mainnetMagicLinkDomain.length());
+            String domain = link.substring(dSlash+3, index + bombMagicLinkDomain.length());
             chainId = getNetworkIdFromDomain(domain);
         }
         else if (legacy > 0)

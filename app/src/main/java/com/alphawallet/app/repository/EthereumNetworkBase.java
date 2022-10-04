@@ -49,6 +49,8 @@ import static com.alphawallet.ethereum.EthereumNetworkBase.RINKEBY_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.ROPSTEN_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.SOKOL_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.GNOSIS_ID;
+import static com.alphawallet.ethereum.EthereumNetworkBase.BOMB_ID;
+import static com.alphawallet.ethereum.EthereumNetworkBase.BOMB_RPC_URL;
 
 import android.text.TextUtils;
 import android.util.LongSparseArray;
@@ -89,7 +91,7 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
 
     private static final String GAS_API = "module=gastracker&action=gasoracle";
 
-    public static final String DEFAULT_INFURA_KEY = "da3717f25f824cc1baa32d812386d93f";
+    public static final String DEFAULT_INFURA_KEY = "52386c6b706e423eb728dfda2ba36472";
     /* constructing URLs from BuildConfig. In the below area you will see hardcoded key like da3717...
        These hardcoded keys are fallbacks used by AlphaWallet forks.
 
@@ -160,6 +162,7 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
 
     public static final String ROPSTEN_FALLBACK_RPC_URL = "https://ropsten.infura.io/v3/" + keyProvider.getSecondaryInfuraKey();
     public static final String CLASSIC_RPC_URL = "https://www.ethercluster.com/etc";
+    public static final String BOMB_RPC_URL = com.alphawallet.ethereum.EthereumNetworkBase.BOMB_RPC_URL;
     public static final String XDAI_RPC_URL = com.alphawallet.ethereum.EthereumNetworkBase.XDAI_RPC_URL;
     public static final String POA_RPC_URL = "https://core.poa.network/";
     public static final String ROPSTEN_RPC_URL = "https://ropsten.infura.io/v3/" + keyProvider.getInfuraKey();
@@ -191,13 +194,15 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
     //If your wallet prioritises xDai for example, you may want to move the XDAI_ID to the front of this list,
     //Then xDai would appear as the first token at the top of the wallet
     private static final List<Long> hasValue = new ArrayList<>(Arrays.asList(
-            MAINNET_ID, GNOSIS_ID, POLYGON_ID, CLASSIC_ID, POA_ID, ARTIS_SIGMA1_ID, BINANCE_MAIN_ID, HECO_ID, AVALANCHE_ID,
-            FANTOM_ID, OPTIMISTIC_MAIN_ID, CRONOS_MAIN_ID, ARBITRUM_MAIN_ID, PALM_ID, KLAYTN_ID, IOTEX_MAINNET_ID, AURORA_MAINNET_ID, MILKOMEDA_C1_ID,
-            PHI_NETWORK_MAIN_ID));
+            BOMB_ID));
 
     // for reset built-in network
     private static final LongSparseArray<NetworkInfo> builtinNetworkMap = new LongSparseArray<NetworkInfo>() {
         {
+            put(BOMB_ID, new NetworkInfo(C.BOMB_NETWORK_NAME, C.BOMB_SYMBOL,
+                    BOMB_RPC_URL,
+                    "https://bombscan.com/tx/", BOMB_ID,
+                    BOMB_RPC_URL, "https://bombscan.com/api?"));
             put(MAINNET_ID, new NetworkInfo(C.ETHEREUM_NETWORK_NAME, C.ETH_SYMBOL,
                     MAINNET_RPC_URL,
                     "https://cn.etherscan.com/tx/", MAINNET_ID,
@@ -358,6 +363,7 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
 
     private static final LongSparseArray<Integer> chainLogos = new LongSparseArray<Integer>() {
         {
+            put(BOMB_ID, R.drawable.ic_token_bomb);
             put(MAINNET_ID, R.drawable.ic_token_eth);
             put(KOVAN_ID, R.drawable.ic_kovan);
             put(ROPSTEN_ID, R.drawable.ic_ropsten);
@@ -401,6 +407,7 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
 
     private static final LongSparseArray<Integer> smallChainLogos = new LongSparseArray<Integer>() {
         {
+            put(BOMB_ID, R.drawable.ic_icons_bomb);
             put(MAINNET_ID, R.drawable.ic_icons_network_eth);
             put(KOVAN_ID, R.drawable.ic_kovan);
             put(ROPSTEN_ID, R.drawable.ic_ropsten);
@@ -444,6 +451,7 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
 
     private static final LongSparseArray<Integer> chainColours = new LongSparseArray<Integer>() {
         {
+            put(BOMB_ID, R.color.avalanche_main);
             put(MAINNET_ID, R.color.mainnet);
             put(KOVAN_ID, R.color.kovan);
             put(ROPSTEN_ID, R.color.ropsten);

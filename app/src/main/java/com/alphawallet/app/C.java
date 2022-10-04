@@ -21,6 +21,7 @@ public abstract class C {
     public static final int ADDED_TOKEN_RETURN = 9;
 
     public static final String ETHEREUM_NETWORK_NAME = "Ethereum";
+    public static final String BOMB_NETWORK_NAME = "BOMB Chain";
     public static final String CLASSIC_NETWORK_NAME = "Ethereum Classic";
     public static final String POA_NETWORK_NAME = "POA";
     public static final String XDAI_NETWORK_NAME = "Gnosis";
@@ -64,12 +65,14 @@ public abstract class C {
     public static final String XDAI_TICKER_NAME = "dai";
     public static final String ARTIS_SIGMA_TICKER = "artis";
     public static final String BINANCE_TICKER = "binance";
+    public static final String BOMB_TICKER = "bomb-money";
 
     public static final String ETHEREUM_TICKER = "ethereum";
     public static final String POA_TICKER = "poa";
 
     public static final String USD_SYMBOL = "$";
     public static final String ETH_SYMBOL = "ETH";
+    public static final String BOMB_SYMBOL = "BOMB";
     public static final String xDAI_SYMBOL = "xDai";
     public static final String POA_SYMBOL = "POA";
     public static final String ETC_SYMBOL = "ETC";
@@ -98,12 +101,13 @@ public abstract class C {
     public static final String DAI_TOKEN = "0x6b175474e89094c44da98b954eedeac495271d0f";
     public static final String SAI_TOKEN = "0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359";
 
-    public static final String ALPHAWALLET_WEB = "https://www.alphawallet.com";
+    public static final String ALPHAWALLET_WEB = "https://www.peghub.com";
 
     public static final String XDAI_BRIDGE_DAPP = "https://bridge.xdaichain.com/";
 
     public static final String QUICKSWAP_EXCHANGE_DAPP = "https://quickswap.exchange/#/swap";
     public static final String ONEINCH_EXCHANGE_DAPP   = "https://app.1inch.io/#/[CHAIN]/swap/[TOKEN1]/[TOKEN2]";
+    public static final String BOMBDEX_DAPP   = "https://bombdex.com/swap?inputCurrency=[TOKEN1]&outputCurrency=[TOKEN2]";
 
     public static final String GWEI_UNIT = "Gwei";
 
@@ -165,47 +169,47 @@ public abstract class C {
     public static final String EXTRA_1559_TX = "1559_TX";
 
     public static final String PRUNE_ACTIVITY =
-            "com.stormbird.wallet.PRUNE_ACTIVITY";
+            "com.bombmoney.wallet.PRUNE_ACTIVITY";
 
     public static final String RESET_WALLET =
-            "com.stormbird.wallet.RESET";
+            "com.bombmoney.wallet.RESET";
     public static final String ADDED_TOKEN =
-            "com.stormbird.wallet.ADDED";
+            "com.bombmoney.wallet.ADDED";
     public static final String CHANGED_LOCALE =
-            "com.stormbird.wallet.CHANGED_LOCALE";
+            "com.bombmoney.wallet.CHANGED_LOCALE";
     public static final String PAGE_LOADED =
-            "com.stormbird.wallet.PAGE_LOADED";
+            "com.bombmoney.wallet.PAGE_LOADED";
     public static final String RESET_TOOLBAR =
-            "com.stormbird.wallet.RESET_TOOLBAR";
+            "com.bombmoney.wallet.RESET_TOOLBAR";
     public static final String SIGN_DAPP_TRANSACTION =
-            "com.stormbird.wallet.SIGN_TRANSACTION";
+            "com.bombmoney.wallet.SIGN_TRANSACTION";
     public static final String REQUEST_NOTIFICATION_ACCESS =
-            "com.stormbird.wallet.REQUEST_NOTIFICATION";
+            "com.bombmoney.wallet.REQUEST_NOTIFICATION";
     public static final String BACKUP_WALLET_SUCCESS =
-            "com.stormbird.wallet.BACKUP_SUCCESS";
+            "com.bombmoney.wallet.BACKUP_SUCCESS";
     public static final String CHANGE_CURRENCY =
-            "com.stormbird.wallet.CHANGE_CURRENCY";
+            "com.bombmoney.wallet.CHANGE_CURRENCY";
     public static final String RESET_TRANSACTIONS =
-            "com.stormbird.wallet.RESET_TRANSACTIONS";
+            "com.bombmoney.wallet.RESET_TRANSACTIONS";
     public static final String WALLET_CONNECT_REQUEST =
-            "com.stormbird.wallet.WALLET_CONNECT";
+            "com.bombmoney.wallet.WALLET_CONNECT";
     public static final String WALLET_CONNECT_NEW_SESSION =
-            "com.stormbird.wallet.WC_NEW_SESSION";
+            "com.bombmoney.wallet.WC_NEW_SESSION";
     public static final String WALLET_CONNECT_FAIL =
-            "com.stormbird.wallet.WC_FAIL";
+            "com.bombmoney.wallet.WC_FAIL";
     public static final String WALLET_CONNECT_COUNT_CHANGE =
-            "com.stormbird.wallet.WC_CCHANGE";
+            "com.bombmoney.wallet.WC_CCHANGE";
     public static final String WALLET_CONNECT_CLIENT_TERMINATE =
-            "com.stormbird.wallet.WC_CLIENT_TERMINATE";
+            "com.bombmoney.wallet.WC_CLIENT_TERMINATE";
     public static final String WALLET_CONNECT_SWITCH_CHAIN =
-            "com.stormbird.wallet.WC_SWITCH_CHAIN";
+            "com.bombmoney.wallet.WC_SWITCH_CHAIN";
     public static final String WALLET_CONNECT_ADD_CHAIN =
-            "com.stormbird.wallet.WC_ADD_CHAIN";
-    public static final String SHOW_BACKUP = "com.stormbird.wallet.CHECK_BACKUP";
-    public static final String HANDLE_BACKUP = "com.stormbird.wallet.HANDLE_BACKUP";
+            "com.bombmoney.wallet.WC_ADD_CHAIN";
+    public static final String SHOW_BACKUP = "com.bombmoney.wallet.CHECK_BACKUP";
+    public static final String HANDLE_BACKUP = "com.bombmoney.wallet.HANDLE_BACKUP";
     public static final String FROM_HOME_ROUTER = "HomeRouter";
-    public static final String TOKEN_CLICK = "com.stormbird.wallet.TOKEN_CLICK";
-    public static final String SETTINGS_INSTANTIATED = "com.stormbird.wallet.SETTINGS_INSTANTIATED";
+    public static final String TOKEN_CLICK = "com.bombmoney.wallet.TOKEN_CLICK";
+    public static final String SETTINGS_INSTANTIATED = "com.bombmoney.wallet.SETTINGS_INSTANTIATED";
     public static final String APP_FOREGROUND_STATE = "com.alphawallet.APP_FOREGROUND_STATE";
     public static final String EXTRA_APP_FOREGROUND = "com.alphawallet.IS_FOREGORUND";
     public static final String SIGNAL_NFT_SYNC = "com.alphawallet.SYNC_NFT";
@@ -228,7 +232,7 @@ public abstract class C {
     //FOR DEMOS ETC
     public static final boolean SHOW_NEW_ACCOUNT_PROMPT = false;   //this will switch off the splash screen 'please make a key' message
 
-    public static final String DEFAULT_NETWORK = ETHEREUM_NETWORK_NAME;
+    public static final String DEFAULT_NETWORK = BOMB_NETWORK_NAME;
 
     public static final String TELEGRAM_PACKAGE_NAME = "org.telegram.messenger";
     public static final String TWITTER_PACKAGE_NAME = "com.twitter.android";
@@ -268,7 +272,7 @@ public abstract class C {
     public static final String DAPP_DEFAULT_URL = "https://www.stateofthedapps.com/";
     public static final String DAPP_PREFIX_TELEPHONE = "tel";
     public static final String DAPP_PREFIX_MAILTO = "mailto";
-    public static final String DAPP_PREFIX_ALPHAWALLET = "alphawallet";
+    public static final String DAPP_PREFIX_ALPHAWALLET = "bomb";
     public static final String DAPP_SUFFIX_RECEIVE = "receive";
     public static final String DAPP_PREFIX_MAPS = "maps.google.com/maps?daddr=";
     public static final String DAPP_PREFIX_WALLETCONNECT = "wc";
@@ -302,9 +306,9 @@ public abstract class C {
     public static final String AN_CALL_ACTIONSHEET = "Use ActionSheet";
     public static final String AN_USE_ONRAMP = "Use OnRamp";
     public static final String AN_USE_COINBASE_PAY = "Use Coinbase Pay";
-    public static final String APP_NAME = "PACKAGE_NAME";
+    public static final String APP_NAME = "BOMB";
 
-    public static final String ALPHAWALLET_LOGO_URI = "https://alphawallet.com/wp-content/themes/alphawallet/img/alphawallet-logo.svg";
+    public static final String ALPHAWALLET_LOGO_URI = "https://github.com/bombmoney/bomb-assets/blob/master/bomb-logo.png";
 
     // Theme/Dark Mode
     public static final int THEME_LIGHT = 0;

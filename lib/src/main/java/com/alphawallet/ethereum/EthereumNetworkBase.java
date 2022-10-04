@@ -8,6 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public abstract class EthereumNetworkBase { // implements EthereumNetworkRepositoryType
+    public static final long BOMB_ID = 23254;
     public static final long MAINNET_ID = 1;
     public static final long CLASSIC_ID = 61;
     public static final long POA_ID = 99;
@@ -51,6 +52,7 @@ public abstract class EthereumNetworkBase { // implements EthereumNetworkReposit
 
     public static final String MAINNET_RPC_URL = "https://mainnet.infura.io/v3/da3717f25f824cc1baa32d812386d93f";
     public static final String CLASSIC_RPC_URL = "https://www.ethercluster.com/etc";
+    public static final String BOMB_RPC_URL = "https://rpc.bomb.app";
     public static final String XDAI_RPC_URL = "https://rpc.ankr.com/gnosis";
     public static final String POA_RPC_URL = "https://core.poa.network/";
     public static final String ROPSTEN_RPC_URL = "https://ropsten.infura.io/v3/da3717f25f824cc1baa32d812386d93f";
@@ -88,6 +90,8 @@ public abstract class EthereumNetworkBase { // implements EthereumNetworkReposit
 
     static Map<Long, NetworkInfo> networkMap = new LinkedHashMap<Long, NetworkInfo>() {
         {
+            put(BOMB_ID, new NetworkInfo("BOMB Chain", "BOMB", MAINNET_RPC_URL, "https://bombscan.com/tx/",
+                    BOMB_ID, false));
             put(MAINNET_ID, new NetworkInfo("Ethereum", "ETH", MAINNET_RPC_URL, "https://etherscan.io/tx/",
                     MAINNET_ID, false));
             put(CLASSIC_ID, new NetworkInfo("Ethereum Classic", "ETC", CLASSIC_RPC_URL, "https://blockscout.com/etc/mainnet/tx/",

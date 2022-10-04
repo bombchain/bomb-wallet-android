@@ -15,12 +15,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-import static com.alphawallet.ethereum.EthereumNetworkBase.MAINNET_ID;
+import static com.alphawallet.ethereum.EthereumNetworkBase.BOMB_ID;
 
 public class CustomViewSettings
 {
-    public static final long primaryChain = MAINNET_ID;
-    private static final String primaryChainName = C.ETHEREUM_NETWORK_NAME;
+    public static final long primaryChain = BOMB_ID;
+    private static final String primaryChainName = C.BOMB_NETWORK_NAME;
 
     //You can use the settings in this file to customise the wallet appearance
 
@@ -33,22 +33,25 @@ public class CustomViewSettings
     //If you leave the locked chains empty, the token will appear if the chain is selected
     private static final List<TokenInfo> lockedTokens = Arrays.asList(
             // new TokenInfo(String TokenAddress, String TokenName, String TokenSymbol, int TokenDecimals, boolean isEnabled, long ChainId)
-            //new TokenInfo("0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48", "USD Coin", "USDC", 6, true, EthereumNetworkBase.MAINNET_ID),
-            //new TokenInfo("0x6C8c6b02E7b2BE14d4fA6022Dfd6d75921D90E4E", "Compound BAT", "CBAT", 8, true, EthereumNetworkBase.MAINNET_ID)
+            //  new TokenInfo("0xBE192A15da3D4004242DE1B215691D08A69543D1", "Wrapped BOMB", "WBOMB", 18, true, EthereumNetworkBase.BOMB_ID),
+          //   new TokenInfo("0xc0B8485449248c054D5e8E98c1f2cc7B4031BD4c", "USD BOMB", "USDB", 18, true, EthereumNetworkBase.BOMB_ID),
+          //      new TokenInfo("0x1153b8D7b968fD7CC1F4069EA6b2E8EEC4F0ad64", "EthereumBOMB", "ETHB", 18, true, EthereumNetworkBase.BOMB_ID),
+         //   new TokenInfo("0x18A0D1A707308AFd50222A9216b5eA8805D460D2", "BOMB Bitcoin", "BBTC", 18, true, EthereumNetworkBase.BOMB_ID)
     );
 
     //List of chains that wallet can show
     //If blank, enable the user filter select dialog, if there are any entries here, the select network dialog is disabled
     //Note: you should always enable the chainId corresponding to the chainIDs in the lockedTokens.
     private static final List<Long> lockedChains = Arrays.asList(
-            //EthereumNetworkBase.MAINNET_ID //EG only show Main, xdai, classic and two testnets. Don't allow user to select any others
-            //EthereumNetworkBase.XDAI_ID,
+           EthereumNetworkBase.BOMB_ID
+         //   EthereumNetworkBase.MAINNET_ID, //EG only show Main, xdai, classic and two testnets. Don't allow user to select any others
+          //  EthereumNetworkBase.BINANCE_MAIN_ID
             //EthereumNetworkBase.RINKEBY_ID, //You can mix testnets and mainnets, but probably shouldn't as it may result in people getting scammed
             //EthereumNetworkBase.GOERLI_ID
     );
 
     public static final List<Long> alwaysVisibleChains = Arrays.asList(
-            EthereumNetworkBase.MAINNET_ID
+            EthereumNetworkBase.BOMB_ID
     );
 
     public static boolean alwaysShow(long chainId)
@@ -57,7 +60,7 @@ public class CustomViewSettings
     }
 
     //TODO: Wallet can only show the above tokens
-    private static final boolean onlyShowTheseTokens = true;
+    private static final boolean onlyShowTheseTokens = false;
 
     public static List<TokenInfo> getLockedTokens()
     {
@@ -76,7 +79,7 @@ public class CustomViewSettings
     }
 
     //Does main wallet page show tokens with zero balance? NB: any 'Locked' tokens above will always be shown
-    public static boolean showZeroBalance() { return false; }
+    public static boolean showZeroBalance() { return true; }
 
     public static boolean tokenCanBeDisplayed(TokenCardMeta token)
     {
@@ -122,7 +125,7 @@ public class CustomViewSettings
     //Hides the filter tab bar at the top of the wallet screen (ALL/CURRENCY/COLLECTIBLES)
     public static boolean hideTabBar()
     {
-        return false;
+        return true;
     }
 
     //Use to switch off direct transfer, only use magiclink transfer
@@ -138,7 +141,7 @@ public class CustomViewSettings
     }
 
     //Hide EIP681 generation (Payment request, generates a QR code another wallet user can scan to have all payment fields filled in)
-    public static boolean hideEIP681() { return false; }
+    public static boolean hideEIP681() { return true; }
 
     //In main wallet menu, if wallet allows adding new tokens
     public static boolean canAddTokens() { return true; }
@@ -152,7 +155,7 @@ public class CustomViewSettings
     public static boolean showManageTokens() { return true; }
 
     //Show all networks in Select Network screen. Set to `true` to show only filtered networks.
-    public static boolean showAllNetworks() { return false; }
+    public static boolean showAllNetworks() { return true; }
 
     public static String getDecimalFormat() { return "0.####E0"; }
 

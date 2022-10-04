@@ -104,7 +104,7 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
     public static final int DAPP_BARCODE_READER_REQUEST_CODE = 1;
     public static final String STORED_PAGE = "currentPage";
     public static final String RESET_TOKEN_SERVICE = "HOME_reset_ts";
-    public static final String AW_MAGICLINK = "aw.app/";
+    public static final String AW_MAGICLINK = "bomb.app/";
     public static final String AW_MAGICLINK_DIRECT = "openurl?url=";
     private static boolean updatePrompt = false;
     private final FragmentStateAdapter pager2Adapter;
@@ -278,7 +278,7 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
         else
         {
             //TODO: Check we are using latest version on github, since we're using a downloaded/manually installed version
-            //First check that this the package name is "io.stormbird.wallet" - it could be a fork
+            //First check that this the package name is "com.bombmoney.wallet" - it could be a fork
         }
 
         setupFragmentListeners();

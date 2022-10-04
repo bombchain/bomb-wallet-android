@@ -7,6 +7,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class KnownContract {
 
+    @SerializedName("BOMB")
+    @Expose
+    private final List<UnknownToken> BOMB = null;
+
     @SerializedName("MainNet")
     @Expose
     private final List<UnknownToken> mainNet = null;
@@ -22,4 +26,9 @@ public class KnownContract {
     public List<UnknownToken> getXDAI() {
         return xDAI;
     }
+
+    public List<UnknownToken> getBOMB() {
+        return BOMB;
+    }
+
 }

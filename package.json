@@ -1,5 +1,5 @@
 {
-  "name": "alpha-wallet-android",
+  "name": "bomb-wallet-android",
   "version": "1.0.0",
   "description": "Each module has its own README. Please click the name of the module to go to the corrisponding README file.",
   "main": "gulpfile.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlphaWallet/alpha-wallet-android.git"
+    "url": "git+https://github.com/bombchain/bomb-wallet-android.git"
   },
   "author": "",
   "license": "GPL-3.0",

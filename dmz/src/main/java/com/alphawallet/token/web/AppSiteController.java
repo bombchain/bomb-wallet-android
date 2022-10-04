@@ -79,7 +79,7 @@ public class AppSiteController implements AttributeInterface
             "    \"apps\": [],\n" +
             "    \"details\": [\n" +
             "      {\n" +
-            "        \"appID\": \"LRAW5PL536.com.stormbird.alphawallet\",\n" +
+            "        \"appID\": \"com.peghub.bombios\",\n" +
             "        \"paths\": [ \"*\" ]\n" +
             "      }\n" +
             "    ]\n" +
@@ -92,9 +92,9 @@ public class AppSiteController implements AttributeInterface
             "    ],\n" +
             "    \"target\": {\n" +
             "      \"namespace\": \"android_app\",\n" +
-            "      \"package_name\": \"io.stormbird.wallet\",\n" +
+            "      \"package_name\": \"com.bombmoney.wallet\",\n" +
             "      \"sha256_cert_fingerprints\": [\n" +
-            "        \"8E:1E:C7:92:44:E2:AE:8F:5E:BE:A6:09:E5:CC:05:8F:01:9F:67:F4:A6:FF:E7:60:6E:DA:C8:64:8F:29:AB:C0\"\n" +
+            "        \"E6:B2:2D:21:2C:04:A4:52:C1:93:9C:06:11:DB:39:66:36:79:AA:A8:6F:5A:52:FB:75:4C:0D:44:10:9F:91:3E\"\n" +
             "      ]\n" +
             "    }\n" +
             "  }\n" +

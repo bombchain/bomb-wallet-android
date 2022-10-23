@@ -234,13 +234,13 @@ public class TokenIcon extends ConstraintLayout
     private String getPrimaryIconURL(Token token)
     {
         String correctedAddr = Keys.toChecksumAddress(token.getAddress());
-        return Utils.getTokenImageUrl(correctedAddr);
+        return Utils.getTokenImageUrl(correctedAddr,token.tokenInfo.chainId);
     }
 
     private IconItem getIconUrl(Token token)
     {
         String correctedAddr = Keys.toChecksumAddress(token.getAddress());
-        String tURL = Utils.getTokenImageUrl(correctedAddr);
+        String tURL = Utils.getTokenImageUrl(correctedAddr, token.tokenInfo.chainId);
         return new IconItem(tURL, token.tokenInfo.chainId, token.getAddress());
     }
 

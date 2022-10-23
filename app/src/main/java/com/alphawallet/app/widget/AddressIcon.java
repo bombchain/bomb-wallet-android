@@ -97,7 +97,7 @@ public class AddressIcon extends ConstraintLayout
     private void displayTokenIcon()
     {
         currentRq = Glide.with(this)
-                .load(Utils.getTokenImageUrl(address))
+                .load(Utils.getTokenImageUrl(address, chainId))
                 .placeholder(R.drawable.ic_token_eth)
                 .circleCrop()
                 .listener(requestListener)

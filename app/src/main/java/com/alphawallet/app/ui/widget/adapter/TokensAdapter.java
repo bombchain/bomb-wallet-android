@@ -416,7 +416,7 @@ public class TokensAdapter extends RecyclerView.Adapter<BinderViewHolder> {
             items.clear();
         }
 
-        addSearchTokensLayout();
+        //addSearchTokensLayout();
         addTestNetTips();
 
         if (managementLauncher != null) addManageTokensLayout();

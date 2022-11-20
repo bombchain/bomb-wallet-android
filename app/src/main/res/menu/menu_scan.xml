@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/action_scan"
-        android:icon="@drawable/ic_camera_scan"
+        android:icon="@drawable/icon_bomb_qr"
         android:title="@string/scan_qr"
         app:iconTint="?colorControlNormal"
         app:showAsAction="always" />

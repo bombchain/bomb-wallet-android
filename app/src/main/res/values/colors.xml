@@ -53,7 +53,7 @@
     <!-- ?colorBackgroundFloating -->
     <color name="background_floating">@color/white</color>
     <!-- ?colorControlNormal -->
-    <color name="control">@color/black</color>
+    <color name="control">@color/white</color>
     <!-- ?colorControlActivated -->
     <color name="control_activated">@color/accent</color>
     <!-- ?colorControlHighlight -->

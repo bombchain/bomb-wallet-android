@@ -357,7 +357,7 @@ public class WalletFragment extends BaseFragment implements
             largeTitleView.subtitle.setText(getString(R.string.wallet_total_change, TickerService.getCurrencyString(fiatValues.first - fiatValues.second),
                     TickerService.getPercentageConversion(changePercent)));
             largeTitleView.title.setText(TickerService.getCurrencyString(fiatValues.first));
-            int color = ContextCompat.getColor(requireContext(), changePercent < 0 ? R.color.negative : R.color.positive);
+            int color = ContextCompat.getColor(requireContext(), changePercent < 0 ? R.color.white : R.color.white);
             largeTitleView.subtitle.setTextColor(color);
 
             if (viewModel.getWallet() != null && viewModel.getWallet().type != WalletType.WATCH && isVisible)

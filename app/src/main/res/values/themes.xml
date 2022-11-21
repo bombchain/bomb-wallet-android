@@ -55,6 +55,7 @@
         <item name="android:textColorSecondary">@color/black</item>
         <!-- The color applied to secondary text for inverted backgrounds -->
         <item name="android:textColorSecondaryInverse">@color/text_secondary_inverse</item>
+        <item name="android:backgroundTint">@color/black</item>
 
         <!-- Custom color references -->
         <!-- The color applied to headers -->

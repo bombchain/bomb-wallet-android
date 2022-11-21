@@ -32,8 +32,8 @@ public class CustomViewSettings
     //See also lockedChains. You can also lock the chains that are displayed on.
     //If you leave the locked chains empty, the token will appear if the chain is selected
     private static final List<TokenInfo> lockedTokens = Arrays.asList(
-             //new TokenInfo(String TokenAddress, String TokenName, String TokenSymbol, int TokenDecimals, boolean isEnabled, long ChainId));
-            new TokenInfo("0xBE192A15da3D4004242DE1B215691D08A69543D1", "Wrapped BOMB", "WBOMB", 18, true, EthereumNetworkBase.BOMB_ID),
+             //new TokenInfo(String TokenAddress, String TokenName, String TokenSymbol, int TokenDecimals, boolean isEnabled, long ChainId))
+            //new TokenInfo("0xBE192A15da3D4004242DE1B215691D08A69543D1", "Wrapped BOMB", "WBOMB", 18, true, EthereumNetworkBase.BOMB_ID),
             new TokenInfo("0xc0B8485449248c054D5e8E98c1f2cc7B4031BD4c", "USD BOMB", "USDB", 18, true, EthereumNetworkBase.BOMB_ID),
             new TokenInfo("0x1153b8D7b968fD7CC1F4069EA6b2E8EEC4F0ad64", "ETHERIUM", "ETHB", 18, true, EthereumNetworkBase.BOMB_ID),
             new TokenInfo("0x18A0D1A707308AFd50222A9216b5eA8805D460D2", "BITCOIN", "BBTC", 18, true, EthereumNetworkBase.BOMB_ID),
@@ -44,9 +44,9 @@ public class CustomViewSettings
     //If blank, enable the user filter select dialog, if there are any entries here, the select network dialog is disabled
     //Note: you should always enable the chainId corresponding to the chainIDs in the lockedTokens.
     private static final List<Long> lockedChains = Arrays.asList(
-           EthereumNetworkBase.BOMB_ID,
+           EthereumNetworkBase.BOMB_ID
             //EthereumNetworkBase.MAINNET_ID //EG only show Main, xdai, classic and two testnets. Don't allow user to select any others
-            EthereumNetworkBase.BINANCE_MAIN_ID
+            //EthereumNetworkBase.BINANCE_MAIN_ID
             //EthereumNetworkBase.RINKEBY_ID, //You can mix testnets and mainnets, but probably shouldn't as it may result in people getting scammed
             //EthereumNetworkBase.GOERLI_ID
     );
@@ -126,7 +126,7 @@ public class CustomViewSettings
     //Hides the filter tab bar at the top of the wallet screen (ALL/CURRENCY/COLLECTIBLES)
     public static boolean hideTabBar()
     {
-        return true;
+        return false;
     }
 
     //Use to switch off direct transfer, only use magiclink transfer

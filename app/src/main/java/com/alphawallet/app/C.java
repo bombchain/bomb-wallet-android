@@ -21,7 +21,7 @@ public abstract class C {
     public static final int ADDED_TOKEN_RETURN = 9;
 
     public static final String ETHEREUM_NETWORK_NAME = "Ethereum";
-    public static final String BOMB_NETWORK_NAME = "BOMB Chain";
+    public static final String BOMB_NETWORK_NAME = "BOMB"; //token name in app
     public static final String CLASSIC_NETWORK_NAME = "Ethereum Classic";
     public static final String POA_NETWORK_NAME = "POA";
     public static final String XDAI_NETWORK_NAME = "Gnosis";

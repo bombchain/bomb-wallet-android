@@ -9,6 +9,7 @@ import static com.alphawallet.app.ui.HomeActivity.RESET_TOKEN_SERVICE;
 
 import android.content.Intent;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -358,7 +360,7 @@ public class WalletFragment extends BaseFragment implements
                     TickerService.getPercentageConversion(changePercent)));
             largeTitleView.title.setText(TickerService.getCurrencyString(fiatValues.first));
             int color = ContextCompat.getColor(requireContext(), changePercent < 0 ? R.color.white : R.color.white);
-            largeTitleView.subtitle.setTextColor(color);
+
 
             if (viewModel.getWallet() != null && viewModel.getWallet().type != WalletType.WATCH && isVisible)
             {
@@ -412,6 +414,8 @@ public class WalletFragment extends BaseFragment implements
     private void initTabLayout(View view)
     {
         TabLayout tabLayout = view.findViewById(R.id.tab_layout);
+        tabLayout.setSelectedTabIndicatorColor( Color.parseColor("#FFFFFF"));
+
         if (CustomViewSettings.hideTabBar())
         {
             tabLayout.setVisibility(View.GONE);
@@ -419,9 +423,9 @@ public class WalletFragment extends BaseFragment implements
         }
         tabLayout.addTab(tabLayout.newTab().setText(R.string.all));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.assets));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.collectibles));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.defi_header));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.governance_header));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.staked));
+        //tabLayout.addTab(tabLayout.newTab().setText(R.string.defi_header));
+        //tabLayout.addTab(tabLayout.newTab().setText(R.string.governance_header));
         //tabLayout.addTab(tabLayout.newTab().setText(R.string.attestations));
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener()
@@ -436,6 +440,7 @@ public class WalletFragment extends BaseFragment implements
                     case ALL:
                     case ASSETS:
                     case DEFI:
+                    case STAKED:
                     case GOVERNANCE:
                         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                         viewModel.prepare();

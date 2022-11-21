@@ -10,6 +10,7 @@ public enum TokenFilter
     COLLECTIBLES,
     DEFI,
     GOVERNANCE,
+    STAKED,
     ATTESTATIONS,
     NO_FILTER
 }

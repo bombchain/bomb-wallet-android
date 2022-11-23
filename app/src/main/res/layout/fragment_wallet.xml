@@ -5,6 +5,8 @@
     android:id="@+id/coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTintMode="screen"
+    android:background="@color/yellow"
     android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -24,6 +26,7 @@
         <com.alphawallet.app.widget.LargeTitleView
             android:id="@+id/large_title_view"
             android:layout_width="match_parent"
+            android:background="@color/yellow"
             android:layout_height="wrap_content"
             app:layout_scrollFlags="scroll|snap" />
 
@@ -33,9 +36,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
+            app:tabIconTint="@color/white"
+            app:tabTextColor="@color/white"
+            app:tabMaxWidth="900px"
+            app:tabIndicatorFullWidth="true"
             app:layout_scrollFlags="enterAlways" />
 
-        <View style="@style/Aw.Component.Separator" />
+        <View style="@style/Aw.Component.Separator"
+            android:backgroundTintMode="screen"
+            android:layout_gravity="center"
+            android:layout_width="730px"
+            android:foregroundTint="@color/white"/>
 
         <com.alphawallet.app.widget.NotificationView
             android:id="@+id/notification"
@@ -47,13 +58,16 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="1500px"
+        android:minHeight="1200px"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:backgroundTintMode="screen"
+            android:background="@drawable/bg_black_to_yellow"/>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

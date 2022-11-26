@@ -238,6 +238,7 @@
     <string name="tx_label">Transactions</string>
     <string name="browser_label">Browser</string>
     <string name="earn_label">Earn</string>
+    <string name="earn2_label">Earn2</string>
     <string name="settings_label">Settings</string>
     <string name="activity_label">Activity</string>
     <string name="toolbar_header_importing_tickets">Importing Tokens</string>

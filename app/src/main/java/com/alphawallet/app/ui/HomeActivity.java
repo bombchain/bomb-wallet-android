@@ -10,6 +10,7 @@ import static com.alphawallet.app.C.SETTINGS_INSTANTIATED;
 import static com.alphawallet.app.C.SHOW_BACKUP;
 import static com.alphawallet.app.entity.WalletPage.ACTIVITY;
 import static com.alphawallet.app.entity.WalletPage.DAPP_BROWSER;
+import static com.alphawallet.app.entity.WalletPage.EARN2;
 import static com.alphawallet.app.entity.WalletPage.SETTINGS;
 import static com.alphawallet.app.entity.WalletPage.WALLET;
 import static com.alphawallet.ethereum.EthereumNetworkBase.MAINNET_ID;
@@ -27,6 +28,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
@@ -586,6 +588,11 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                 showPage(ACTIVITY);
                 return true;
             }
+            case EARN2:
+            {
+                showPage(EARN2);
+                return true;
+            }
         }
         return false;
     }
@@ -612,13 +619,15 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
 
     private void showPage(WalletPage page)
     {
+        Log.println(Log.ERROR,"HOME ACTIVITY - showPage ","Page = "+ page);
         WalletPage oldPage = WalletPage.values()[viewPager.getCurrentItem()];
         boolean enableDisplayAsHome = false;
 
         switch (page)
         {
             case DAPP_BROWSER:
-                hideToolbar();
+                //hideToolbar();
+                showToolbar();
                 setTitle(getString(R.string.toolbar_header_browser));
                 selectNavigationItem(DAPP_BROWSER);
                 enableDisplayAsHome = true;
@@ -649,6 +658,12 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                 showToolbar();
                 setTitle(getString(R.string.activity_label));
                 selectNavigationItem(ACTIVITY);
+                break;
+
+            case EARN2:
+                showToolbar();
+                setTitle(getString(R.string.earn2_label));
+                selectNavigationItem(EARN2);
                 break;
         }
 
@@ -1199,6 +1214,8 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                     return new WalletFragment();
                 case ACTIVITY:
                     return new ActivityFragment();
+                case EARN2:
+                    return new Earn2Fragment();
                 case DAPP_BROWSER:
                     if (CustomViewSettings.hideDappBrowser())
                     {

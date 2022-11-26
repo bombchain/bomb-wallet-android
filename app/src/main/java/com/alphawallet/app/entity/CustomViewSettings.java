@@ -152,6 +152,12 @@ public class CustomViewSettings
     // use this setting in conjunction with changing DEFAULT_HOMEPAGE in class EthereumNetworkBase
     public static boolean minimiseBrowserURLBar() { return false; }
 
+    //Implement minimal dappbrowser with no URL bar. You may want this if you want your browser to point to a specific website and only
+    // allow navigation within that website
+    // use this setting in conjunction with changing DEFAULT_HOMEPAGE in class EthereumNetworkBase
+    public static boolean minimiseEarn2URLBar() { return true; }
+
+    public static String defaultEarnURL() {return "https://app.peghub.com"; }
     //Allow showing token management view
     public static boolean showManageTokens() { return true; }
 

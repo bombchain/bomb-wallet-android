@@ -12,6 +12,7 @@ import static com.alphawallet.app.entity.WalletPage.ACTIVITY;
 import static com.alphawallet.app.entity.WalletPage.DAPP_BROWSER;
 import static com.alphawallet.app.entity.WalletPage.EARN2;
 import static com.alphawallet.app.entity.WalletPage.SETTINGS;
+import static com.alphawallet.app.entity.WalletPage.STAKE;
 import static com.alphawallet.app.entity.WalletPage.WALLET;
 import static com.alphawallet.ethereum.EthereumNetworkBase.MAINNET_ID;
 
@@ -578,6 +579,16 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                 showPage(WALLET);
                 return true;
             }
+            case EARN2:
+            {
+                showPage(EARN2);
+                return true;
+            }
+            case STAKE:
+            {
+                showPage(STAKE);
+                return true;
+            }
             case SETTINGS:
             {
                 showPage(SETTINGS);
@@ -586,11 +597,6 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
             case ACTIVITY:
             {
                 showPage(ACTIVITY);
-                return true;
-            }
-            case EARN2:
-            {
-                showPage(EARN2);
                 return true;
             }
         }
@@ -648,6 +654,18 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                 selectNavigationItem(WALLET);
                 break;
 
+            case EARN2:
+                showToolbar();
+                setTitle(getString(R.string.earn_label));
+                selectNavigationItem(EARN2);
+                break;
+
+            case STAKE:
+                showToolbar();
+                setTitle(getString(R.string.stake_label));
+                selectNavigationItem(STAKE);
+                break;
+
             case SETTINGS:
                 showToolbar();
                 setTitle(getString(R.string.toolbar_header_settings));
@@ -660,11 +678,6 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                 selectNavigationItem(ACTIVITY);
                 break;
 
-            case EARN2:
-                showToolbar();
-                setTitle(getString(R.string.earn2_label));
-                selectNavigationItem(EARN2);
-                break;
         }
 
         enableDisplayHomeAsHome(enableDisplayAsHome);
@@ -1216,6 +1229,8 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                     return new ActivityFragment();
                 case EARN2:
                     return new Earn2Fragment();
+                case STAKE:
+                    return new StakeFragment();
                 case DAPP_BROWSER:
                     if (CustomViewSettings.hideDappBrowser())
                     {

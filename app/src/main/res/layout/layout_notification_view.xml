@@ -57,7 +57,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_secondary"
-                style="@style/Aw.Component.Button.Secondary"
+                style="@style/Aw.Component.Button.Primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/base_24"

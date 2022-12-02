@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:foregroundTintMode="screen"
     android:orientation="vertical">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
-        <include layout="@layout/layout_add_new_price_alert" />
+        <include
+            layout="@layout/layout_add_new_price_alert"
+            android:backgroundTintMode="screen" />
 
         <LinearLayout
             android:id="@+id/layout_no_alerts"
@@ -32,7 +36,10 @@
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/layout_add_new_price_alert" />
+            android:layout_below="@id/layout_add_new_price_alert"
+            android:background="@drawable/bg_black_to_yellow"
+            android:backgroundTintMode="screen"
+            android:visibility="visible" />
     </RelativeLayout>
 
 </LinearLayout>

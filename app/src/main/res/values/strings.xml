@@ -238,7 +238,7 @@
     <string name="tx_label">Transactions</string>
     <string name="browser_label">Browser</string>
     <string name="earn_label">Earn</string>
-    <string name="stake_label">Stake</string>
+    <string name="staked_label">Staked</string>
     <string name="settings_label">Settings</string>
     <string name="activity_label">Activity</string>
     <string name="toolbar_header_importing_tickets">Importing Tokens</string>
@@ -666,6 +666,7 @@
     <string name="message_scan_camera">Point your camera on QR code</string>
     <string name="light">Light</string>
     <string name="my_qr_code">My QR Code</string>
+    <string name="Refer_a_friend">Referral</string>
     <string name="browse">Browse</string>
     <string name="label_gas_estimate">Gas Estimate</string>
     <string name="label_estimated_network_fee">Estimated Network Fee</string>

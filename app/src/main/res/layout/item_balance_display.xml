@@ -19,6 +19,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@color/white"
             android:gravity="start"
             android:text="@string/balance" />
 
@@ -56,6 +57,7 @@
                 android:id="@+id/text_new_balance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_marginTop="@dimen/mini_4"
                 android:gravity="start"
                 custom:layout_constraintStart_toEndOf="@id/token_icon"

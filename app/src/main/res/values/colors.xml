@@ -27,7 +27,7 @@
     <!-- ?colorOnPrimary -->
     <color name="brand_inverse">@color/white</color>
     <!-- ?colorAccent -->
-    <color name="accent">@color/brand</color>
+    <color name="accent">@color/button_yellow</color>
     <!-- ?colorError -->
     <color name="error">@color/danger</color>
     <!-- ?colorOnError -->

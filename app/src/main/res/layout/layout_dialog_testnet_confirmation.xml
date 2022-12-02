@@ -11,6 +11,7 @@
     <TextView
         style="@style/Aw.Typography.Title.Large.Bold"
         android:layout_width="wrap_content"
+        android:textColor="@color/white"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/large_32"
@@ -20,6 +21,7 @@
         android:id="@+id/message"
         style="@style/Aw.Typography"
         android:layout_width="match_parent"
+        android:textColor="@color/white"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/cozy_20"
         android:layout_marginVertical="@dimen/standard_16"

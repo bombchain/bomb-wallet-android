@@ -32,7 +32,6 @@ public class CopyTextView extends LinearLayout {
     {
         super(context, attrs);
         this.context = context;
-
         inflate(context, R.layout.item_copy_textview, this);
 
         getAttrs(context, attrs);
@@ -79,10 +78,12 @@ public class CopyTextView extends LinearLayout {
     {
         if (TextUtils.isEmpty(text))
         {
+            setBackgroundColor(context.getColor(R.color.black));
             setVisibility(View.GONE);
         }
         else
         {
+            setBackgroundColor(context.getColor(R.color.black));
             setVisibility(View.VISIBLE);
             button.setText(text.toString());
         }

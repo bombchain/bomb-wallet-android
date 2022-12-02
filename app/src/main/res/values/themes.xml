@@ -44,17 +44,19 @@
         <!-- The default color of controls (ex. toolbar icons, checkboxes, radio buttons) -->
         <item name="colorControlNormal">@color/control</item>
         <!-- The color applied to controls in their activated state (ex. checked state) -->
-        <item name="colorControlActivated">@color/control_activated</item>
+        <item name="colorControlActivated">@color/accent</item>
         <!-- The color applied to controls in their highlighted state (ex. ripples) -->
-        <item name="colorControlHighlight">@color/control_highlight</item>
+        <item name="colorControlHighlight">@color/accent</item>
         <!-- The most prominent text color -->
         <item name="android:textColorPrimary">@color/white</item>
+
+        <item name="android:textColorTertiary">@color/white</item>
         <!-- The color applied to primary text for inverted backgrounds -->
         <item name="android:textColorPrimaryInverse">@color/text_primary_inverse</item>
         <!-- The color used for subtitles, labels and other supplemental text -->
         <item name="android:textColorSecondary">@color/black</item>
         <!-- The color applied to secondary text for inverted backgrounds -->
-        <item name="android:textColorSecondaryInverse">@color/text_secondary_inverse</item>
+        <item name="android:textColorSecondaryInverse">@color/white</item>
         <item name="android:backgroundTint">@color/black</item>
 
         <!-- Custom color references -->

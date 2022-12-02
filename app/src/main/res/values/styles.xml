@@ -48,8 +48,10 @@
         <item name="tabPaddingStart">25dp</item>
         <item name="tabPaddingEnd">25dp</item>
         <item name="tabTextAppearance">@style/Aw.Typography.Tab</item>
-        <item name="tabSelectedTextColor">?colorAccent</item>
-        <item name="tabTextColor">?android:textColorSecondary</item>
+        <item name="tabSelectedTextColor">@color/yellow</item>
+        <item name="tabTextColor">?android:textColorPrimary</item>
+        <item name="indicatorColor">@color/yellow</item>
+        <item name="colorAccent">@color/yellow</item>
         <item name="tabIndicator">@drawable/tab_indicator</item>
         <item name="tabIndicatorFullWidth">true</item>
     </style>
@@ -57,6 +59,7 @@
     <style name="Aw.Component.TabLayout.Fixed">
         <item name="android:layout_marginStart">10dp</item>
         <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:color">@color/white</item>
         <item name="tabMode">fixed</item>
         <item name="tabGravity">fill</item>
     </style>
@@ -77,7 +80,8 @@
         <item name="tabTextAppearance">@style/Aw.Typography.Tab.Chart</item>
         <item name="tabBackground">@drawable/selector_chart_tab_background</item>
         <item name="tabRippleColor">@null</item>
-        <item name="tabTextColor">@color/selector_chart_tab_text</item>
+        <item name="tabTextColor">@color/black</item>
+        <item name="tabSelectedTextColor">@color/white</item>
     </style>
 
     <style name="Aw.Component.RecyclerView" parent="">
@@ -138,7 +142,7 @@
         <item name="iconGravity">textEnd</item>
         <item name="android:paddingLeft">0dp</item>
         <item name="android:paddingRight">0dp</item>
-        <item name="iconTint">?android:textColorPrimary</item>
+        <item name="iconTint">@color/black</item>
     </style>
 
     <style name="Aw.Component.Button.TextIcon">

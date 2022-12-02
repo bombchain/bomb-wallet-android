@@ -46,6 +46,7 @@
             android:backgroundTintMode="screen"
             android:layout_gravity="center"
             android:layout_width="730px"
+            android:background="@color/black"
             android:foregroundTint="@color/white"/>
 
         <com.alphawallet.app.widget.NotificationView
@@ -58,8 +59,7 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="1500px"
-        android:minHeight="1200px"
+        android:layout_height="1700px"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.recyclerview.widget.RecyclerView

@@ -25,7 +25,9 @@ public class AWBottomSheetDialog extends BottomSheetDialog {
         setContentView(R.layout.layout_dialog_common);
 
         titleTextView = findViewById(R.id.title);
+        titleTextView.setTextColor(context.getColor( R.color.white));
         contentTextView = findViewById(R.id.content);
+        contentTextView.setTextColor(context.getColor( R.color.white));
         closeButton = findViewById(R.id.close_action);
         confirmButton = findViewById(R.id.button_confirm);
         setCallback(callback);

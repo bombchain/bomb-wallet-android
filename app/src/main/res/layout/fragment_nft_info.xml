@@ -37,7 +37,7 @@
         <LinearLayout
             android:id="@+id/layout_token_info"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="5dp"
             android:orientation="vertical" />
     </LinearLayout>
 

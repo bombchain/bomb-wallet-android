@@ -159,7 +159,7 @@ public class InputAddress extends RelativeLayout implements ItemClickListener, E
             noCam = a.getBoolean(R.styleable.InputView_nocam, false);
             boolean showHeader = a.getBoolean(R.styleable.InputView_show_header, true);
             int headerTextId = a.getResourceId(R.styleable.InputView_label, R.string.recipient);
-            findViewById(R.id.layout_header).setVisibility(showHeader ? View.VISIBLE : View.GONE);
+            findViewById(R.id.layout_header).setVisibility(showHeader ? View.GONE : View.GONE);
             TextView headerText = findViewById(R.id.text_header);
             headerText.setText(headerTextId);
         }
@@ -304,7 +304,7 @@ public class InputAddress extends RelativeLayout implements ItemClickListener, E
                 break;
             case SELECTED:
                 boxLayout.setBackgroundResource(R.drawable.background_input_selected);
-                labelText.setTextColor(context.getColor(R.color.brand));
+                labelText.setTextColor(context.getColor(R.color.button_yellow));
                 errorText.setVisibility(View.GONE);
                 break;
         }

@@ -201,11 +201,11 @@ public class HistoryChart extends View
 
         noDataTextPaint.setTextAlign(Paint.Align.CENTER);
         noDataTextPaint.setTextSize((int) getResources().getDimension(R.dimen.sp14));
-        noDataTextPaint.setColor(getResources().getColor(R.color.text_primary, getContext().getTheme()));
+        noDataTextPaint.setColor(getResources().getColor(R.color.text_primary_inverse, getContext().getTheme()));
 
         edgeValPaint.setTextAlign(Paint.Align.RIGHT);
         edgeValPaint.setTextSize((int) getResources().getDimension(R.dimen.sp12));
-        edgeValPaint.setColor(getResources().getColor(R.color.text_primary, getContext().getTheme()));
+        edgeValPaint.setColor(getResources().getColor(R.color.text_primary_inverse, getContext().getTheme()));
     }
 
     public HistoryChart(Context context, @Nullable AttributeSet attrs)
@@ -235,7 +235,7 @@ public class HistoryChart extends View
 
         //colour changes depending on first and last values
         path.reset();
-        int color = datasource.isGreen() ? R.color.positive : R.color.negative;
+        int color = datasource.isGreen() ? R.color.positive : R.color.positive; //  GRAPH COLOR
         paint.setColor(getResources().getColor(color, getContext().getTheme()));
 
         float xScale = width / (datasource.maxTime() - datasource.minTime());

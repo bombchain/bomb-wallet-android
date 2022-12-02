@@ -27,6 +27,7 @@ public class TokenInfoView extends LinearLayout
     {
         this(context, (AttributeSet) null);
         label.setText(labelText);
+        label.setTextColor(context.getColor(R.color.white));
         isLink = false;
     }
 
@@ -126,4 +127,5 @@ public class TokenInfoView extends LinearLayout
     {
         this.hasPrefix = hasPrefix;
     }
+
 }

@@ -432,6 +432,38 @@ public class Erc20DetailActivity extends BaseActivity implements StandardFunctio
     }
 
     @Override
+    public void showBuy()
+    {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+        startActivity(browserIntent);
+    }
+
+    @Override
+    public void showEarn()
+    {
+        //Find a way to open the EARN activity
+
+
+        /*Intent upIntent = NavUtils.getParentActivityIntent(this);
+
+            TaskStackBuilder.create(this)
+                    .addNextIntentWithParentStack(upIntent)
+                    .startActivities(); */
+
+        //navigateUpTo(new Intent(getBaseContext(), AWalletBottomNavigationView.class));
+
+
+        //startActivity(new Intent(getApplicationContext(),StakeFragment.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+
+        /* Intent i=new Intent(this, EarnFragment.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i); */
+
+        //finish();
+        //callStandardFunctions.showEarn();
+    }
+
+    @Override
     public void showReceive()
     {
         viewModel.showMyAddress(this, wallet, token);

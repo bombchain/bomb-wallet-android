@@ -17,6 +17,11 @@ public interface StandardFunctionInterface
 
     default void showReceive() { }
 
+    default void showBuy() { }
+
+    default void showEarn() { }
+
+
     default void updateAmount() { }
 
     default void displayTokenSelectionError(TSAction action) { }

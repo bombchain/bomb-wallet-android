@@ -259,6 +259,16 @@ public class FunctionButtonBar extends LinearLayout implements AdapterView.OnIte
             if (isSelectionValid(action.buttonId))
                 callStandardFunctions.showTransferToken(selection);
         }
+        else if (action.buttonId == R.string.buy_eth)
+        {
+            callStandardFunctions.showBuy();
+        }
+        else if (action.buttonId == R.string.earn_label)
+        {
+            callStandardFunctions.showEarn();
+            //callStandardFunctions.showEarn();
+
+        }
         else if (action.buttonId == R.string.action_use)
         {
             if (isSelectionValid(action.buttonId))
@@ -580,7 +590,10 @@ public class FunctionButtonBar extends LinearLayout implements AdapterView.OnIte
 
         if (!token.isNonFungible())
         {
-            addFunction(new ItemClick(context.getString(R.string.generate_payment_request), R.string.generate_payment_request));
+
+           addFunction(new ItemClick(context.getString(R.string.action_send), R.string.action_send));
+           addFunction(new ItemClick(context.getString(R.string.action_receive), R.string.action_receive));
+           addFunction(new ItemClick(context.getString(R.string.generate_payment_request), R.string.generate_payment_request));
         }
     }
 

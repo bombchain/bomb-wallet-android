@@ -932,7 +932,7 @@ public class Token
 
     public List<Integer> getStandardFunctions()
     {
-        return Arrays.asList(R.string.action_send, R.string.action_receive);
+        return Arrays.asList(R.string.buy_eth); //, R.string.earn_label); // bottom actions on individual token page
     }
 
     public List<NFTAsset> getAssetListFromTransaction(Transaction tx)

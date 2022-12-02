@@ -662,7 +662,7 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
 
             case STAKE:
                 showToolbar();
-                setTitle(getString(R.string.stake_label));
+                setTitle(getString(R.string.staked_label));
                 selectNavigationItem(STAKE);
                 break;
 

@@ -2,11 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layout_manage_tokens"
     android:layout_width="match_parent"
-    android:layout_height="250sp"
-    android:background="@color/transparent"
-    android:layout_gravity="top"
+    android:layout_height="fill_parent"
     android:gravity="bottom"
-    android:backgroundTintMode="src_atop"
+    android:paddingBottom="130sp"
+    android:background="@color/transparent"
     android:orientation="vertical">
 
     <com.google.android.material.button.MaterialButton

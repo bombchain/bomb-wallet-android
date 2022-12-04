@@ -153,7 +153,7 @@ public class CustomViewSettings
     public static boolean minimiseBrowserURLBar() { return false; }
 
     // default loading page for the Earn Tab
-    public static String defaultEarnURL() {return "https://app.peghub.com"; }
+    public static String defaultEarnURL() {return "https://mobile.bomb.app/mobile/earn"; }
 
     public static boolean minimiseEarn2URLBar() { return true; }
 

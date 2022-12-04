@@ -20,5 +20,12 @@
         <item name="android:textColorSecondary">@color/text_secondary</item>
         <item name="android:textColorSecondaryInverse">@color/text_secondary_inverse</item>
         <item name="radioButtonStyle">@style/Aw.Component.RadioButton</item>
+
+        <item name="radioButtonStyle">@style/Aw.Component.RadioButton</item>
+        <item name="radioButtonStyle">@style/Aw.Component.RadioButton</item>
+        <item name="radioButtonStyle">@style/Aw.Component.RadioButton</item>
+        <item name="radioButtonStyle">@style/Aw.Component.RadioButton</item>
+
+
     </style>
 </resources>

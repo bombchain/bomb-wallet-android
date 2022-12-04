@@ -3,6 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@drawable/bg_black_to_yellow"
+    android:backgroundTintMode="screen"
     android:scrollbarAlwaysDrawVerticalTrack="true"
     android:scrollbars="vertical">
 
@@ -19,6 +21,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list"
+            android:background="@color/transparent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

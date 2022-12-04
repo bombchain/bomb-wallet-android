@@ -49,7 +49,8 @@
 
     <style name="Aw.Typography.Sub">
         <item name="android:textSize">@dimen/sp15</item>
-        <item name="android:textColor">?android:textColorSecondary</item>
+
+        <item name="android:textColor">?android:textColorPrimaryInverse</item>
     </style>
 
     <style name="Aw.Typography.Sub.Small">
@@ -67,7 +68,7 @@
 
     <style name="Aw.Typography.Label">
         <item name="android:textSize">@dimen/sp15</item>
-        <item name="android:textColor">?android:textColorSecondary</item>
+        <item name="android:textColor">?android:textColorSecondaryInverse</item>
     </style>
 
     <style name="Aw.Typography.Label.Small">

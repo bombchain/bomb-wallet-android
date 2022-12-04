@@ -2,6 +2,7 @@ package com.alphawallet.app.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.PorterDuff;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -37,6 +38,7 @@ public class SettingsItemView extends LinearLayout {
         private int titleResId = -1;
         private int subtitleResId = -1;
         private Type type = Type.DEFAULT;
+        private TextView subtitle;
         private OnSettingsItemClickedListener listener;
 
         public Builder(Context context) {
@@ -75,6 +77,8 @@ public class SettingsItemView extends LinearLayout {
             view.setSubtitle(subtitleResId);
             view.setSettingsItemType(type);
             view.setListener(listener);
+            view.subtitle.setTextColor(context.getColor(R.color.dusty));
+            view.setBackgroundTintMode(PorterDuff.Mode.SCREEN);
             return view;
         }
     }

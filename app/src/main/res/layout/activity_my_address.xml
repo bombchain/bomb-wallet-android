@@ -5,6 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTintMode="screen"
+    android:background="@drawable/bg_black_to_yellow"
     android:orientation="vertical">
 
     <include layout="@layout/layout_simple_toolbar" />
@@ -69,16 +71,18 @@
                 android:gravity="center"
                 android:visibility="gone"
                 custom:bold="true"
+                android:background="@color/transparent"
                 custom:removePadding="true"
                 custom:text="@string/ethereum"
-                tools:visibility="visible" />
+                tools:visibility="gone" />
 
             <com.alphawallet.app.widget.CopyTextView
                 android:id="@+id/copy_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                custom:bold="true" />
+                custom:bold="true"
+                tools:visibility="gone"
+                android:background="@color/transparent" />
 
         </LinearLayout>
 

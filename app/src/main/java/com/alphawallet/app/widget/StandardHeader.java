@@ -2,6 +2,8 @@ package com.alphawallet.app.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -75,6 +77,7 @@ public class StandardHeader extends LinearLayout
     public void setText(String text)
     {
         headerText.setText(text);
+        super.setBackground(new ColorDrawable(getContext().getColor(R.color.transparent)));
     }
 
     public void setText(int resId)

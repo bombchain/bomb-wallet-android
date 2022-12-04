@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/bg_black_to_yellow"
     android:orientation="vertical"
     android:scrollbarAlwaysDrawVerticalTrack="true"
     android:scrollbars="vertical">
@@ -35,6 +36,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/main_list"
+                android:background="@color/transparent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -47,6 +49,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/test_list"
+                android:background="@color/transparent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="visible" />

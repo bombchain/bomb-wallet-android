@@ -36,7 +36,7 @@
         <!-- The color applied on top of background color -->
         <item name="colorOnBackground">@color/background_inverse</item>
         <!-- The color applied to floating surfaces (ex. dialogs, popups, bottom sheets) -->
-        <item name="colorBackgroundFloating">@color/background_floating</item>
+        <item name="colorBackgroundFloating">@color/black</item>
         <!-- The color applied to most component backgrounds -->
         <item name="colorSurface">@color/surface</item>
         <!-- The color applied to over surface color -->
@@ -56,33 +56,34 @@
         <!-- The color used for subtitles, labels and other supplemental text -->
         <item name="android:textColorSecondary">@color/black</item>
         <!-- The color applied to secondary text for inverted backgrounds -->
-        <item name="android:textColorSecondaryInverse">@color/white</item>
-        <item name="android:backgroundTint">@color/black</item>
+        <item name="android:textColorSecondaryInverse">@color/black</item>
+         <!--  <item name="android:backgroundTint">@color/black</item> -->
 
         <!-- Custom color references -->
         <!-- The color applied to headers -->
-        <item name="colorSurfaceSecondary">@color/surface_secondary</item>
+        <item name="colorSurfaceSecondary">@color/black</item>
         <!-- The color applied to search bars, text icon button -->
-        <item name="colorSurfaceTertiary">@color/surface_tertiary</item>
+        <item name="colorSurfaceTertiary">@color/white</item>
         <!-- The color applied to separators -->
-        <item name="colorSurfaceQuaternary">@color/surface_quaternary</item>
+        <item name="colorSurfaceQuaternary">@color/black</item>
         <!-- The color applied to token icon mask -->
-        <item name="colorSurfaceQuinary">@color/surface_quinary</item>
+        <item name="colorSurfaceQuinary">@color/black</item>
         <!-- The color applied to chart tabs -->
-        <item name="colorSurfaceDark">@color/surface_dark</item>
+        <item name="colorSurfaceDark">@color/black</item>
 
-        <item name="colorSurfaceSearch">@color/surface_search</item>
+        <item name="colorSurfaceSearch">@color/black</item>
 
-        <item name="colorIconBackgroundCompensate">@color/dark_mode_icon_background_compensate</item>
+        <item name="colorIconBackgroundCompensate">@color/black</item>
 
-        <item name="colorSurfaceVariant"></item>
+        <item name="colorSurfaceVariant">@color/black</item>
 
 
         <!-- Default Component Styles -->
-        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textColor">@color/text_primary_inverse</item>
+
         <item name="android:textColorHint">@color/text_secondary</item>
-        <item name="android:textColorHintInverse">@color/text_secondary_inverse</item>
-        <item name="android:textViewStyle">@style/Aw.Typography</item>
+        <item name="android:textColorHintInverse">@color/black</item>
+        <item name="android:textViewStyle">@color/black</item>
         <item name="toolbarStyle">@style/Aw.Component.Toolbar</item>
         <item name="appBarLayoutStyle">@style/Aw.Component.AppBarLayout</item>
         <item name="recyclerViewStyle">@style/Aw.Component.RecyclerView</item>
@@ -94,6 +95,9 @@
         <item name="seedWordStyle">@style/Aw.Component.SeedWord</item>
         <item name="whatsNewEntryStyle">@style/Aw.Component.WhatsNewEntry</item>
         <item name="materialAlertDialogTheme">@style/AppTheme.AlertDialog</item>
+        <item name="android:windowBackground">@color/black</item>
+
+
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -128,20 +132,22 @@
     </style>
 
     <style name="AppTheme.AlertDialog" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
-        <item name="colorSurface">?colorBackgroundFloating</item>
+        <item name="colorSurface">@color/black</item>
+        <item name="background">@color/black</item>
     </style>
 
     <style name="AppTheme.BottomSheetDialog" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
-        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="background">@color/black</item>
         <item name="android:statusBarColor">@color/transparent</item>
         <item name="android:windowSoftInputMode">adjustResize</item>
         <item name="bottomSheetStyle">@style/Aw.Component.BottomSheet</item>
-        <item name="colorSurface">@color/background_floating</item>
+        <item name="colorSurface">@color/black</item>
         <item name="colorSecondary">@color/brand</item>
         <item name="colorControlNormal">@color/surface_inverse</item>
         <item name="colorError">@color/error</item>
-        <item name="android:textColorPrimary">@color/text_primary</item>
-        <item name="android:textColorPrimaryInverse">@color/text_primary_inverse</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorPrimaryInverse">@color/black</item>
         <item name="android:textColorSecondary">@color/text_secondary</item>
         <item name="android:textColorSecondaryInverse">@color/text_secondary_inverse</item>
         <item name="materialButtonStyle">@style/Aw.Component.Button.Primary</item>

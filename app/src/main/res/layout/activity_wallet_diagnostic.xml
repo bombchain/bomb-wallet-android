@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@drawable/bg_black_to_yellow"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
@@ -30,24 +31,28 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <View style="@style/Aw.Component.Separator" />
+                <View
+                    style="@style/Aw.Component.Separator" />
 
                 <TextView
                     android:id="@+id/key_entry"
-                    android:layout_margin="@dimen/standard_16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/standard_16"
                     android:text="@string/key_entry_in_secure_enclave" />
 
                 <TextView
                     android:id="@+id/key_in_enclave"
-                    android:layout_margin="@dimen/standard_16"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:textColor="@color/dusty"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/standard_16" />
 
             </LinearLayout>
 
-            <View style="@style/Aw.Component.Separator" />
+            <View
+                style="@style/Aw.Component.Separator"
+                android:background="@color/dusty" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -55,20 +60,23 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_margin="@dimen/standard_16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/standard_16"
                     android:text="@string/enclave_locked" />
 
                 <TextView
                     android:id="@+id/key_is_locked"
-                    android:layout_margin="@dimen/standard_16"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:textColor="@color/dusty"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/standard_16" />
 
             </LinearLayout>
 
-            <View style="@style/Aw.Component.Separator" />
+            <View
+                style="@style/Aw.Component.Separator"
+                android:background="@color/dusty" />
 
             <LinearLayout
                 android:id="@+id/layout_key_type"
@@ -79,16 +87,17 @@
 
                 <TextView
                     android:id="@+id/database_txt"
-                    android:layout_margin="@dimen/standard_16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/standard_16"
                     android:text="@string/key_type_in_database" />
 
                 <TextView
                     android:id="@+id/key_type"
-                    android:layout_margin="@dimen/standard_16"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/standard_16"
+                    android:textColor="@color/dusty" />
 
             </LinearLayout>
 
@@ -97,23 +106,29 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <View style="@style/Aw.Component.Separator" />
+                <View
+                    style="@style/Aw.Component.Separator"
+                    android:layout_width="wrap_content"
+                    android:background="@color/dusty" />
 
                 <TextView
-                    android:layout_margin="@dimen/standard_16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/standard_16"
                     android:text="@string/status" />
 
                 <TextView
                     android:id="@+id/status_txt"
-                    android:layout_margin="@dimen/standard_16"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/standard_16"
+                    android:textColor="@color/dusty" />
 
             </LinearLayout>
 
-            <View style="@style/Aw.Component.Separator" />
+            <View
+                style="@style/Aw.Component.Separator"
+                android:background="@color/dusty" />
 
         </LinearLayout>
 

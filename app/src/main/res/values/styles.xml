@@ -3,7 +3,7 @@
 
     <style name="Aw.Component.AppBarLayout" parent="Widget.Design.AppBarLayout">
         <item name="elevation">0dp</item>
-        <item name="android:background">?colorSurface</item>
+        <item name="android:background">@color/black</item>
     </style>
 
     <style name="Aw.Component.Toolbar" parent="Widget.MaterialComponents.Toolbar">
@@ -12,12 +12,14 @@
         <item name="contentInsetLeft">0dp</item>
         <item name="contentInsetRight">0dp</item>
         <item name="contentInsetStartWithNavigation">0dp</item>
+        <item name="android:background">@color/black</item>
         <item name="navigationIconTint">?colorControlNormal</item>
     </style>
 
     <style name="Aw.Component.ActionItem" parent="Widget.MaterialComponents.TextView">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/black</item>
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:paddingStart">@dimen/cozy_20</item>
@@ -29,7 +31,7 @@
     </style>
 
     <style name="Aw.Component.BottomSheet" parent="">
-        <item name="android:background">@drawable/background_bottom_sheet</item>
+        <item name="android:background">@color/black</item>
     </style>
 
     <style name="Aw.Component.CheckBox" parent="Widget.AppCompat.CompoundButton.CheckBox">
@@ -85,13 +87,13 @@
     </style>
 
     <style name="Aw.Component.RecyclerView" parent="">
-        <item name="android:background">@color/surface</item>
+        <item name="android:background">@drawable/bg_black_to_yellow</item>
     </style>
 
     <style name="Aw.Component.Separator" parent="Widget.MaterialComponents.TextView">
         <item name="android:layout_height">1dp</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:background">?colorSurfaceQuaternary</item>
+        <item name="android:background">@color/transparent</item>
     </style>
 
     <style name="Aw.Component.Separator.Large">
@@ -183,7 +185,7 @@
     <style name="Aw.Component.SeedWord" parent="Widget.MaterialComponents.TextView">
         <item name="android:maxLines">1</item>
         <item name="android:fontFamily">@font/font_regular</item>
-        <item name="android:background">@drawable/selector_seed_word_background</item>
+        <item name="android:background">@drawable/bg_black_to_yellow</item>
         <item name="android:textColor">@color/selector_seed_word_text</item>
         <item name="android:paddingStart">@dimen/cozy_20</item>
         <item name="android:paddingEnd">@dimen/cozy_20</item>
@@ -204,6 +206,7 @@
 
     <style name="Aw.Component.TextView" parent="Widget.MaterialComponents.TextView">
         <item name="android:textAppearance">@style/Aw.Typography</item>
+        <item name="android:background">@color/black</item>
     </style>
 
 </resources>

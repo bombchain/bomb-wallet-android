@@ -34,10 +34,10 @@ public class CustomViewSettings
     private static final List<TokenInfo> lockedTokens = Arrays.asList(
              //new TokenInfo(String TokenAddress, String TokenName, String TokenSymbol, int TokenDecimals, boolean isEnabled, long ChainId))
             //new TokenInfo("0xBE192A15da3D4004242DE1B215691D08A69543D1", "Wrapped BOMB", "WBOMB", 18, true, EthereumNetworkBase.BOMB_ID),
-            new TokenInfo("0xc0B8485449248c054D5e8E98c1f2cc7B4031BD4c", "USD BOMB", "USDB", 18, true, EthereumNetworkBase.BOMB_ID),
-            new TokenInfo("0x1153b8D7b968fD7CC1F4069EA6b2E8EEC4F0ad64", "ETHERIUM", "ETHB", 18, true, EthereumNetworkBase.BOMB_ID),
-            new TokenInfo("0x18A0D1A707308AFd50222A9216b5eA8805D460D2", "BITCOIN", "BBTC", 18, true, EthereumNetworkBase.BOMB_ID),
-            new TokenInfo("0x522348779DCb2911539e76A1042aA922F9C47Ee3", "BOMB", "BOMB", 18, true, EthereumNetworkBase.BINANCE_MAIN_ID)
+            //new TokenInfo("0xc0B8485449248c054D5e8E98c1f2cc7B4031BD4c", "USD BOMB", "USDB", 18, true, EthereumNetworkBase.BOMB_ID),
+            //new TokenInfo("0x1153b8D7b968fD7CC1F4069EA6b2E8EEC4F0ad64", "ETHERIUM", "ETHB", 18, true, EthereumNetworkBase.BOMB_ID),
+            //new TokenInfo("0x18A0D1A707308AFd50222A9216b5eA8805D460D2", "BITCOIN", "BBTC", 18, true, EthereumNetworkBase.BOMB_ID),
+            //new TokenInfo("0x522348779DCb2911539e76A1042aA922F9C47Ee3", "BOMB", "BOMB", 18, true, EthereumNetworkBase.BINANCE_MAIN_ID)
     );
 
     //List of chains that wallet can show
@@ -120,7 +120,7 @@ public class CustomViewSettings
     //Switch off dapp browser
     public static boolean hideDappBrowser()
     {
-        return true;
+        return false;
     }
 
     //Hides the filter tab bar at the top of the wallet screen (ALL/CURRENCY/COLLECTIBLES)
@@ -156,11 +156,6 @@ public class CustomViewSettings
     public static String defaultEarnURL() {return "https://app.peghub.com"; }
 
     public static boolean minimiseEarn2URLBar() { return true; }
-
-    // default loading page for the Stake Tab
-    public static String defaultStakeURL() {return "https://app.bomb.money"; }
-
-    public static boolean minimiseStakeURLBar() { return true; }
 
     //Allow showing token management view
     public static boolean showManageTokens() { return true; }

@@ -27,7 +27,6 @@ public class AWalletBottomNavigationView extends LinearLayout
 {
     private final TextView dappBrowserLabel;
     private final TextView walletLabel;
-    private final TextView stakeLabel;
     private final TextView earn2Label;
     private final TextView settingsBadge;
     private final TextView settingsLabel;
@@ -44,7 +43,6 @@ public class AWalletBottomNavigationView extends LinearLayout
         super(context, attrs);
         inflate(context, R.layout.layout_bottom_navigation, this);
         walletLabel = findViewById(R.id.nav_wallet_text);
-        stakeLabel = findViewById(R.id.nav_stake_text);
         earn2Label = findViewById(R.id.nav_earn2_text);
         activityLabel = findViewById(R.id.nav_activity_text);
         dappBrowserLabel = findViewById(R.id.nav_browser_text);
@@ -53,7 +51,6 @@ public class AWalletBottomNavigationView extends LinearLayout
         settingsBadge = findViewById(R.id.settings_badge);
 
         walletLabel.setOnClickListener(v -> selectItem(WALLET));
-        stakeLabel.setOnClickListener(v -> selectItem(STAKE));
         earn2Label.setOnClickListener(v -> selectItem(EARN2));
         activityLabel.setOnClickListener(v -> selectItem(ACTIVITY));
         dappBrowserLabel.setOnClickListener(v -> selectItem(DAPP_BROWSER));
@@ -95,10 +92,6 @@ public class AWalletBottomNavigationView extends LinearLayout
                 walletLabel.setSelected(true);
                 walletLabel.setTypeface(semiboldTypeface);
                 break;
-            case STAKE:
-                stakeLabel.setSelected(true);
-                stakeLabel.setTypeface(semiboldTypeface);
-                break;
             case EARN2:
                 earn2Label.setSelected(true);
                 earn2Label.setTypeface(semiboldTypeface);
@@ -119,8 +112,6 @@ public class AWalletBottomNavigationView extends LinearLayout
         dappBrowserLabel.setSelected(false);
         dappBrowserLabel.setTypeface(regularTypeface);
         walletLabel.setSelected(false);
-        stakeLabel.setSelected(false);
-        stakeLabel.setTypeface(regularTypeface);
         earn2Label.setSelected(false);
         earn2Label.setTypeface(regularTypeface);
         walletLabel.setTypeface(regularTypeface);

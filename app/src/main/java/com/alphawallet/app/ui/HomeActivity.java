@@ -12,7 +12,6 @@ import static com.alphawallet.app.entity.WalletPage.ACTIVITY;
 import static com.alphawallet.app.entity.WalletPage.DAPP_BROWSER;
 import static com.alphawallet.app.entity.WalletPage.EARN2;
 import static com.alphawallet.app.entity.WalletPage.SETTINGS;
-import static com.alphawallet.app.entity.WalletPage.STAKE;
 import static com.alphawallet.app.entity.WalletPage.WALLET;
 import static com.alphawallet.ethereum.EthereumNetworkBase.MAINNET_ID;
 
@@ -584,11 +583,6 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                 showPage(EARN2);
                 return true;
             }
-            case STAKE:
-            {
-                showPage(STAKE);
-                return true;
-            }
             case SETTINGS:
             {
                 showPage(SETTINGS);
@@ -658,12 +652,6 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                 showToolbar();
                 setTitle(getString(R.string.earn_label));
                 selectNavigationItem(EARN2);
-                break;
-
-            case STAKE:
-                showToolbar();
-                setTitle(getString(R.string.staked_label));
-                selectNavigationItem(STAKE);
                 break;
 
             case SETTINGS:
@@ -1229,8 +1217,6 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                     return new ActivityFragment();
                 case EARN2:
                     return new Earn2Fragment();
-                case STAKE:
-                    return new StakeFragment();
                 case DAPP_BROWSER:
                     if (CustomViewSettings.hideDappBrowser())
                     {

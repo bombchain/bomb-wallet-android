@@ -423,7 +423,6 @@ public class WalletFragment extends BaseFragment implements
         }
         tabLayout.addTab(tabLayout.newTab().setText(R.string.all));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.assets));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.staked));
         //tabLayout.addTab(tabLayout.newTab().setText(R.string.defi_header));
         //tabLayout.addTab(tabLayout.newTab().setText(R.string.governance_header));
         //tabLayout.addTab(tabLayout.newTab().setText(R.string.attestations));
@@ -440,7 +439,6 @@ public class WalletFragment extends BaseFragment implements
                     case ALL:
                     case ASSETS:
                     case DEFI:
-                    case STAKED:
                     case GOVERNANCE:
                         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                         viewModel.prepare();

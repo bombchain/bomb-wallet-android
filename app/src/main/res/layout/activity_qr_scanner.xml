@@ -51,6 +51,13 @@
                 android:id="@+id/browse_button"
                 style="@style/Aw.Component.QrScannerControl"
                 android:text="@string/browse"
+                android:visibility="gone"
+                app:drawableTopCompat="@drawable/ic_browse" />
+
+            <TextView
+                android:id="@+id/refer_a_friend"
+                style="@style/Aw.Component.QrScannerControl"
+                android:text="@string/Refer_a_friend"
                 android:visibility="visible"
                 app:drawableTopCompat="@drawable/ic_browse" />
 

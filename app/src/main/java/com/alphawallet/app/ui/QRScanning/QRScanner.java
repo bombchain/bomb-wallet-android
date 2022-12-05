@@ -73,6 +73,7 @@ public class QRScanner extends BaseActivity
     private TextView flashButton;
     private TextView myAddressButton;
     private TextView browseButton;
+    private TextView referralButton;
     private boolean torchOn = false;
 
     private static final int RC_HANDLE_CAMERA_PERM = 2;
@@ -121,6 +122,7 @@ public class QRScanner extends BaseActivity
         flashButton = findViewById(R.id.flash_button);
         myAddressButton = findViewById(R.id.my_address_button);
         browseButton = findViewById(R.id.browse_button);
+        referralButton =  findViewById(R.id.refer_a_friend);
 
         setupToolbar();
 
@@ -157,6 +159,13 @@ public class QRScanner extends BaseActivity
         });
 
         myAddressButton.setOnClickListener(view -> {
+            Intent intent = new Intent();
+            intent.putExtra(C.EXTRA_ACTION_NAME, C.ACTION_MY_ADDRESS_SCREEN);
+            setResult(Activity.RESULT_OK, intent);
+            finish();
+        });
+
+        referralButton.setOnClickListener(view -> {
             Intent intent = new Intent();
             intent.putExtra(C.EXTRA_ACTION_NAME, C.ACTION_MY_ADDRESS_SCREEN);
             setResult(Activity.RESULT_OK, intent);

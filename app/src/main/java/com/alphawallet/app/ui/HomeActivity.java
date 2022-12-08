@@ -10,6 +10,7 @@ import static com.alphawallet.app.C.SETTINGS_INSTANTIATED;
 import static com.alphawallet.app.C.SHOW_BACKUP;
 import static com.alphawallet.app.entity.WalletPage.ACTIVITY;
 import static com.alphawallet.app.entity.WalletPage.DAPP_BROWSER;
+import static com.alphawallet.app.entity.WalletPage.EARN;
 import static com.alphawallet.app.entity.WalletPage.SETTINGS;
 import static com.alphawallet.app.entity.WalletPage.WALLET;
 import static com.alphawallet.ethereum.EthereumNetworkBase.MAINNET_ID;
@@ -312,9 +313,9 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
         if (viewModel.checkNewWallet(wallet.address))
         {
             viewModel.setNewWallet(wallet.address, false);
-            Intent selectNetworkIntent = new Intent(this, SelectNetworkFilterActivity.class);
-            selectNetworkIntent.putExtra(C.EXTRA_SINGLE_ITEM, false);
-            networkSettingsHandler.launch(selectNetworkIntent);
+            //Intent selectNetworkIntent = new Intent(this, SelectNetworkFilterActivity.class);
+            //selectNetworkIntent.putExtra(C.EXTRA_SINGLE_ITEM, false);
+            //networkSettingsHandler.launch(selectNetworkIntent);
         }
     }
 
@@ -576,6 +577,11 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                 showPage(WALLET);
                 return true;
             }
+            case EARN:
+            {
+                showPage(EARN);
+                return true;
+            }
             case SETTINGS:
             {
                 showPage(SETTINGS);
@@ -639,6 +645,11 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                 selectNavigationItem(WALLET);
                 break;
 
+            case EARN:
+                showToolbar();
+                setTitle(getString(R.string.earn_label));
+                selectNavigationItem(EARN);
+                break;
             case SETTINGS:
                 showToolbar();
                 setTitle(getString(R.string.toolbar_header_settings));
@@ -1197,6 +1208,8 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                 case WALLET:
                 default:
                     return new WalletFragment();
+                case EARN:
+                    return new EarnFragment();
                 case ACTIVITY:
                     return new ActivityFragment();
                 case DAPP_BROWSER:

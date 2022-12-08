@@ -8,11 +8,13 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar_layout"
         android:layout_width="match_parent"
+        android:background="@color/text_secondary_inverse"
         android:layout_height="wrap_content">
 
         <com.alphawallet.app.widget.CertifiedToolbarView
             android:id="@+id/certified_toolbar"
             android:layout_width="match_parent"
+            android:background="@color/transparent"
             android:layout_height="wrap_content"
             app:contentInsetEnd="0dp"
             app:contentInsetStart="0dp"
@@ -41,6 +43,7 @@
     <com.alphawallet.app.widget.FunctionButtonBar
         android:id="@+id/layoutButtons"
         android:layout_width="match_parent"
+        android:background="@color/yellow"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />
 

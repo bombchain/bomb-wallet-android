@@ -23,7 +23,7 @@
 
     -->
     <!-- ?colorPrimary -->
-    <color name="brand">@color/azure</color>
+    <color name="brand">@color/white</color>
     <!-- ?colorOnPrimary -->
     <color name="brand_inverse">@color/white</color>
     <!-- ?colorAccent -->
@@ -63,7 +63,7 @@
     <!-- ?android:textColorPrimaryInverse -->
     <color name="text_primary_inverse">@color/white</color>
     <!-- ?android:textColorScondaryInverse -->
-    <color name="text_secondary">@color/dove</color>
+    <color name="text_secondary">@color/black</color>
     <!-- ?android:textColorSecondary -->
     <color name="text_secondary_inverse">@color/white</color>
     <color name="surface_translucent">@color/translucent_light</color>

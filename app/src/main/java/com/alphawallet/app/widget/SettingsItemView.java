@@ -164,9 +164,11 @@ public class SettingsItemView extends LinearLayout {
         if (subtitleText.isEmpty()) {
             setLayoutHeight(60);
             subtitle.setVisibility(View.GONE);
+            subtitle.setTextColor(getContext().getColor(R.color.text_primary));
         } else {
             setLayoutHeight(80);
             subtitle.setVisibility(View.VISIBLE);
+            subtitle.setTextColor(getContext().getColor(R.color.text_primary));
             subtitle.setText(subtitleText);
         }
     }

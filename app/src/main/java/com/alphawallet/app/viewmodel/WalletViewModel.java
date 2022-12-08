@@ -1,14 +1,21 @@
 package com.alphawallet.app.viewmodel;
 
+import static android.app.Activity.RESULT_OK;
+import static android.view.View.generateViewId;
+import static androidx.core.content.ContextCompat.startActivity;
 import static com.alphawallet.app.C.EXTRA_ADDRESS;
 import static com.alphawallet.app.repository.TokensRealmSource.databaseKey;
 import static com.alphawallet.app.widget.CopyTextView.KEY_ADDRESS;
+import static com.google.android.material.internal.ContextUtils.getActivity;
+
+import static java.security.AccessController.getContext;
 
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.util.Pair;
@@ -39,9 +46,12 @@ import com.alphawallet.app.router.TokenDetailRouter;
 import com.alphawallet.app.service.AssetDefinitionService;
 import com.alphawallet.app.service.RealmManager;
 import com.alphawallet.app.service.TokensService;
+import com.alphawallet.app.ui.HomeActivity;
 import com.alphawallet.app.ui.NameThisWalletActivity;
 import com.alphawallet.app.ui.QRScanning.QRScanner;
+import com.alphawallet.app.ui.TokenFunctionActivity;
 import com.alphawallet.app.ui.TokenManagementActivity;
+import com.alphawallet.app.widget.BuyEthOptionsView;
 import com.alphawallet.app.widget.WalletFragmentActionsView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -55,6 +65,8 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 
 import dagger.hilt.android.lifecycle.HiltViewModel;
+import hilt_aggregated_deps._com_alphawallet_app_ui_DappBrowserFragment_GeneratedInjector;
+import hilt_aggregated_deps._com_alphawallet_app_ui_EarnFragment_GeneratedInjector;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import io.realm.Realm;
@@ -254,6 +266,18 @@ public class WalletViewModel extends BaseViewModel
             dialog.dismiss();
             Intent intent = new Intent(context, NameThisWalletActivity.class);
             context.startActivity(intent);
+        });
+        actionsView.setOnReferralClickListner(v -> {
+
+            //dialog.dismiss();
+            //Intent intent = this.getBuyIntent("https://google.com");
+            //((HomeActivity)  getActivity()).onActivityResult(C.TOKEN_SEND_ACTIVITY, RESULT_OK, intent);
+
+            dialog.dismiss();
+            String url = "https://www.google.com";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            context.startActivity(i);
         });
 
         dialog = new BottomSheetDialog(context);

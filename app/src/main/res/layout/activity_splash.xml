@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/black_yellow_bg">
+    android:background="@drawable/bg_bomb">
 
     <LinearLayout
         android:layout_width="match_parent"

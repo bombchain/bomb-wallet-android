@@ -112,6 +112,7 @@
     <string name="advanced">Advanced Options</string>
     <string name="copy_wallet_address">Copy Wallet Address</string>
     <string name="rename_this_wallet_action">Rename this Wallet</string>
+    <string name="referral">Refer a friend</string>
     <string name="hint_contract_name">Name</string>
     <string name="hint_contract_venue">Venue</string>
     <string name="hint_contract_date">Date</string>
@@ -235,6 +236,7 @@
     <string name="dialog_process_error">Trade not processed</string>
     <string name="dialog_ok">OK</string>
     <string name="wallet_label">Wallet</string>
+    <string name="earn_label">Earn</string>
     <string name="tx_label">Transactions</string>
     <string name="browser_label">Browser</string>
     <string name="settings_label">Settings</string>
@@ -792,7 +794,7 @@
     <string name="action_save_alert">Save Alert</string>
     <string name="alerts_will_appear_here">Alerts will appear here</string>
     <string name="token_text">Token</string>
-    <string name="buy_eth">Buy BTC</string>
+    <string name="buy_eth">Buy Crypto</string>
     <string name="reload_token_data_desc">Reset all cached token data (eg recorded balance etc). BOMB will re-load the current status of your wallet. Doesn\'t affect the keys or assets.</string>
 
     <string name="title_activity_add_custom_rpcnetwork">Add Custom RPC Network</string>

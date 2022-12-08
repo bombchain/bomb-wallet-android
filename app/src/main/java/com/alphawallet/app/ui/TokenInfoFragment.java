@@ -147,12 +147,12 @@ public class TokenInfoFragment extends BaseFragment {
             tokenInfoLayout.addView(performance1M);
             tokenInfoLayout.addView(performance1Y);
 
-            tokenInfoLayout.addView(new TokenInfoCategoryView(getContext(), "Stats"));
-            tokenInfoLayout.addView(statsMarketCap);
-            tokenInfoLayout.addView(statsTradingVolume);
-            tokenInfoLayout.addView(statsMaxVolume);
-            tokenInfoLayout.addView(stats1YearLow);
-            tokenInfoLayout.addView(stats1YearHigh);
+            //tokenInfoLayout.addView(new TokenInfoCategoryView(getContext(), "Stats"));
+            //tokenInfoLayout.addView(statsMarketCap);
+            //tokenInfoLayout.addView(statsTradingVolume);
+            //tokenInfoLayout.addView(statsMaxVolume);
+            //tokenInfoLayout.addView(stats1YearLow);
+            //tokenInfoLayout.addView(stats1YearHigh);
 
             historyChart.fetchHistory(token, HistoryChart.Range.Day);
             populateStats(token)

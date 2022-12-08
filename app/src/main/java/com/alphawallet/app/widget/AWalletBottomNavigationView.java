@@ -2,6 +2,7 @@ package com.alphawallet.app.widget;
 
 import static com.alphawallet.app.entity.WalletPage.ACTIVITY;
 import static com.alphawallet.app.entity.WalletPage.DAPP_BROWSER;
+import static com.alphawallet.app.entity.WalletPage.EARN;
 import static com.alphawallet.app.entity.WalletPage.SETTINGS;
 import static com.alphawallet.app.entity.WalletPage.WALLET;
 
@@ -25,6 +26,7 @@ public class AWalletBottomNavigationView extends LinearLayout
 {
     private final TextView dappBrowserLabel;
     private final TextView walletLabel;
+    private final TextView earnLabel;
     private final TextView settingsBadge;
     private final TextView settingsLabel;
     private final RelativeLayout settingsTab;
@@ -43,10 +45,12 @@ public class AWalletBottomNavigationView extends LinearLayout
         activityLabel = findViewById(R.id.nav_activity_text);
         dappBrowserLabel = findViewById(R.id.nav_browser_text);
         settingsTab = findViewById(R.id.settings_tab);
+        earnLabel = findViewById(R.id.nav_earn_text);
         settingsLabel = findViewById(R.id.nav_settings_text);
         settingsBadge = findViewById(R.id.settings_badge);
 
         walletLabel.setOnClickListener(v -> selectItem(WALLET));
+        earnLabel.setOnClickListener(v -> selectItem(EARN));
         activityLabel.setOnClickListener(v -> selectItem(ACTIVITY));
         dappBrowserLabel.setOnClickListener(v -> selectItem(DAPP_BROWSER));
         settingsTab.setOnClickListener(v -> selectItem(SETTINGS));
@@ -87,6 +91,10 @@ public class AWalletBottomNavigationView extends LinearLayout
                 walletLabel.setSelected(true);
                 walletLabel.setTypeface(semiboldTypeface);
                 break;
+            case EARN:
+                earnLabel.setSelected(true);
+                earnLabel.setTypeface(semiboldTypeface);
+                break;
             case SETTINGS:
                 settingsLabel.setSelected(true);
                 settingsLabel.setTypeface(semiboldTypeface);
@@ -104,6 +112,8 @@ public class AWalletBottomNavigationView extends LinearLayout
         dappBrowserLabel.setTypeface(regularTypeface);
         walletLabel.setSelected(false);
         walletLabel.setTypeface(regularTypeface);
+        earnLabel.setSelected(false);
+        earnLabel.setTypeface(regularTypeface);
         settingsLabel.setSelected(false);
         settingsLabel.setTypeface(regularTypeface);
         activityLabel.setSelected(false);

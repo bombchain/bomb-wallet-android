@@ -37,6 +37,8 @@
         <item name="android:minHeight">0dp</item>
     </style>
 
+
+
     <style name="Aw.Component.RadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
         <item name="android:minWidth">0dp</item>
         <item name="android:minHeight">0dp</item>
@@ -57,6 +59,10 @@
     <style name="Aw.Component.TabLayout.Fixed">
         <item name="android:layout_marginStart">10dp</item>
         <item name="android:layout_marginEnd">10dp</item>
+        <item name="tabSelectedTextColor">@color/button_yellow</item>
+        <item name="tabIndicatorColor">@color/button_yellow</item>
+        <item name="background">@color/text_secondary_inverse</item>
+
         <item name="tabMode">fixed</item>
         <item name="tabGravity">fill</item>
     </style>
@@ -77,11 +83,11 @@
         <item name="tabTextAppearance">@style/Aw.Typography.Tab.Chart</item>
         <item name="tabBackground">@drawable/selector_chart_tab_background</item>
         <item name="tabRippleColor">@null</item>
-        <item name="tabTextColor">@color/selector_chart_tab_text</item>
+        <item name="tabTextColor">@color/dusty</item>
     </style>
 
     <style name="Aw.Component.RecyclerView" parent="">
-        <item name="android:background">@color/surface</item>
+        <item name="android:background">@drawable/bg_bomb</item>
     </style>
 
     <style name="Aw.Component.Separator" parent="Widget.MaterialComponents.TextView">
@@ -126,7 +132,7 @@
     <style name="Aw.Component.Button.Secondary">
         <item name="android:lines">1</item>
         <item name="android:backgroundTint">@color/white</item>
-        <item name="android:textColor">?colorOnSurface</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:textSize">22sp</item>
         <item name="android:textStyle">bold</item>
         <item name="strokeColor">?colorOnSurface</item>
@@ -138,7 +144,7 @@
         <item name="iconGravity">textEnd</item>
         <item name="android:paddingLeft">0dp</item>
         <item name="android:paddingRight">0dp</item>
-        <item name="iconTint">?android:textColorPrimary</item>
+        <item name="iconTint">@color/black</item>
     </style>
 
     <style name="Aw.Component.Button.TextIcon">

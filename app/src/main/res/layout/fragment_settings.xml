@@ -29,11 +29,12 @@
 
             <include layout="@layout/item_update" />
 
-            <com.alphawallet.app.widget.StandardHeader
-                android:id="@+id/layout_header"
-                android:layout_width="match_parent"
+            <TextView
+                style="@style/Aw.Typography.Title.SemiBold"
+                android:layout_margin="@dimen/dp20"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                custom:headerText="@string/wallet_label" />
+                android:text="@string/wallet_label" />
 
             <LinearLayout
                 android:id="@+id/layout_settings_wallet"
@@ -41,10 +42,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical" />
 
-            <com.alphawallet.app.widget.StandardHeader
-                android:layout_width="match_parent"
+            <TextView
+                style="@style/Aw.Typography.Title.SemiBold"
+                android:layout_margin="@dimen/dp20"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                custom:headerText="@string/system" />
+                android:text="@string/system" />
 
             <LinearLayout
                 android:id="@+id/layout_settings_system"
@@ -52,10 +55,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical" />
 
-            <com.alphawallet.app.widget.StandardHeader
-                android:layout_width="match_parent"
+            <TextView
+                style="@style/Aw.Typography.Title.SemiBold"
+                android:layout_margin="@dimen/dp20"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                custom:headerText="@string/support" />
+                android:text="@string/support" />
 
             <LinearLayout
                 android:id="@+id/layout_settings_support"
@@ -67,7 +72,6 @@
                 android:id="@+id/layout_version"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="?colorSurfaceSecondary"
                 android:paddingLeft="@dimen/standard_16"
                 android:paddingRight="@dimen/standard_16">
 
@@ -75,6 +79,7 @@
                     style="@style/Aw.Typography.Label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/text_primary"
                     android:layout_centerVertical="true"
                     android:text="@string/version" />
 
@@ -83,6 +88,7 @@
                     style="@style/Aw.Typography.Sub"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/text_primary"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true" />
 
@@ -92,7 +98,6 @@
                 android:id="@+id/layout_tokenscript_compatibility"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="?colorSurfaceSecondary"
                 android:paddingLeft="@dimen/standard_16"
                 android:paddingRight="@dimen/standard_16">
 
@@ -101,6 +106,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:textColor="@color/text_primary"
                     android:text="@string/tokenscript_compatibility" />
 
                 <LinearLayout
@@ -113,12 +119,14 @@
                         style="@style/Aw.Typography.Sub"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/text_primary"
                         android:text="@string/version" />
 
                     <TextView
                         android:id="@+id/text_tokenscript_compatibility"
                         style="@style/Aw.Typography.Sub"
                         android:layout_width="wrap_content"
+                        android:textColor="@color/text_primary"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/tiny_8" />
 

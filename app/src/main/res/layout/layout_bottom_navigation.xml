@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="?android:attr/actionBarSize"
-    android:background="?colorSurface"
+    android:layout_height="@dimen/double_giant_80"
+    android:background="@color/yellow"
     android:orientation="vertical">
 
-    <View style="@style/Aw.Component.Separator" />
+    <View style="@style/Aw.Component.Separator"
+        android:visibility="gone"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +19,7 @@
 
         <TextView
             android:id="@+id/nav_wallet_text"
-            style="@style/Aw.Typography.Small"
+            style="@style/Aw.Typography.Title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -26,11 +27,23 @@
             android:text="@string/wallet_label"
             android:textColor="@color/selector_bottom_navigation"
             app:drawableTint="@color/selector_bottom_navigation"
-            app:drawableTopCompat="@drawable/ic_tab_wallet" />
+            app:drawableTopCompat="@drawable/ic_wallet" />
+
+        <TextView
+            android:id="@+id/nav_earn_text"
+            style="@style/Aw.Typography.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/earn_label"
+            android:textColor="@color/selector_bottom_navigation"
+            app:drawableTint="@color/selector_bottom_navigation"
+            app:drawableTopCompat="@drawable/ic_btc" />
 
         <TextView
             android:id="@+id/nav_activity_text"
-            style="@style/Aw.Typography.Small"
+            style="@style/Aw.Typography.Title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -38,11 +51,11 @@
             android:text="@string/activity_label"
             android:textColor="@color/selector_bottom_navigation"
             app:drawableTint="@color/selector_bottom_navigation"
-            app:drawableTopCompat="@drawable/ic_tab_activity" />
+            app:drawableTopCompat="@drawable/ic_activity" />
 
         <TextView
             android:id="@+id/nav_browser_text"
-            style="@style/Aw.Typography.Small"
+            style="@style/Aw.Typography.Title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -63,7 +76,7 @@
 
             <TextView
                 android:id="@+id/nav_settings_text"
-                style="@style/Aw.Typography.Small"
+                style="@style/Aw.Typography.Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -71,7 +84,7 @@
                 android:text="@string/settings_label"
                 android:textColor="@color/selector_bottom_navigation"
                 app:drawableTint="@color/selector_bottom_navigation"
-                app:drawableTopCompat="@drawable/ic_tab_settings" />
+                app:drawableTopCompat="@drawable/ic_settings" />
 
             <TextView
                 android:id="@+id/settings_badge"

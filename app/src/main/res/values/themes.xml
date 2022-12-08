@@ -11,6 +11,7 @@
 
     -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+
         <!-- The primary branding color -->
         <item name="colorPrimary">@color/brand</item>
         <!-- The variation of the primary branding color -->
@@ -50,19 +51,19 @@
         <!-- The most prominent text color -->
         <item name="android:textColorPrimary">@color/text_primary</item>
         <!-- The color applied to primary text for inverted backgrounds -->
-        <item name="android:textColorPrimaryInverse">@color/text_primary_inverse</item>
+        <item name="android:textColorPrimaryInverse">@color/text_primary</item>
         <!-- The color used for subtitles, labels and other supplemental text -->
-        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:textColorSecondary">@color/surface_inverse</item>
         <!-- The color applied to secondary text for inverted backgrounds -->
         <item name="android:textColorSecondaryInverse">@color/text_secondary_inverse</item>
 
         <!-- Custom color references -->
         <!-- The color applied to headers -->
-        <item name="colorSurfaceSecondary">@color/surface_secondary</item>
+        <item name="colorSurfaceSecondary">@color/transparent</item>
         <!-- The color applied to search bars, text icon button -->
         <item name="colorSurfaceTertiary">@color/surface_tertiary</item>
         <!-- The color applied to separators -->
-        <item name="colorSurfaceQuaternary">@color/surface_quaternary</item>
+        <item name="colorSurfaceQuaternary">@color/transparent</item>
         <!-- The color applied to token icon mask -->
         <item name="colorSurfaceQuinary">@color/surface_quinary</item>
         <!-- The color applied to chart tabs -->

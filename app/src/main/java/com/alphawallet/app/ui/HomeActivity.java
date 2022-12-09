@@ -13,6 +13,7 @@ import static com.alphawallet.app.entity.WalletPage.DAPP_BROWSER;
 import static com.alphawallet.app.entity.WalletPage.EARN;
 import static com.alphawallet.app.entity.WalletPage.SETTINGS;
 import static com.alphawallet.app.entity.WalletPage.WALLET;
+import static com.alphawallet.app.entity.WalletPage.STAKES;
 import static com.alphawallet.ethereum.EthereumNetworkBase.MAINNET_ID;
 
 import android.Manifest;
@@ -582,6 +583,11 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                 showPage(EARN);
                 return true;
             }
+            case STAKES:
+            {
+                showPage(STAKES);
+                return true;
+            }
             case SETTINGS:
             {
                 showPage(SETTINGS);
@@ -644,7 +650,11 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                 }
                 selectNavigationItem(WALLET);
                 break;
-
+            case STAKES:
+                showToolbar();
+                setTitle(getString(R.string.stakes_label));
+                selectNavigationItem(STAKES);
+                break;
             case EARN:
                 showToolbar();
                 setTitle(getString(R.string.earn_label));
@@ -1208,6 +1218,8 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                 case WALLET:
                 default:
                     return new WalletFragment();
+                case STAKES:
+                    return new StakesFragment();
                 case EARN:
                     return new EarnFragment();
                 case ACTIVITY:

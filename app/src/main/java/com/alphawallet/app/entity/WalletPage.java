@@ -5,5 +5,5 @@ package com.alphawallet.app.entity;
  */
 public enum WalletPage
 {
-    WALLET, ACTIVITY, DAPP_BROWSER, SETTINGS, EARN
+    WALLET, ACTIVITY, DAPP_BROWSER, SETTINGS, EARN, STAKES
 }

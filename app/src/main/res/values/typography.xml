@@ -21,6 +21,10 @@
         <item name="android:textColor">?android:textColorPrimary</item>
     </style>
 
+    <style name="Aw.Typography.TitleSmall">
+        <item name="android:textSize">@dimen/sp18</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
     <style name="Aw.Typography.Title.SemiBold">
         <item name="fontFamily">@font/font_semibold</item>
         <item name="android:textSize">@dimen/sp20</item>

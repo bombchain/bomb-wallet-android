@@ -151,13 +151,13 @@ public class CustomViewSettings
     // allow navigation within that website
     // use this setting in conjunction with changing DEFAULT_HOMEPAGE in class EthereumNetworkBase
     public static boolean minimiseBrowserURLBar() { return false; }
+    public static boolean minimiseEarnURLBar() { return true; }
+    public static boolean minimiseStakesURLBar() { return true; }
 
-
-    public static boolean minimiseEarn2URLBar() { return true; }
 
     //public static String defaultEarnURL() {return "https://mobile-bombapp-frontend.pages.dev/mobile/positions/btc/new"; }
     public static String defaultEarnURL() {return "https://mobile-bombapp-frontend.pages.dev/mobile/positions"; }
-
+    public static String defaultStakesURL() {return "https://mobile-bombapp-frontend.pages.dev/mobile/positions/btc"; }
     //Allow showing token management view
     public static boolean showManageTokens() { return true; }
 

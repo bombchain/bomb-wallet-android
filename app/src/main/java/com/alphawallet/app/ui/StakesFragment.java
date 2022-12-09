@@ -153,7 +153,7 @@ import io.realm.RealmResults;
 import timber.log.Timber;
 
 @AndroidEntryPoint
-public class EarnFragment extends BaseFragment implements OnSignTransactionListener, OnSignPersonalMessageListener,
+public class StakesFragment extends BaseFragment implements OnSignTransactionListener, OnSignPersonalMessageListener,
         OnSignTypedMessageListener, OnSignMessageListener, OnEthCallListener, OnWalletAddEthereumChainObjectListener,
         OnWalletActionListener, URLLoadInterface, ItemClickListener, OnDappHomeNavClickListener, DappBrowserSwipeInterface,
         SignAuthenticationCallback, ActionSheetCallback, TestNetDialog.TestNetDialogCallback {
@@ -165,7 +165,7 @@ public class EarnFragment extends BaseFragment implements OnSignTransactionListe
     public static final int REQUEST_FILE_ACCESS = 31;
     public static final int REQUEST_FINE_LOCATION = 110;
     public static final int REQUEST_CAMERA_ACCESS = 111;
-    private static final String TAG = EarnFragment.class.getSimpleName();
+    private static final String TAG = StakesFragment.class.getSimpleName();
     private static final String DAPP_BROWSER = "DAPP_BROWSER";
     private static final String MY_DAPPS = "MY_DAPPS";
     private static final String DISCOVER_DAPPS = "DISCOVER_DAPPS";
@@ -321,7 +321,7 @@ public class EarnFragment extends BaseFragment implements OnSignTransactionListe
         }
         else
         {
-            loadUrl(CustomViewSettings.defaultEarnURL());
+            loadUrl(CustomViewSettings.defaultStakesURL());
             web3.setWebLoadCallback(this);
         }
 
@@ -334,7 +334,7 @@ public class EarnFragment extends BaseFragment implements OnSignTransactionListe
     {
         LocaleUtils.setActiveLocale(getContext());
         loadOnInit = null;
-        int webViewID = CustomViewSettings.minimiseEarnURLBar() ? R.layout.fragment_earn_compact : R.layout.fragment_earn;
+        int webViewID = CustomViewSettings.minimiseStakesURLBar() ? R.layout.fragment_stakes_compact : R.layout.fragment_stakes;
         View view = inflater.inflate(webViewID, container, false);
         initViewModel();
         initView(view);
@@ -347,7 +347,7 @@ public class EarnFragment extends BaseFragment implements OnSignTransactionListe
         {
             loadOnInit = getArguments().getString("url");
         }
-        loadOnInit = CustomViewSettings.defaultEarnURL();
+        loadOnInit = CustomViewSettings.defaultStakesURL();
         return view;
     }
 

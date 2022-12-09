@@ -14,12 +14,12 @@
     <color name="surface_quinary">@color/transparent</color>
     <color name="surface_inverse">@color/white</color>
     <color name="surface_dark">@color/white</color>
-    <color name="background_floating">@color/mine</color>
+    <color name="background_floating">@color/black</color>
     <color name="control">@color/white</color>
     <color name="control_activated">@color/accent</color>
     <color name="control_highlight">@color/accent</color>
     <color name="text_primary">@color/white</color>
-    <color name="text_primary_inverse">@color/white</color>
+    <color name="text_primary_inverse">@color/black</color>
     <color name="text_secondary">@color/white</color>
     <color name="text_secondary_inverse">@color/black</color>
     <color name="surface_translucent">@color/translucent_dark</color>

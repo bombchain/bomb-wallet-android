@@ -19,7 +19,7 @@
 
         <TextView
             android:id="@+id/nav_wallet_text"
-            style="@style/Aw.Typography.Title"
+            style="@style/Aw.Typography.TitleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -30,8 +30,21 @@
             app:drawableTopCompat="@drawable/ic_wallet" />
 
         <TextView
+            android:id="@+id/nav_stakes_text"
+            style="@style/Aw.Typography.TitleSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/stakes_label"
+            android:layout_marginVertical="10px"
+            android:textColor="@color/selector_bottom_navigation"
+            app:drawableTint="@color/selector_bottom_navigation"
+            app:drawableTopCompat="@drawable/ic_safe" />
+
+        <TextView
             android:id="@+id/nav_earn_text"
-            style="@style/Aw.Typography.Title"
+            style="@style/Aw.Typography.TitleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -43,7 +56,7 @@
 
         <TextView
             android:id="@+id/nav_activity_text"
-            style="@style/Aw.Typography.Title"
+            style="@style/Aw.Typography.TitleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -55,32 +68,30 @@
 
         <TextView
             android:id="@+id/nav_browser_text"
-            style="@style/Aw.Typography.Title"
+            style="@style/Aw.Typography.TitleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/browser_label"
+            android:text="@string/buy_label"
             android:textColor="@color/selector_bottom_navigation"
             app:drawableTint="@color/selector_bottom_navigation"
-            app:drawableTopCompat="@drawable/ic_tab_browser" />
+            app:drawableTopCompat="@drawable/ic_pay_card" />
 
         <RelativeLayout
             android:id="@+id/settings_tab"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
             android:layout_weight="1"
+            android:paddingTop="10px"
             android:gravity="center"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/nav_settings_text"
-                style="@style/Aw.Typography.Title"
+                style="@style/Aw.Typography.TitleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:gravity="center"
                 android:text="@string/settings_label"
                 android:textColor="@color/selector_bottom_navigation"
                 app:drawableTint="@color/selector_bottom_navigation"

@@ -85,10 +85,10 @@ android {
         }
     }
     defaultConfig {
-        versionCode 218
-        versionName "3.60.3"
+        versionCode 60
+        versionName "0.53.0"
 
-        applicationId "io.stormbird.wallet"
+        applicationId "com.bombmoney.wallet"
         minSdkVersion 24
 
         targetSdkVersion 32
@@ -171,7 +171,7 @@ android {
                 signingConfig signingConfigs.release
             }
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            }
+        }
     }
     packagingOptions {
         exclude 'META-INF/NOTICE' // will not include NOTICE file

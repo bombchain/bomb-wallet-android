@@ -50,7 +50,7 @@ import com.alphawallet.app.service.RealmManager;
 import com.alphawallet.app.service.TokensService;
 import com.alphawallet.app.ui.HomeActivity;
 import com.alphawallet.app.ui.NameThisWalletActivity;
-import com.alphawallet.app.ui.QRScanning.QRScanner;
+import com.alphawallet.app.ui.QRScanning.QRScannerActivity;
 import com.alphawallet.app.ui.TokenFunctionActivity;
 import com.alphawallet.app.widget.BuyEthOptionsView;
 import com.alphawallet.app.ui.QRScanning.QRScannerActivity;

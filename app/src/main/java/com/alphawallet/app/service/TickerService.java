@@ -17,7 +17,7 @@ import static com.alphawallet.ethereum.EthereumNetworkBase.MAINNET_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.MILKOMEDA_C1_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.OPTIMISTIC_MAIN_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.POA_ID;
-import static com.alphawallet.ethereum.EthereumNetworkBase.RINKEBY_ID;
+//import static com.alphawallet.ethereum.EthereumNetworkBase.RINKEBY_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.GNOSIS_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.BOMB_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.POLYGON_ID;

@@ -66,7 +66,10 @@ public class OpenSeaService
                 .addHeader("Content-Type", "application/json");
 
         String apiKey = KeyProviderFactory.get().getOpenSeaKey();
-        if (networkId != EthereumNetworkBase.RINKEBY_ID && !TextUtils.isEmpty(apiKey) && !apiKey.equals("..."))
+        if (!TextUtils.isEmpty(apiKey)
+                && !apiKey.equals("...")
+                // && networkId != EthereumNetworkBase.RINKEBY_ID
+        )
         {
             requestB.addHeader("X-API-KEY", apiKey);
         }
@@ -334,8 +337,16 @@ public class OpenSeaService
 
     public Single<String> getAsset(Token token, BigInteger tokenId)
     {
-        return Single.fromCallable(() ->
-                fetchAsset(token.tokenInfo.chainId, token.tokenInfo.address, tokenId.toString()));
+        if (!com.alphawallet.app.repository.EthereumNetworkBase.hasOpenseaAPI(token.tokenInfo.chainId))
+        {
+            return Single.fromCallable(() -> "");
+        }
+        else
+        {
+            return Single.fromCallable(() ->
+                    fetchAsset(token.tokenInfo.chainId, token.tokenInfo.address, tokenId.toString()));
+        }
+
     }
 
     public Single<String> getCollection(Token token, String slug)
@@ -352,10 +363,10 @@ public class OpenSeaService
         {
             api = C.OPENSEA_ASSETS_API_MAINNET;
         }
-        else if (networkId == EthereumNetworkBase.RINKEBY_ID)
-        {
-            api = C.OPENSEA_ASSETS_API_RINKEBY;
-        }
+//        else if (networkId == EthereumNetworkBase.RINKEBY_ID)
+//        {
+//            api = C.OPENSEA_ASSETS_API_RINKEBY;
+//        }
         else if (networkId == EthereumNetworkBase.POLYGON_ID)
         {
             api = C.OPENSEA_ASSETS_API_MATIC;
@@ -378,10 +389,10 @@ public class OpenSeaService
         {
             api = C.OPENSEA_SINGLE_ASSET_API_MAINNET + contractAddress + "/" + tokenId;
         }
-        else if (networkId == EthereumNetworkBase.RINKEBY_ID)
-        {
-            api = C.OPENSEA_SINGLE_ASSET_API_RINKEBY + contractAddress + "/" + tokenId;
-        }
+//        else if (networkId == EthereumNetworkBase.RINKEBY_ID)
+//        {
+//            api = C.OPENSEA_SINGLE_ASSET_API_RINKEBY + contractAddress + "/" + tokenId;
+//        }
         else if (networkId == EthereumNetworkBase.POLYGON_ID)
         {
             api = C.OPENSEA_SINGLE_ASSET_API_MATIC + contractAddress + "/" + tokenId;

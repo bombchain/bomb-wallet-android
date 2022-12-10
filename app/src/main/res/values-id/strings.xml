@@ -417,6 +417,7 @@
     <string name="search_or_type_web_address">Cari atau ketik alamat situs jaringan</string>
     <string name="network">Jaringan</string>
     <string name="select_active_networks">Pilih Jaringan Aktif</string>
+    <string name="title_enabled_networks">Jaringan yang Diaktifkan (%s)</string>
     <string name="collectibles">Barang Koleksi</string>
     <string name="token_function">Fungsi Token</string>
     <string name="channel_description">Saluran pemberitahuan Alphawallet</string>
@@ -928,4 +929,25 @@
     <string name="help_question7">Kebijakan pribadi</string>
     <string name="help_question8">Ketentuan Layanan</string>
     <string name="connected_wallets">Dompet yang terhubung</string>
+    <string name="asset_rarity">Keanehan</string>
+    <string name="preferred_exchanges">Pertukaran Pilihan</string>
+    <string name="info_gas_fee">Pertukaran Pilihan: %s</string>
+    <string name="message_fetching_routes">Mengambil Rute</string>
+    <string name="title_select_route">Pilih Rute</string>
+    <string name="title_select_exchanges">Pilih Pertukaran</string>
+    <string name="label_available_routes">Rute Baru di %s</string>
+    <string name="label_amount_to_swap">Jumlah Untuk Tukar</string>
+    <string name="label_provider_website">Provider Website</string>
+    <string name="header_quote_details">Detail Kutipan</string>
+    <string name="label_swap_via">Tukar melalui %s</string>
+    <string name="message_no_routes_found_for_the_given_parameters">Tidak ada rute yang ditemukan untuk parameter yang diberikan.</string>
+    <string name="message_select_one_exchange">Pilih setidaknya satu bursa.</string>
+    <string name="deprecated">Tidak digunakan lagi</string>
+    <string name="error_message_watch_only_wallet">Tidak dapat melakukan tindakan pada dompet khusus jam tangan ini.</string>
+    <string name="toast_wait_to_scan_chains">Pemindaian sedang berlangsung: Harap tunggu hingga selesai</string>
+    <string name="unselected_token">Aktifkan rantai untuk token yang dipilih?</string>
+    <string name="no_title">(Tanpa judul)</string>
+    <string name="title_session_details">Detail Sesi</string>
+    <string name="title_session_proposal">Proposal Sesi</string>
+    <string name="message_wc_wallet_different_from_active_wallet">Dompet berbeda dengan dompet aktif.</string>
 </resources>

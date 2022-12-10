@@ -8,12 +8,8 @@ import static com.alphawallet.ethereum.EthereumNetworkBase.ARTIS_TAU1_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.BOMB_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.CLASSIC_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.GOERLI_ID;
-import static com.alphawallet.ethereum.EthereumNetworkBase.KOVAN_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.MAINNET_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.POA_ID;
-import static com.alphawallet.ethereum.EthereumNetworkBase.RINKEBY_ID;
-import static com.alphawallet.ethereum.EthereumNetworkBase.ROPSTEN_ID;
-import static com.alphawallet.ethereum.EthereumNetworkBase.SOKOL_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.GNOSIS_ID;
 
 /**
@@ -39,16 +35,13 @@ public class MagicLinkInfo
     private static final String artisTau1MagicLinkDomain = "artistau1.bomb.app";
     private static final String customMagicLinkDomain = "custom.bomb.app";
 
+
     //Etherscan domains
     private static final String bombEtherscan = "https://bombscan.com/";
     private static final String mainNetEtherscan = "https://cn.etherscan.com/";
     private static final String classicEtherscan = "https://blockscout.com/etc/mainnet/";
     private static final String callistoEtherscan = "https://etherscan.io/"; //TODO: determine callisto etherscan
-    private static final String kovanEtherscan = "https://kovan.etherscan.io/";
-    private static final String ropstenEtherscan = "https://ropsten.etherscan.io/";
-    private static final String rinkebyEtherscan = "https://rinkeby.etherscan.io/";
     private static final String poaEtherscan = "https://blockscout.com/poa/core/";
-    private static final String sokolEtherscan = "https://blockscout.com/poa/sokol/";
     private static final String xDaiEtherscan = "https://blockscout.com/poa/dai/";
     private static final String goerliEtherscan = "https://goerli.etherscan.io/";
     private static final String artisSigma1Etherscan = "https://explorer.sigma1.artis.network/";
@@ -75,16 +68,8 @@ public class MagicLinkInfo
                 return bombMagicLinkDomain;
             case (int)MAINNET_ID:
                 return mainnetMagicLinkDomain;
-            case (int)KOVAN_ID:
-                return kovanMagicLinkDomain;
-            case (int)ROPSTEN_ID:
-                return ropstenMagicLinkDomain;
-            case (int)RINKEBY_ID:
-                return rinkebyMagicLinkDomain;
             case (int)POA_ID:
                 return poaMagicLinkDomain;
-            case (int)SOKOL_ID:
-                return sokolMagicLinkDomain;
             case (int)CLASSIC_ID:
                 return classicMagicLinkDomain;
             case (int) GNOSIS_ID:
@@ -111,16 +96,8 @@ public class MagicLinkInfo
                 return MAINNET_ID;
             case classicMagicLinkDomain:
                 return CLASSIC_ID;
-            case kovanMagicLinkDomain:
-                return KOVAN_ID;
-            case ropstenMagicLinkDomain:
-                return ROPSTEN_ID;
-            case rinkebyMagicLinkDomain:
-                return RINKEBY_ID;
             case poaMagicLinkDomain:
                 return POA_ID;
-            case sokolMagicLinkDomain:
-                return SOKOL_ID;
             case xDaiMagicLinkDomain:
                 return GNOSIS_ID;
             case goerliMagicLinkDomain:
@@ -140,16 +117,8 @@ public class MagicLinkInfo
                 return bombEtherscan;
             case (int)MAINNET_ID:
                 return mainNetEtherscan;
-            case (int)KOVAN_ID:
-                return kovanEtherscan;
-            case (int)ROPSTEN_ID:
-                return ropstenEtherscan;
-            case (int)RINKEBY_ID:
-                return rinkebyEtherscan;
             case (int)POA_ID:
                 return poaEtherscan;
-            case (int)SOKOL_ID:
-                return sokolEtherscan;
             case (int)CLASSIC_ID:
                 return classicEtherscan;
             case (int) GNOSIS_ID:

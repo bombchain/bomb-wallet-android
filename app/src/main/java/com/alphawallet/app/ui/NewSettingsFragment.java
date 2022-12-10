@@ -36,6 +36,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.alphawallet.app.BuildConfig;
 import com.alphawallet.app.C;
 import com.alphawallet.app.R;
+import com.alphawallet.app.analytics.Analytics;
 import com.alphawallet.app.entity.BackupOperationType;
 import com.alphawallet.app.entity.CustomViewSettings;
 import com.alphawallet.app.entity.Wallet;
@@ -43,6 +44,7 @@ import com.alphawallet.app.entity.WalletType;
 import com.alphawallet.app.interact.GenericWalletInteract;
 import com.alphawallet.app.util.LocaleUtils;
 import com.alphawallet.app.util.UpdateUtils;
+import com.alphawallet.app.util.Utils;
 import com.alphawallet.app.viewmodel.NewSettingsViewModel;
 import com.alphawallet.app.widget.NotificationView;
 import com.alphawallet.app.widget.SettingsItemView;
@@ -57,60 +59,6 @@ import io.reactivex.schedulers.Schedulers;
 @AndroidEntryPoint
 public class NewSettingsFragment extends BaseFragment
 {
-    ActivityResultLauncher<Intent> handleBackupClick = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-            result ->
-            {
-                String keyBackup = "";
-                boolean noLockScreen = false;
-                Intent data = result.getData();
-                if (data != null) keyBackup = data.getStringExtra("Key");
-                if (data != null) noLockScreen = data.getBooleanExtra("nolock", false);
-
-                Bundle b = new Bundle();
-                b.putBoolean(C.HANDLE_BACKUP, result.getResultCode() == RESULT_OK);
-                b.putString("Key", keyBackup);
-                b.putBoolean("nolock", noLockScreen);
-                getParentFragmentManager().setFragmentResult(C.HANDLE_BACKUP, b);
-            });
-
-    ActivityResultLauncher<Intent> networkSettingsHandler = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-            result ->
-            {
-                //send instruction to restart tokenService
-                getParentFragmentManager().setFragmentResult(RESET_TOKEN_SERVICE, new Bundle());
-            });
-
-    ActivityResultLauncher<Intent> advancedSettingsHandler = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-            result ->
-            {
-                Intent data = result.getData();
-                if (data == null) return;
-                if (data.getBooleanExtra(RESET_WALLET, false))
-                {
-                    getParentFragmentManager().setFragmentResult(RESET_WALLET, new Bundle());
-                }
-                else if (data.getBooleanExtra(CHANGE_CURRENCY, false))
-                {
-                    getParentFragmentManager().setFragmentResult(CHANGE_CURRENCY, new Bundle());
-                }
-                else if (data.getBooleanExtra(CHANGED_LOCALE, false))
-                {
-                    getParentFragmentManager().setFragmentResult(CHANGED_LOCALE, new Bundle());
-                }
-            });
-
-    ActivityResultLauncher<Intent> updateLocale = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-            result ->
-            {
-                updateLocale(result.getData());
-            });
-
-    ActivityResultLauncher<Intent> updateCurrency = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-            result ->
-            {
-                updateCurrency(result.getData());
-            });
-
     private NewSettingsViewModel viewModel;
     private LinearLayout walletSettingsLayout;
     private LinearLayout systemSettingsLayout;
@@ -138,15 +86,16 @@ public class NewSettingsFragment extends BaseFragment
     private MaterialCardView updateLayout;
     private int pendingUpdate = 0;
     private Wallet wallet;
+    private ActivityResultLauncher<Intent> handleBackupClick;
+    private ActivityResultLauncher<Intent> networkSettingsHandler;
+    private ActivityResultLauncher<Intent> advancedSettingsHandler;
+    private ActivityResultLauncher<Intent> updateLocale;
+    private ActivityResultLauncher<Intent> updateCurrency;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
-        viewModel = new ViewModelProvider(this)
-                .get(NewSettingsViewModel.class);
-        viewModel.defaultWallet().observe(getViewLifecycleOwner(), this::onDefaultWallet);
-        viewModel.backUpMessage().observe(getViewLifecycleOwner(), this::backupWarning);
         LocaleUtils.setActiveLocale(getContext());
 
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
@@ -154,6 +103,8 @@ public class NewSettingsFragment extends BaseFragment
         toolbar(view);
 
         setToolbarTitle(R.string.toolbar_header_settings);
+
+        initViewModel();
 
         initializeSettings(view);
 
@@ -167,9 +118,74 @@ public class NewSettingsFragment extends BaseFragment
 
         checkPendingUpdate(view);
 
+        initResultLaunchers();
+
         getParentFragmentManager().setFragmentResult(SETTINGS_INSTANTIATED, new Bundle());
 
         return view;
+    }
+
+    private void initResultLaunchers()
+    {
+        handleBackupClick = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                result ->
+                {
+                    String keyBackup = "";
+                    boolean noLockScreen = false;
+                    Intent data = result.getData();
+                    if (data != null) keyBackup = data.getStringExtra("Key");
+                    if (data != null) noLockScreen = data.getBooleanExtra("nolock", false);
+
+                    Bundle b = new Bundle();
+                    b.putBoolean(C.HANDLE_BACKUP, result.getResultCode() == RESULT_OK);
+                    b.putString("Key", keyBackup);
+                    b.putBoolean("nolock", noLockScreen);
+                    getParentFragmentManager().setFragmentResult(C.HANDLE_BACKUP, b);
+                });
+
+        networkSettingsHandler = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                result ->
+                {
+                    //send instruction to restart tokenService
+                    getParentFragmentManager().setFragmentResult(RESET_TOKEN_SERVICE, new Bundle());
+                });
+
+        advancedSettingsHandler = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                result ->
+                {
+                    Intent data = result.getData();
+                    if (data == null) return;
+                    if (data.getBooleanExtra(RESET_WALLET, false))
+                    {
+                        getParentFragmentManager().setFragmentResult(RESET_WALLET, new Bundle());
+                    }
+                    else if (data.getBooleanExtra(CHANGE_CURRENCY, false))
+                    {
+                        getParentFragmentManager().setFragmentResult(CHANGE_CURRENCY, new Bundle());
+                    }
+                    else if (data.getBooleanExtra(CHANGED_LOCALE, false))
+                    {
+                        getParentFragmentManager().setFragmentResult(CHANGED_LOCALE, new Bundle());
+                    }
+                });
+        updateLocale = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                result ->
+                {
+                    updateLocale(result.getData());
+                });
+        updateCurrency = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                result ->
+                {
+                    updateCurrency(result.getData());
+                });
+    }
+
+    private void initViewModel()
+    {
+        viewModel = new ViewModelProvider(this)
+                .get(NewSettingsViewModel.class);
+        viewModel.defaultWallet().observe(getViewLifecycleOwner(), this::onDefaultWallet);
+        viewModel.backUpMessage().observe(getViewLifecycleOwner(), this::backupWarning);
     }
 
     private void initNotificationView(View view)
@@ -412,14 +428,10 @@ public class NewSettingsFragment extends BaseFragment
         this.wallet = wallet;
         if (wallet.address != null)
         {
-            if (!wallet.ENSname.isEmpty())
-            {
-                changeWalletSetting.setSubtitle(wallet.ENSname + " | " + wallet.address);
-            }
-            else
-            {
-                changeWalletSetting.setSubtitle(wallet.address);
-            }
+            String walletAddressDisplay = wallet.ENSname.isEmpty() ? wallet.address
+                    : wallet.ENSname + " | " + Utils.formatAddress(wallet.address);
+
+            changeWalletSetting.setSubtitle(walletAddressDisplay);
         }
 
         switch (wallet.authLevel)
@@ -480,6 +492,7 @@ public class NewSettingsFragment extends BaseFragment
         }
         else
         {
+            viewModel.track(Analytics.Navigation.SETTINGS);
             viewModel.prepare();
         }
     }
@@ -614,7 +627,6 @@ public class NewSettingsFragment extends BaseFragment
     private void onWalletConnectSettingClicked()
     {
         Intent intent = new Intent(getActivity(), WalletConnectSessionActivity.class);
-        intent.putExtra("wallet", wallet);
         startActivity(intent);
     }
 

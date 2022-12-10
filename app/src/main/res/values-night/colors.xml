@@ -22,6 +22,8 @@
     <color name="text_primary_inverse">@color/black</color>
     <color name="text_secondary">@color/white</color>
     <color name="text_secondary_inverse">@color/black</color>
+
+    <color name="active_session_card_background">@color/mine</color>
     <color name="surface_translucent">@color/translucent_dark</color>
     <!-- Required for placing behind icons in dark mode, transparent in light mode as background is light -->
     <color name="dark_mode_icon_background_compensate">@color/mercury</color>

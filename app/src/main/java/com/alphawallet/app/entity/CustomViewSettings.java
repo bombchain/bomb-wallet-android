@@ -48,7 +48,9 @@ public class CustomViewSettings
             //EthereumNetworkBase.MAINNET_ID //EG only show Main, xdai, classic and two testnets. Don't allow user to select any others
             //EthereumNetworkBase.BINANCE_MAIN_ID
             //EthereumNetworkBase.RINKEBY_ID, //You can mix testnets and mainnets, but probably shouldn't as it may result in people getting scammed
-            //EthereumNetworkBase.GOERLI_ID
+            //EthereumNetworkBase.XDAI_ID,
+            //EthereumNetworkBase.GOERLI_ID //You can mix testnets and mainnets, but probably shouldn't as it may result in people getting scammed
+
     );
 
     public static final List<Long> alwaysVisibleChains = Arrays.asList(

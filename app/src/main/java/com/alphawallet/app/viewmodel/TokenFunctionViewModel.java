@@ -13,8 +13,8 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.alphawallet.app.C;
 import com.alphawallet.app.R;
+import com.alphawallet.app.analytics.Analytics;
 import com.alphawallet.app.entity.AnalyticsProperties;
-import com.alphawallet.app.entity.DAppFunction;
 import com.alphawallet.app.entity.Operation;
 import com.alphawallet.app.entity.SignAuthenticationCallback;
 import com.alphawallet.app.entity.Transaction;
@@ -54,7 +54,6 @@ import com.alphawallet.token.entity.ContractAddress;
 import com.alphawallet.token.entity.FunctionDefinition;
 import com.alphawallet.token.entity.MethodArg;
 import com.alphawallet.token.entity.SigReturnType;
-import com.alphawallet.token.entity.Signable;
 import com.alphawallet.token.entity.TSAction;
 import com.alphawallet.token.entity.TicketRange;
 import com.alphawallet.token.entity.TokenScriptResult;
@@ -90,7 +89,8 @@ import timber.log.Timber;
  * Stormbird in Singapore
  */
 @HiltViewModel
-public class TokenFunctionViewModel extends BaseViewModel {
+public class TokenFunctionViewModel extends BaseViewModel
+{
     private final AssetDefinitionService assetDefinitionService;
     private final CreateTransactionInteract createTransactionInteract;
     private final GasService gasService;
@@ -100,7 +100,6 @@ public class TokenFunctionViewModel extends BaseViewModel {
     private final GenericWalletInteract genericWalletInteract;
     private final OpenSeaService openseaService;
     private final FetchTransactionsInteract fetchTransactionsInteract;
-    private final AnalyticsServiceType analyticsService;
     private final MutableLiveData<Token> insufficientFunds = new MutableLiveData<>();
     private final MutableLiveData<String> invalidAddress = new MutableLiveData<>();
     private final MutableLiveData<XMLDsigDescriptor> sig = new MutableLiveData<>();
@@ -151,7 +150,7 @@ public class TokenFunctionViewModel extends BaseViewModel {
         this.genericWalletInteract = genericWalletInteract;
         this.openseaService = openseaService;
         this.fetchTransactionsInteract = fetchTransactionsInteract;
-        this.analyticsService = analyticsService;
+        setAnalyticsService(analyticsService);
     }
 
     public AssetDefinitionService getAssetDefinitionService()
@@ -184,7 +183,10 @@ public class TokenFunctionViewModel extends BaseViewModel {
         return newScriptFound;
     }
 
-    public LiveData<Boolean> scriptUpdateInProgress() { return scriptUpdateInProgress; }
+    public LiveData<Boolean> scriptUpdateInProgress()
+    {
+        return scriptUpdateInProgress;
+    }
 
     public MutableLiveData<TransactionData> transactionFinalised()
     {
@@ -292,15 +294,6 @@ public class TokenFunctionViewModel extends BaseViewModel {
         failSig.type = SigReturnType.NO_TOKENSCRIPT;
         failSig.subject = throwable.getMessage();
         sig.postValue(failSig);
-    }
-
-    public void signMessage(Signable message, DAppFunction dAppFunction, long chainId)
-    {
-        disposable = createTransactionInteract.sign(wallet, message, chainId)
-                .subscribeOn(Schedulers.computation())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(sig -> dAppFunction.DAppReturn(sig.signature, message),
-                        error -> dAppFunction.DAppError(error, message));
     }
 
     public String getTransactionBytes(Token token, BigInteger tokenId, FunctionDefinition def)
@@ -709,10 +702,9 @@ public class TokenFunctionViewModel extends BaseViewModel {
 
     public void actionSheetConfirm(String mode)
     {
-        AnalyticsProperties analyticsProperties = new AnalyticsProperties();
-        analyticsProperties.setData(mode);
-
-        analyticsService.track(C.AN_CALL_ACTIONSHEET, analyticsProperties);
+        AnalyticsProperties props = new AnalyticsProperties();
+        props.put(Analytics.PROPS_ACTION_SHEET_MODE, mode);
+        track(Analytics.Action.ACTION_SHEET_COMPLETED, props);
     }
 
     public Single<Intent> showTransferSelectCount(Context ctx, Token token, BigInteger tokenId)
@@ -870,7 +862,7 @@ public class TokenFunctionViewModel extends BaseViewModel {
                     }
                     else
                     {
-                        storeAsset(token, tokenId, new NFTAsset(result), oldAsset);
+                        storeAsset(token, tokenId, asset, oldAsset);
                         asset.attachOpenSeaAssetData(osAsset);
                         nftAsset.postValue(asset);
                     }
@@ -891,5 +883,10 @@ public class TokenFunctionViewModel extends BaseViewModel {
         {
             getTokenMetadata(token, tokenId, oldAsset);
         }
+    }
+
+    public String getBrowserRPC(long chainId)
+    {
+        return ethereumNetworkRepository.getDappBrowserRPC(chainId);
     }
 }

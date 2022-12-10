@@ -100,6 +100,7 @@ public class NFTAsset implements Parcelable
         attributeMap.clear();
         balance = BigDecimal.ONE;
         assetMap.put(NAME, "ID #" + tokenId.toString());
+        assetMap.put(LOADING_TOKEN, ".");
     }
 
     public NFTAsset(NFTAsset asset)
@@ -170,10 +171,9 @@ public class NFTAsset implements Parcelable
         return assetMap.get(NAME);
     }
 
-    public boolean isAnimation()
+    public String getAnimation()
     {
-        String anim = assetMap.get(IMAGE_ANIMATION);
-        return anim != null;
+        return assetMap.get(IMAGE_ANIMATION);
     }
 
     public String getImage()
@@ -381,6 +381,11 @@ public class NFTAsset implements Parcelable
     public boolean needsLoading()
     {
         return (assetMap.size() == 0 || assetMap.containsKey(LOADING_TOKEN));
+    }
+
+    public boolean hasImageAsset()
+    {
+        return !TextUtils.isEmpty(getThumbnail());
     }
 
     public boolean requiresReplacement()

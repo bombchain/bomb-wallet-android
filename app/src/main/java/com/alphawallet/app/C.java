@@ -25,10 +25,6 @@ public abstract class C {
     public static final String CLASSIC_NETWORK_NAME = "Ethereum Classic";
     public static final String POA_NETWORK_NAME = "POA";
     public static final String XDAI_NETWORK_NAME = "Gnosis";
-    public static final String KOVAN_NETWORK_NAME = "Kovan (Test)";
-    public static final String ROPSTEN_NETWORK_NAME = "Ropsten (Test)";
-    public static final String SOKOL_NETWORK_NAME = "Sokol (Test)";
-    public static final String RINKEBY_NETWORK_NAME = "Rinkeby (Test)";
     public static final String GOERLI_NETWORK_NAME = "Görli (Test)";
     public static final String ARTIS_SIGMA1_NETWORK = "ARTIS sigma1";
     public static final String ARTIS_TAU1_NETWORK = "ARTIS tau1 (Test)";
@@ -43,10 +39,8 @@ public abstract class C {
     public static final String POLYGON_NETWORK = "Polygon";
     public static final String POLYGON_TEST_NETWORK = "Mumbai (Test)";
     public static final String OPTIMISTIC_NETWORK = "Optimistic";
-    public static final String OPTIMISTIC_TEST_NETWORK = "Optimistic (Test)";
     public static final String CRONOS_MAIN_NETWORK = "Cronos";
     public static final String CRONOS_TEST_NETWORK = "Cronos (Test)";
-    public static final String ARBITRUM_TEST_NETWORK = "Arbitrum (Test)";
     public static final String ARBITRUM_ONE_NETWORK = "Arbitrum One";
     public static final String PALM_NAME = "PALM";
     public static final String PALM_TEST_NAME = "PALM (Test)";
@@ -58,7 +52,9 @@ public abstract class C {
     public static final String AURORA_TESTNET_NAME = "Aurora (Test)";
     public static final String MILKOMEDA_NAME = "Milkomeda Cardano";
     public static final String MILKOMEDA_TESTNET_NAME = "Milkomeda Cardano (Test)";
-    public static final String PHI_NETWORK_NAME = "PHI";
+    public static final String SEPOLIA_TESTNET_NAME = "Sepolia (Test)";
+    public static final String OPTIMISM_GOERLI_TESTNET_NAME = "Optimism Goerli (Test)";
+    public static final String ARBITRUM_GOERLI_TESTNET_NAME = "Arbitrum Goerli (Test)";
 
     public static final String ETHEREUM_TICKER_NAME = "ethereum";
     public static final String CLASSIC_TICKER_NAME = "ethereum-classic";
@@ -87,13 +83,14 @@ public abstract class C {
     public static final String CRONOS_SYMBOL = "CRO";
     public static final String CRONOS_TEST_SYMBOL = "tCRO";
     public static final String ARBITRUM_SYMBOL = "AETH";
-    public static final String ARBITRUM_TEST_SYMBOL = "ARETH";
     public static final String PALM_SYMBOL = "PALM";
     public static final String KLAYTN_SYMBOL = "KLAY";
     public static final String IOTEX_SYMBOL = "IOTX";
     public static final String MILKOMEDA_SYMBOL = "milkADA";
     public static final String MILKOMEDA_TEST_SYMBOL = "milktADA";
-    public static final String PHI_NETWORK_SYMBOL = "\u03d5";
+    public static final String SEPOLIA_SYMBOL = "ETH";
+    public static final String OPTIMISM_GOERLI_TEST_SYMBOL = "ETH";
+    public static final String ARBITRUM_GOERLI_TEST_SYMBOL = "AGOR";
 
     public static final String BURN_ADDRESS = "0x0000000000000000000000000000000000000000";
 
@@ -309,6 +306,9 @@ public abstract class C {
     public static final String APP_NAME = "BOMB";
 
     public static final String ALPHAWALLET_LOGO_URI = "https://github.com/bombmoney/bomb-assets/blob/master/bomb-logo.png";
+    public static final String ALPHAWALLET_WEBSITE = "https://bombmoney.com";
+    public static final String WALLET_CONNECT_REACT_APP_RELAY_URL = "wss://bombchain-testnet.ankr.com/bas_full_ws_1";
+    public static final String ALPHA_WALLET_LOGO_URL = "https://github.com/bombmoney/bomb-assets/blob/master/bomb-logo.png";
 
     // Theme/Dark Mode
     public static final int THEME_LIGHT = 0;
@@ -323,13 +323,6 @@ public abstract class C {
     public static final String OPENSEA_SINGLE_ASSET_API_MAINNET = "https://api.opensea.io/api/v1/asset/";
     public static final String OPENSEA_SINGLE_ASSET_API_RINKEBY = "https://testnets-api.opensea.io/api/v1/asset/";
     public static final String OPENSEA_SINGLE_ASSET_API_MATIC = "https://api.opensea.io/api/v2/metadata/matic/";
-
-    // Progress Info
-    public interface ProgressInfo {
-        int FETCHING_CHAINS = 1;
-        int FETCHING_CONNECTIONS = 2;
-        int FETCHING_QUOTE = 3;
-    }
 
     //Timing
     public static long CONNECT_TIMEOUT = 10; //Seconds

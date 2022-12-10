@@ -3,12 +3,14 @@ package com.alphawallet.app.util;
 import static com.alphawallet.ethereum.EthereumNetworkBase.AVALANCHE_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.BINANCE_MAIN_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.CLASSIC_ID;
+import static com.alphawallet.ethereum.EthereumNetworkBase.GNOSIS_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.MAINNET_ID;
-import static com.alphawallet.ethereum.EthereumNetworkBase.POLYGON_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.OPTIMISTIC_MAIN_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.POA_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.GNOSIS_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.BOMB_ID;
+import static com.alphawallet.ethereum.EthereumNetworkBase.POLYGON_ID;
+
 
 import android.app.Activity;
 import android.content.Context;
@@ -21,7 +23,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.text.style.StyleSpan;
-import android.util.Patterns;
 import android.util.TypedValue;
 import android.webkit.URLUtil;
 
@@ -32,6 +33,7 @@ import androidx.fragment.app.FragmentActivity;
 import com.alphawallet.app.C;
 import com.alphawallet.app.R;
 import com.alphawallet.app.entity.tokens.Token;
+import com.alphawallet.app.util.pattern.Patterns;
 import com.alphawallet.app.web3j.StructuredDataEncoder;
 import com.alphawallet.token.entity.ProviderTypedData;
 import com.alphawallet.token.entity.Signable;
@@ -69,18 +71,19 @@ import java.util.regex.Pattern;
 
 import timber.log.Timber;
 
-public class Utils {
-
+public class Utils
+{
     private static final String ISOLATE_NUMERIC = "(0?x?[0-9a-fA-F]+)";
     private static final String ICON_REPO_ADDRESS_TOKEN = "[TOKEN]";
     private static final String CHAIN_REPO_ADDRESS_TOKEN = "[CHAIN]";
     private static final String TOKEN_LOGO = "/logo.png";
-    public  static final String ALPHAWALLET_REPO_NAME = "https://raw.githubusercontent.com/pegswap/iconassets/main/blockchains/";
+    public static final String ALPHAWALLET_REPO_NAME = "https://raw.githubusercontent.com/pegswap/iconassets/main/blockchains/";
     private static final String TRUST_ICON_REPO_BASE = "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/";
     private static final String TRUST_ICON_REPO = TRUST_ICON_REPO_BASE + CHAIN_REPO_ADDRESS_TOKEN + "/assets/" + ICON_REPO_ADDRESS_TOKEN + TOKEN_LOGO;
     private static final String ALPHAWALLET_ICON_REPO = ALPHAWALLET_REPO_NAME + CHAIN_REPO_ADDRESS_TOKEN + "/" + ICON_REPO_ADDRESS_TOKEN + TOKEN_LOGO;
 
-    public static int dp2px(Context context, int dp) {
+    public static int dp2px(Context context, int dp)
+    {
         Resources r = context.getResources();
         return (int) TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP,
@@ -89,22 +92,31 @@ public class Utils {
         );
     }
 
-    public static String formatUrl(String url) {
-        if (URLUtil.isHttpsUrl(url) || URLUtil.isHttpUrl(url)) {
+    public static String formatUrl(String url)
+    {
+        if (URLUtil.isHttpsUrl(url) || URLUtil.isHttpUrl(url))
+        {
             return url;
-        } else {
-            if (isValidUrl(url)) {
+        }
+        else
+        {
+            if (isValidUrl(url))
+            {
                 return C.HTTPS_PREFIX + url;
-            } else {
+            }
+            else
+            {
                 return C.INTERNET_SEARCH_PREFIX + url;
             }
         }
     }
 
-    public static boolean isValidUrl(String url) {
+    public static boolean isValidUrl(String url)
+    {
+        if (TextUtils.isEmpty(url)) return false;
         Pattern p = Patterns.WEB_URL;
         Matcher m = p.matcher(url.toLowerCase());
-        return m.matches();
+        return m.matches() || isIPFS(url);
     }
 
     public static boolean isAlNum(String testStr)
@@ -147,7 +159,8 @@ public class Utils {
         return result;
     }
 
-    private static String getFirstWord(String text) {
+    private static String getFirstWord(String text)
+    {
         if (TextUtils.isEmpty(text)) return "";
         text = text.trim();
         int index;
@@ -205,7 +218,7 @@ public class Utils {
                 return R.string.dialog_title_sign_personal_message;
             case SIGN_TYPED_DATA:
             case SIGN_TYPED_DATA_V3:
-            case SIGN_TYPES_DATA_V4:
+            case SIGN_TYPED_DATA_V4:
                 return R.string.dialog_title_sign_typed_message;
         }
     }
@@ -270,7 +283,7 @@ public class Utils {
             int spaceIndex = operationName.lastIndexOf(' ');
             if (spaceIndex > 0)
             {
-                operationName = operationName.substring(0, spaceIndex) + '\n' + operationName.substring(spaceIndex+1);
+                operationName = operationName.substring(0, spaceIndex) + '\n' + operationName.substring(spaceIndex + 1);
             }
             else
             {
@@ -299,16 +312,20 @@ public class Utils {
         return sb;
     }
 
-    public static String loadJSONFromAsset(Context context, String fileName) {
+    public static String loadJSONFromAsset(Context context, String fileName)
+    {
         String json = null;
-        try {
+        try
+        {
             InputStream is = context.getAssets().open(fileName);
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
             json = new String(buffer, StandardCharsets.UTF_8);
-        } catch (IOException ex) {
+        }
+        catch (IOException ex)
+        {
             ex.printStackTrace();
             return null;
         }
@@ -375,7 +392,8 @@ public class Utils {
     public static int[] bigIntegerListToIntList(List<BigInteger> ticketSendIndexList)
     {
         int[] indexList = new int[ticketSendIndexList.size()];
-        for (int i = 0; i < ticketSendIndexList.size(); i++) indexList[i] = ticketSendIndexList.get(i).intValue();
+        for (int i = 0; i < ticketSendIndexList.size(); i++)
+            indexList[i] = ticketSendIndexList.get(i).intValue();
         return indexList;
     }
 
@@ -396,6 +414,7 @@ public class Utils {
 
     /**
      * Produce a string CSV of integer IDs given an input list of values
+     *
      * @param idList
      * @param keepZeros
      * @return
@@ -454,7 +473,7 @@ public class Utils {
         for (Integer id : intList)
         {
             if (!keepZeros && id == 0) continue;
-            if (!first)sb.append(",");
+            if (!first) sb.append(",");
             sb.append(id);
             first = false;
         }
@@ -479,7 +498,10 @@ public class Utils {
 
         for (int i = 0; i < numString.length(); i++)
         {
-            if (Character.digit(numString.charAt(i), 10) == -1) { return false; }
+            if (Character.digit(numString.charAt(i), 10) == -1)
+            {
+                return false;
+            }
         }
 
         return true;
@@ -492,7 +514,10 @@ public class Utils {
 
         for (int i = 0; i < hexStr.length(); i++)
         {
-            if (Character.digit(hexStr.charAt(i), 16) == -1) { return false; }
+            if (Character.digit(hexStr.charAt(i), 16) == -1)
+            {
+                return false;
+            }
         }
 
         return true;
@@ -519,7 +544,8 @@ public class Utils {
         return valueFromInput;
     }
 
-    public static String formatAddress(String address) {
+    public static String formatAddress(String address)
+    {
         if (isAddressValid(address))
         {
             address = Keys.toChecksumAddress(address);
@@ -536,12 +562,15 @@ public class Utils {
 
     /**
      * Just enough for diagnosis of most errors
+     *
      * @param s String to be HTML escaped
      * @return escaped string
      */
-    public static String escapeHTML(String s) {
+    public static String escapeHTML(String s)
+    {
         StringBuilder out = new StringBuilder(Math.max(16, s.length()));
-        for (int i = 0; i < s.length(); i++) {
+        for (int i = 0; i < s.length(); i++)
+        {
             char c = s.charAt(i);
             switch (c)
             {
@@ -566,12 +595,12 @@ public class Utils {
 
     public static String convertTimePeriodInSeconds(long pendingTimeInSeconds, Context ctx)
     {
-        long days = pendingTimeInSeconds/(60*60*24);
-        pendingTimeInSeconds -= (days*60*60*24);
-        long hours = pendingTimeInSeconds/(60*60);
-        pendingTimeInSeconds -= (hours*60*60);
-        long minutes = pendingTimeInSeconds/60;
-        long seconds = pendingTimeInSeconds%60;
+        long days = pendingTimeInSeconds / (60 * 60 * 24);
+        pendingTimeInSeconds -= (days * 60 * 60 * 24);
+        long hours = pendingTimeInSeconds / (60 * 60);
+        pendingTimeInSeconds -= (hours * 60 * 60);
+        long minutes = pendingTimeInSeconds / 60;
+        long seconds = pendingTimeInSeconds % 60;
 
         StringBuilder sb = new StringBuilder();
         int timePoints = 0;
@@ -648,12 +677,12 @@ public class Utils {
 
     public static String shortConvertTimePeriodInSeconds(long pendingTimeInSeconds, Context ctx)
     {
-        long days = pendingTimeInSeconds/(60*60*24);
-        pendingTimeInSeconds -= (days*60*60*24);
-        long hours = pendingTimeInSeconds/(60*60);
-        pendingTimeInSeconds -= (hours*60*60);
-        long minutes = pendingTimeInSeconds/60;
-        long seconds = pendingTimeInSeconds%60;
+        long days = pendingTimeInSeconds / (60 * 60 * 24);
+        pendingTimeInSeconds -= (days * 60 * 60 * 24);
+        long hours = pendingTimeInSeconds / (60 * 60);
+        pendingTimeInSeconds -= (hours * 60 * 60);
+        long minutes = pendingTimeInSeconds / 60;
+        long seconds = pendingTimeInSeconds % 60;
 
         String timeStr;
 
@@ -673,7 +702,7 @@ public class Utils {
             }
             else
             {
-                BigDecimal hourStr = BigDecimal.valueOf(hours + (double)minutes/60.0)
+                BigDecimal hourStr = BigDecimal.valueOf(hours + (double) minutes / 60.0)
                         .setScale(1, RoundingMode.HALF_DOWN); //to 1 dp
                 timeStr = ctx.getString(R.string.hour_plural, hourStr.toString());
             }
@@ -686,7 +715,7 @@ public class Utils {
             }
             else
             {
-                BigDecimal minsStr = BigDecimal.valueOf(minutes + (double)seconds/60.0)
+                BigDecimal minsStr = BigDecimal.valueOf(minutes + (double) seconds / 60.0)
                         .setScale(1, RoundingMode.HALF_DOWN); //to 1 dp
                 timeStr = ctx.getString(R.string.minute_plural, minsStr.toString());
             }
@@ -721,7 +750,8 @@ public class Utils {
         return timeFormat.format(date) + " | " + dateFormat.format(date);
     }
 
-    public static long randomId() {
+    public static long randomId()
+    {
         return new Date().getTime();
     }
 
@@ -771,7 +801,8 @@ public class Utils {
         return "";
     }
 
-    private static final Map<Long, String> twChainNames = new HashMap<Long, String>() {
+    private static final Map<Long, String> twChainNames = new HashMap<Long, String>()
+    {
         {
             put(CLASSIC_ID, "classic");
             put(GNOSIS_ID, "xdai");
@@ -814,37 +845,74 @@ public class Utils {
     }
 
     private static final String IPFS_PREFIX = "ipfs://";
+    private static final String IPFS_DESIGNATOR = "/ipfs/";
+    public static final String IPFS_INFURA_RESOLVER = "https://alphawallet.infura-ipfs.io";
+    public static final String IPFS_IO_RESOLVER = "https://ipfs.io";
+
+    public static boolean isIPFS(String url)
+    {
+        return url.contains(IPFS_DESIGNATOR) || url.startsWith(IPFS_PREFIX) || shouldBeIPFS(url);
+    }
 
     public static String parseIPFS(String URL)
     {
+        return resolveIPFS(URL, IPFS_INFURA_RESOLVER);
+    }
+
+    public static String resolveIPFS(String URL, String resolver)
+    {
         if (TextUtils.isEmpty(URL)) return URL;
         String parsed = URL;
-        int ipfsIndex = URL.lastIndexOf("/ipfs/");
+        int ipfsIndex = URL.lastIndexOf(IPFS_DESIGNATOR);
         if (ipfsIndex >= 0)
         {
-            parsed = "https://alphawallet.infura-ipfs.io" + URL.substring(ipfsIndex);
+            parsed = resolver + URL.substring(ipfsIndex);
         }
         else if (URL.startsWith(IPFS_PREFIX))
         {
-            parsed = "https://alphawallet.infura-ipfs.io/ipfs/" + URL.substring(IPFS_PREFIX.length());
+            parsed = resolver + IPFS_DESIGNATOR + URL.substring(IPFS_PREFIX.length());
+        }
+        else if (shouldBeIPFS(URL)) //have seen some NFTs designating only the IPFS hash
+        {
+            parsed = resolver + IPFS_DESIGNATOR + URL;
         }
 
         return parsed;
     }
 
-    public static String loadFile(Context context, @RawRes int rawRes) {
+    private static boolean shouldBeIPFS(String url)
+    {
+        return url.startsWith("Qm") && url.length() == 46 && !url.contains(".") && !url.contains("/");
+    }
+
+    public static String loadFile(Context context, @RawRes int rawRes)
+    {
         byte[] buffer = new byte[0];
-        try {
+        try
+        {
             InputStream in = context.getResources().openRawResource(rawRes);
             buffer = new byte[in.available()];
             int len = in.read(buffer);
-            if (len < 1) {
+            if (len < 1)
+            {
                 throw new IOException("Nothing is read.");
             }
-        } catch (Exception ex) {
+        }
+        catch (Exception ex)
+        {
             Timber.tag("READ_JS_TAG").d(ex, "Ex");
         }
-        return new String(buffer);
+
+        try
+        {
+            Timber.tag("READ_JS_TAG").d("HeapSize:%s", Runtime.getRuntime().freeMemory());
+            return new String(buffer);
+        }
+        catch (Exception e)
+        {
+            Timber.tag("READ_JS_TAG").d(e, "Ex");
+        }
+        return "";
     }
 
     public static long timeUntil(long eventInMillis)
@@ -853,12 +921,14 @@ public class Utils {
     }
 
     //TODO: detect various App Library installs and re-direct appropriately
-    public static boolean verifyInstallerId(Context context) {
+    public static boolean verifyInstallerId(Context context)
+    {
         try
         {
             PackageManager packageManager = context.getPackageManager();
             String installingPackageName;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
+            {
                 final InstallSourceInfo installer = packageManager.getInstallSourceInfo(context.getPackageName());
                 installingPackageName = installer.getInstallingPackageName();
             }
@@ -883,16 +953,20 @@ public class Utils {
         if (input == null || (input.length() != 66 && input.length() != 64)) return false;
         String cleanInput = Numeric.cleanHexPrefix(input);
 
-        try {
+        try
+        {
             Numeric.toBigIntNoPrefix(cleanInput);
-        } catch (NumberFormatException e) {
+        }
+        catch (NumberFormatException e)
+        {
             return false;
         }
 
         return cleanInput.length() == 64;
     }
 
-    public static @ColorInt int getColorFromAttr(Context context, int resId)
+    public static @ColorInt
+    int getColorFromAttr(Context context, int resId)
     {
         TypedValue typedValue = new TypedValue();
         Resources.Theme theme = context.getTheme();
@@ -972,7 +1046,8 @@ public class Utils {
         }
     }
 
-    public static String removeDoubleQuotes(String string) {
+    public static String removeDoubleQuotes(String string)
+    {
         return string != null ? string.replace("\"", "") : null;
     }
 }

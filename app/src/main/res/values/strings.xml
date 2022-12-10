@@ -447,6 +447,7 @@
     <string name="search_or_type_web_address">Search or type web address</string>
     <string name="network">Networks</string>
     <string name="select_active_networks">Select Active Networks</string>
+    <string name="title_enabled_networks">Enabled Networks (%s)</string>
     <string name="collectibles">Collectibles</string>
     <string name="token_function">Token Function</string>
     <string name="channel_description">BOMB notification channel</string>
@@ -892,7 +893,7 @@
     <string name="unknown_network_title">Unknown Network</string>
     <string name="unknown_network">This dapp is requesting to change to an unknown chain: %1$s</string>
     <string name="switch_and_reload"><![CDATA[Switch & Reload]]></string>
-    <string name="wc_no_active_sessions">No Active sessions</string>
+    <string name="wc_no_active_sessions">No active sessions</string>
     <string name="wc_connect_wallet">Connect Wallet</string>
     <string name="error_seed_phrase_must_words">Seed phrase can only contain words</string>
     <string name="label_token_id" translatable="false">Token #</string>
@@ -917,6 +918,13 @@
     <string name="trait_rarity_suppl_text">%1$s%% have this trait</string>
     <string name="experimental_1559">Use 1559 Transactions</string>
     <string name="experimental_1559_tx_sub">Experimental 1559 Transactions</string>
+    <string name="wc_methods">Methods</string>
+    <string name="wc_card_title" translatable="false">WalletConnect</string>
+    <string name="wc_card_subtitle">Active connection to browser-based Dapp</string>
+    <string name="wc_disconnect">User disconnect the session.</string>
+    <string name="wc_sign_dapp_name">Name</string>
+    <string name="wc_wallet">Wallet</string>
+    <string name="wc_wallet_not_match">Wallet not exist or it\'s watch only</string>
     <string name="chain_id">Chain ID: %1d</string>
     <string name="asset_creator">Created By</string>
     <string name="asset_schema">Token Standard</string>
@@ -937,7 +945,8 @@
     <string name="label_slippage">Slippage</string>
     <string name="action_open_settings">Open Settings</string>
     <string name="message_no_connections_found">No connections found for this chain.</string>
-    <string name="label_fees">Fees</string>
+    <string name="label_gas_fees">Gas Fee</string>
+    <string name="label_other_fees">Other Fees</string>
     <string name="label_current_price">Current Price</string>
     <string name="label_minimum_received">Minimum Received</string>
     <string name="label_balance">Balance: </string>
@@ -956,6 +965,10 @@
     <string name="node_status_strong">under 1 second</string>
     <string name="mode_status_medium">over 1 second</string>
     <string name="node_status_not_responding">not responding</string>
+    <string name="chain_not_support">Chain %s is not supported.</string>
+    <string name="network_must_be_enabled">Network %s must be enabled before connecting.</string>
+    <string name="notify_wallet_connect_title">WalletConnect is active</string>
+    <string name="notify_wallet_connect_content">Click to view active sessions</string>
     <string name="mode_test">Testnet Mode</string>
     <string name="title_dialog_where_are_tokens">Where are my Tokens?</string>
     <string name="content_dialog_where_are_tokens">Don\'t worry. Your tokens are safe. You are viewing Testnet networks. They are used by developers to try out new designs. You can switch to Mainnet any time.</string>
@@ -993,4 +1006,25 @@
     <string name="vertical_pipe">|</string>
     <string name="eth" translatable="false">ETH</string>
     <string name="zero" translatable="false">0</string>
+    <string name="asset_rarity">Rarity</string>
+    <string name="preferred_exchanges">Preferred Exchanges</string>
+    <string name="info_gas_fee">Gas Fee: %s</string>
+    <string name="message_fetching_routes">Fetching Routes</string>
+    <string name="title_select_route">Select Route</string>
+    <string name="title_select_exchanges">Select Exchanges</string>
+    <string name="label_available_routes">New Routes in %s</string>
+    <string name="label_amount_to_swap">Amount To Swap</string>
+    <string name="label_provider_website">Provider Website</string>
+    <string name="header_quote_details">Quote Details</string>
+    <string name="label_swap_via">Swap via %s</string>
+    <string name="message_no_routes_found_for_the_given_parameters">No routes found for the given parameters.</string>
+    <string name="message_select_one_exchange">Select at least one exchange.</string>
+    <string name="deprecated">Deprecated</string>
+    <string name="error_message_watch_only_wallet">Could not perform action on this Watch-only wallet.</string>
+    <string name="toast_wait_to_scan_chains">Scanning in progress: Please wait for completion</string>
+    <string name="unselected_token">Enable chains for selected tokens?</string>
+    <string name="no_title">(No title)</string>
+    <string name="title_session_details">Session Details</string>
+    <string name="title_session_proposal">Session Proposal</string>
+    <string name="message_wc_wallet_different_from_active_wallet">Wallet different from active wallet.</string>
 </resources>

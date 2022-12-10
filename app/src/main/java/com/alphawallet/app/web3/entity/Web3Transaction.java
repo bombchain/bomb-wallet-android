@@ -12,7 +12,7 @@ import com.alphawallet.app.util.BalanceUtils;
 import com.alphawallet.app.util.Hex;
 import com.alphawallet.app.util.StyledStringBuilder;
 import com.alphawallet.app.walletconnect.entity.WCEthereumTransaction;
-import com.alphawallet.app.widget.ActionSheetMode;
+import com.alphawallet.app.entity.analytics.ActionSheetMode;
 import com.alphawallet.token.entity.MagicLinkInfo;
 
 import org.web3j.protocol.core.methods.request.Transaction;
@@ -232,6 +232,11 @@ public class Web3Transaction implements Parcelable {
     public boolean isConstructor()
     {
         return (recipient.equals(Address.EMPTY) && payload != null);
+    }
+
+    public boolean isBaseTransfer()
+    {
+        return payload == null || payload.equals("0x");
     }
 
     /**

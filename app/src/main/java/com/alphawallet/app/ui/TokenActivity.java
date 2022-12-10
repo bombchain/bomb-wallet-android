@@ -56,7 +56,7 @@ import com.alphawallet.app.web3.entity.PageReadyCallback;
 import com.alphawallet.app.web3.entity.Web3Transaction;
 import com.alphawallet.app.widget.AWalletAlertDialog;
 import com.alphawallet.app.widget.ActionSheetDialog;
-import com.alphawallet.app.widget.ActionSheetMode;
+import com.alphawallet.app.entity.analytics.ActionSheetMode;
 import com.alphawallet.app.widget.AmountDisplayWidget;
 import com.alphawallet.app.widget.ChainName;
 import com.alphawallet.app.widget.EventDetailWidget;
@@ -552,7 +552,7 @@ public class TokenActivity extends BaseActivity implements PageReadyCallback, St
 
         tokenView.setChainId(token.tokenInfo.chainId);
         tokenView.setWalletAddress(new Address(token.getWallet()));
-        tokenView.setRpcUrl(token.tokenInfo.chainId);
+        tokenView.setRpcUrl(viewModel.getBrowserRPC(token.tokenInfo.chainId));
         tokenView.setOnReadyCallback(this);
         tokenView.setOnSetValuesListener(this);
         tokenView.setKeyboardListenerCallback(this);

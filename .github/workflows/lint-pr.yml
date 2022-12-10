@@ -4,8 +4,13 @@ jobs:
   lint:
     name: Comments lint result on PR
     runs-on: macos-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: set up JDK
         uses: actions/setup-java@v3
         with:
@@ -23,3 +28,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           ./gradlew report -PgithubPullRequestId=$PR_NUMBER -PgithubToken=$GITHUB_TOKEN
+

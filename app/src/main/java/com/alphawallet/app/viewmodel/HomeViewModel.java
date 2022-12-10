@@ -115,7 +115,6 @@ public class HomeViewModel extends BaseViewModel {
     private final EthereumNetworkRepositoryType ethereumNetworkRepository;
     private final TransactionsService transactionsService;
     private final MyAddressRouter myAddressRouter;
-    private final AnalyticsServiceType analyticsService;
     private final ExternalBrowserRouter externalBrowserRouter;
     private final OkHttpClient httpClient;
     private final RealmManager realmManager;
@@ -123,7 +122,6 @@ public class HomeViewModel extends BaseViewModel {
     private CryptoFunctions cryptoFunctions;
     private ParseMagicLink parser;
 
-    private final MutableLiveData<File> installIntent = new MutableLiveData<>();
     private final MutableLiveData<String> walletName = new MutableLiveData<>();
     private final MutableLiveData<Wallet> defaultWallet = new MutableLiveData<>();
     private final MutableLiveData<Boolean> splashActivity = new MutableLiveData<>();
@@ -155,12 +153,10 @@ public class HomeViewModel extends BaseViewModel {
         this.ethereumNetworkRepository = ethereumNetworkRepository;
         this.myAddressRouter = myAddressRouter;
         this.transactionsService = transactionsService;
-        this.analyticsService = analyticsService;
         this.externalBrowserRouter = externalBrowserRouter;
         this.httpClient = httpClient;
         this.realmManager = realmManager;
-
-
+        setAnalyticsService(analyticsService);
         this.preferenceRepository.incrementLaunchCount();
     }
 
@@ -171,10 +167,6 @@ public class HomeViewModel extends BaseViewModel {
 
     public LiveData<Transaction[]> transactions() {
         return transactions;
-    }
-
-    public LiveData<File> installIntent() {
-        return installIntent;
     }
 
     public LiveData<String> backUpMessage() {
@@ -466,16 +458,9 @@ public class HomeViewModel extends BaseViewModel {
             uuid = UUID.randomUUID().toString();
         }
 
-        analyticsService.identify(uuid);
         preferenceRepository.setUniqueId(uuid);
-    }
 
-    public void actionSheetConfirm(String mode)
-    {
-        AnalyticsProperties analyticsProperties = new AnalyticsProperties();
-        analyticsProperties.setData(mode);
-
-        analyticsService.track(C.AN_CALL_ACTIONSHEET, analyticsProperties);
+        identify(uuid);
     }
 
     public void checkTransactionEngine()

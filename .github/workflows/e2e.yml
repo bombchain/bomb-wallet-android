@@ -7,7 +7,10 @@ on:
 jobs:
   test:
     runs-on: self-hosted
-    timeout-minutes: 15
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+    timeout-minutes: 20
     strategy:
       matrix:
         api-level: [30]
@@ -22,6 +25,12 @@ jobs:
           java-version: 11
           architecture: arm64
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+      - run: npm install ganache --global
+
       - name: Run tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
@@ -31,7 +40,7 @@ jobs:
           profile: Nexus 6
           channel: canary
           disable-animations: true
-          force-avd-creation: false
+          force-avd-creation: true
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           script: ./e2e.sh --CI
 

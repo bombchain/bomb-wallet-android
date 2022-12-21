@@ -31,7 +31,7 @@
             android:padding="10dp"
             android:text="@string/bomb_slogan"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/text_primary_inverse"
             android:textSize="25sp"
             android:textStyle="bold" />
 

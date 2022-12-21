@@ -268,6 +268,7 @@
     <string name="confirm_transfer_details">Confirm Transfer Details</string>
     <string name="advanced_settings">Advanced Settings</string>
     <string name="action_confirm">Confirm</string>
+    <string name="Warning_bomb_chain">Please ensure you are only sending BOMB Chain assets</string>
     <string name="scan_qr_label">Scan the QR Code or copy the text below:</string>
     <string name="my_wallet_address">My Wallet Address</string>
     <string name="copied_to_clipboard">Copied to clipboard</string>

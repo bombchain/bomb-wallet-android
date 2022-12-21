@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@drawable/bg_bomb"
     android:scrollbarAlwaysDrawVerticalTrack="true"
     android:scrollbars="vertical">
 
@@ -36,6 +37,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/main_list"
                 android:layout_width="match_parent"
+                android:background="@color/transparent"
                 android:layout_height="wrap_content" />
 
             <com.alphawallet.app.widget.StandardHeader
@@ -47,6 +49,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/test_list"
+                android:background="@color/transparent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="gone" />

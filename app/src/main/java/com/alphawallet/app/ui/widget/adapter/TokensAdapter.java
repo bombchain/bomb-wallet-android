@@ -49,7 +49,7 @@ import java.util.List;
 public class TokensAdapter extends RecyclerView.Adapter<BinderViewHolder> {
     private static final String TAG = "TKNADAPTER";
 
-    private TokenFilter filterType = TokenFilter.ALL;
+    private TokenFilter filterType = TokenFilter.ASSETS;
     protected final AssetDefinitionService assetService;
     protected final TokensService tokensService;
     private final ActivityResultLauncher<Intent> managementLauncher;
@@ -254,7 +254,7 @@ public class TokensAdapter extends RecyclerView.Adapter<BinderViewHolder> {
     private void addManageTokensLayout()
     {
         if (walletAddress != null && !walletAddress.isEmpty() && tokensService.isMainNetActive()
-            && (filterType == TokenFilter.ALL || filterType == TokenFilter.ASSETS)) { //only show buy button if filtering all or assets
+            && (filterType /*== TokenFilter.ALL || filterType*/ == TokenFilter.ASSETS)) { //only show buy button if filtering all or assets
             items.add(new ManageTokensSortedItem(new ManageTokensData(walletAddress, managementLauncher)));
         }
     }
@@ -376,10 +376,10 @@ public class TokensAdapter extends RecyclerView.Adapter<BinderViewHolder> {
 
         switch (filterType)
         {
-            case ALL:
+            //case ALL:
                 // Show all
                 // if (token.isNFT()) allowThroughFilter = false;
-                break;
+              //  break;
             case ASSETS:
                 allowThroughFilter = allowThroughFilter && token.group == TokenGroup.ASSET;
                 break;

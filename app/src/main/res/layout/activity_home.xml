@@ -32,6 +32,7 @@
         android:visibility="gone">
 
         <ImageView
+            android:contentDescription=""
             android:id="@+id/success_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

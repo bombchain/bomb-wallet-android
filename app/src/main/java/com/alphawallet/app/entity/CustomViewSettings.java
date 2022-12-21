@@ -36,7 +36,7 @@ public class CustomViewSettings
             //ew TokenInfo("0xBE192A15da3D4004242DE1B215691D08A69543D1", "Wrapped BOMB", "WBOMB", 18, true, EthereumNetworkBase.BOMB_ID),
             //new TokenInfo("0xc0B8485449248c054D5e8E98c1f2cc7B4031BD4c", "USD BOMB", "USDB", 18, true, EthereumNetworkBase.BOMB_ID),
             //new TokenInfo("0x1153b8D7b968fD7CC1F4069EA6b2E8EEC4F0ad64", "ETHERIUM", "ETHB", 18, true, EthereumNetworkBase.BOMB_ID),
-            //new TokenInfo("0x18A0D1A707308AFd50222A9216b5eA8805D460D2", "BITCOIN", "BBTC", 18, true, EthereumNetworkBase.BOMB_ID),
+            new TokenInfo("0x140F62aCCC69cb24eABdC0E00b7caaC577cA5b24", "BITCOIN", "BBTC", 18, true, EthereumNetworkBase.BOMB_ID)
             //new TokenInfo("0x522348779DCb2911539e76A1042aA922F9C47Ee3", "BOMB", "BOMB", 18, true, EthereumNetworkBase.BINANCE_MAIN_ID)
     );
 
@@ -44,7 +44,7 @@ public class CustomViewSettings
     //If blank, enable the user filter select dialog, if there are any entries here, the select network dialog is disabled
     //Note: you should always enable the chainId corresponding to the chainIDs in the lockedTokens.
     private static final List<Long> lockedChains = Arrays.asList(
-           EthereumNetworkBase.BOMB_ID
+           //EthereumNetworkBase.BOMB_ID
             //EthereumNetworkBase.MAINNET_ID //EG only show Main, xdai, classic and two testnets. Don't allow user to select any others
             //EthereumNetworkBase.BINANCE_MAIN_ID
             //EthereumNetworkBase.RINKEBY_ID, //You can mix testnets and mainnets, but probably shouldn't as it may result in people getting scammed
@@ -126,7 +126,7 @@ public class CustomViewSettings
     //Hides the filter tab bar at the top of the wallet screen (ALL/CURRENCY/COLLECTIBLES)
     public static boolean hideTabBar()
     {
-        return true;
+        return false;
     }
 
     //Use to switch off direct transfer, only use magiclink transfer
@@ -156,8 +156,8 @@ public class CustomViewSettings
 
 
     //public static String defaultEarnURL() {return "https://mobile-bombapp-frontend.pages.dev/mobile/positions/btc/new"; }
-    public static String defaultEarnURL() {return "https://mobile-bombapp-frontend.pages.dev/mobile/positions"; }
-    public static String defaultStakesURL() {return "https://mobile-bombapp-frontend.pages.dev/mobile/positions/btc"; }
+    public static String defaultEarnURL() {return "https://mobile-bombapp-frontend.pages.dev/#/mobile/earn"; }
+    public static String defaultStakesURL() {return "https://mobile-bombapp-frontend.pages.dev/#/mobile/staked"; }
     //Allow showing token management view
     public static boolean showManageTokens() { return true; }
 

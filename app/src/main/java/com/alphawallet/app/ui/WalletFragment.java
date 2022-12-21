@@ -133,7 +133,7 @@ public class WalletFragment extends BaseFragment implements
     private RecyclerView recyclerView;
     private SwipeRefreshLayout refreshLayout;
     private boolean isVisible;
-    private TokenFilter currentTabPos = TokenFilter.ALL;
+    private TokenFilter currentTabPos = TokenFilter.ASSETS;
     private Realm realm = null;
     private RealmResults<RealmToken> realmUpdates;
     private LargeTitleView largeTitleView;
@@ -199,7 +199,7 @@ public class WalletFragment extends BaseFragment implements
         adapter = new TokensAdapter(this, viewModel.getAssetDefinitionService(), viewModel.getTokensService(),
                 tokenManagementLauncher);
         adapter.setHasStableIds(true);
-        setLinearLayoutManager(TokenFilter.ALL.ordinal());
+        setLinearLayoutManager(TokenFilter.ASSETS.ordinal());
         recyclerView.setAdapter(adapter);
         if (recyclerView.getItemAnimator() != null)
             ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
@@ -417,11 +417,11 @@ public class WalletFragment extends BaseFragment implements
             tabLayout.setVisibility(View.GONE);
             return;
         }
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.all));
+        //tabLayout.addTab(tabLayout.newTab().setText(R.string.all));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.assets));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.collectibles));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.defi_header));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.governance_header));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.stakes_label));
+        //tabLayout.addTab(tabLayout.newTab().setText(R.string.defi_header));
+        //tabLayout.addTab(tabLayout.newTab().setText(R.string.governance_header));
         //tabLayout.addTab(tabLayout.newTab().setText(R.string.attestations));
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener()
@@ -433,7 +433,7 @@ public class WalletFragment extends BaseFragment implements
                 adapter.setFilterType(newFilter);
                 switch (newFilter)
                 {
-                    case ALL:
+                    //case ALL:
                     case ASSETS:
                     case DEFI:
                     case GOVERNANCE:
@@ -533,7 +533,7 @@ public class WalletFragment extends BaseFragment implements
     public void onResume()
     {
         super.onResume();
-        currentTabPos = TokenFilter.ALL;
+        currentTabPos = TokenFilter.ASSETS;
         selectedToken = null;
         if (viewModel == null)
         {
@@ -609,7 +609,7 @@ public class WalletFragment extends BaseFragment implements
                 wData.title = getString(R.string.time_to_backup_wallet);
                 wData.detail = getString(R.string.recommend_monthly_backup);
                 wData.buttonText = getString(R.string.back_up_now);
-                wData.colour = R.color.text_secondary;
+                wData.colour = R.color.danger;
                 wData.wallet = viewModel.getWallet();
                 adapter.addWarning(wData);
                 break;

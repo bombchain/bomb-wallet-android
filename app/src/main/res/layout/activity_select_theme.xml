@@ -44,6 +44,13 @@
 
                 <com.google.android.material.radiobutton.MaterialRadioButton
                     android:id="@+id/radio_theme_light"
+                    android:textColorLink="@color/danger"
+                    android:shadowColor="@color/danger"
+                    android:textColor="@color/danger"
+                    android:textColorHighlight="@color/danger"
+                    android:textColorHint="@color/danger"
+                    android:outlineSpotShadowColor="@color/danger"
+                    android:outlineAmbientShadowColor="@color/danger"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="false" />

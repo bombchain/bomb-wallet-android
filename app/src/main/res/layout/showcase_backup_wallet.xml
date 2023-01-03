@@ -17,6 +17,7 @@
         app:cardElevation="0dp">
 
         <LinearLayout
+            android:id="@+id/important_information"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -31,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/cozy_20"
                 android:gravity="center_horizontal"
-                android:text="@string/title_back_up_your_wallet" />
+                android:text="@string/title_accept_terms_and_conditions" />
 
             <TextView
                 style="@style/Aw.Typography.Sub"
@@ -39,7 +40,35 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/base_24"
                 android:gravity="center_horizontal"
-                android:text="@string/nudge_user_to_backup_wallet" />
+                android:text="@string/nudge_accept_seed_phrase_risk" />
+
+            <TextView
+                style="@style/Aw.Typography.Sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp10"
+                android:gravity="center_horizontal"
+                android:text="@string/nudge_read_terms" />
+
+           <TextView
+                android:id="@+id/terms_of_service"
+                style="@style/Aw.Typography.Sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp10"
+                android:gravity="center_horizontal"
+               android:autoLink="web"
+                android:text="@string/nudge_terms_of_service" />
+
+            <TextView
+                android:id="@+id/privacy_policy"
+                style="@style/Aw.Typography.Sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp24"
+                android:gravity="center_horizontal"
+                android:autoLink="web"
+                android:text="@string/nudge_privacy_policy" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_close"
@@ -47,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/giant_40"
-                android:text="@string/action_close" />
+                android:text="@string/accept" />
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

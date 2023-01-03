@@ -4,11 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/layout_simple_toolbar" />
+    <include layout="@layout/layout_simple_toolbar"
+        android:background="@color/transparent"/>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/transparent"
         android:layout_above="@id/layoutButtons"
         android:layout_below="@id/toolbar">
 
@@ -16,14 +18,17 @@
             android:id="@id/token_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/transparent"
             android:layout_alignParentTop="true"
             android:orientation="vertical">
 
-            <include layout="@layout/item_ticket" />
+            <include layout="@layout/item_ticket"
+                android:background="@color/transparent"/>
 
             <com.alphawallet.app.widget.ActivityHistoryList
                 android:id="@+id/history_list"
                 android:layout_width="match_parent"
+                android:background="@color/transparent"
                 android:layout_height="match_parent"
                 android:visibility="gone" />
 
@@ -42,6 +47,7 @@
 
         <ImageView
             android:id="@+id/success_image"
+            android:background="@color/transparent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

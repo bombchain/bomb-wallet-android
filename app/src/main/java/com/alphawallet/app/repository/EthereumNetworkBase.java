@@ -1029,6 +1029,11 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
         return preferences.getCurrentWalletAddress();
     }
 
+    public boolean getWalletIsRegistered()
+    {
+        return preferences.getWalletIsRegistered();
+    }
+
     public boolean hasSetNetworkFilters()
     {
         return preferences.hasSetNetworkFilters();

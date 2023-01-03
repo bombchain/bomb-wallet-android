@@ -96,4 +96,7 @@ public interface PreferenceRepositoryType {
 
     boolean isNewWallet(String address);
     void setNewWallet(String address, boolean isNewWallet);
+
+    boolean getWalletIsRegistered();
+    void setWalletIsRegistered(boolean walletIsRegistered);
 }

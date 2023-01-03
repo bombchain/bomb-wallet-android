@@ -55,17 +55,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/text_scan3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="44dp"
-            android:gravity="center"
-            android:paddingTop="@dimen/cozy_20"
-            android:text="@string/Warning_bomb_chain"
-            custom:layout_constraintStart_toStartOf="parent"
-            custom:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/qr_image"

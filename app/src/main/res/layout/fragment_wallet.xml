@@ -16,9 +16,7 @@
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             app:titleEnabled="false">
-
             <include layout="@layout/layout_simple_toolbar_with_avatar"/>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -32,8 +30,7 @@
             android:id="@+id/tab_layout"
             style="@style/Aw.Component.TabLayout.Scrollable"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content" />
 
         <View style="@style/Aw.Component.Separator" />
 

@@ -29,10 +29,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -70,32 +72,59 @@ import com.alphawallet.app.entity.SignAuthenticationCallback;
 import com.alphawallet.app.entity.Wallet;
 import com.alphawallet.app.entity.WalletPage;
 import com.alphawallet.app.repository.EthereumNetworkRepository;
+import com.alphawallet.app.repository.PreferenceRepositoryType;
 import com.alphawallet.app.router.ImportTokenRouter;
 import com.alphawallet.app.service.NotificationService;
 import com.alphawallet.app.service.PriceAlertsService;
+import com.alphawallet.app.service.TickerService;
 import com.alphawallet.app.ui.widget.entity.PagerCallback;
 import com.alphawallet.app.util.LocaleUtils;
 import com.alphawallet.app.util.UpdateUtils;
 import com.alphawallet.app.util.Utils;
 import com.alphawallet.app.viewmodel.BaseNavigationActivity;
 import com.alphawallet.app.viewmodel.HomeViewModel;
+import com.alphawallet.app.viewmodel.MyAddressViewModel;
 import com.alphawallet.app.walletconnect.WCSession;
 import com.alphawallet.app.widget.AWalletAlertDialog;
 import com.alphawallet.app.widget.AWalletConfirmationDialog;
 import com.alphawallet.app.widget.SignTransactionDialog;
 import com.alphawallet.token.entity.SalesOrderMalformed;
 import com.alphawallet.token.tools.ParseMagicLink;
+
+import com.android.volley.toolbox.StringRequest;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.florent37.tutoshowcase.TutoShowcase;
 
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.URLDecoder;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import dagger.hilt.android.AndroidEntryPoint;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import okhttp3.Response;
 import timber.log.Timber;
+
+
+
+
+import javax.inject.Inject;
+
 
 @AndroidEntryPoint
 public class HomeActivity extends BaseNavigationActivity implements View.OnClickListener, HomeCommsInterface,
@@ -125,6 +154,19 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
     private boolean isForeground;
     private volatile boolean tokenClicked = false;
     private String openLink;
+    private MyAddressViewModel addressViewModel;
+    private Wallet wallet;
+
+    static final OkHttpClient httpClient = new OkHttpClient.Builder()
+            .connectTimeout(5, TimeUnit.SECONDS)
+            .readTimeout(5, TimeUnit.SECONDS)
+            .writeTimeout(5, TimeUnit.SECONDS)
+            .retryOnConnectionFailure(false)
+            .build();
+
+
+    @Inject
+    PreferenceRepositoryType preferenceRepository;
 
     public HomeActivity()
     {
@@ -309,6 +351,7 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
         startService(i);
     }
 
+
     private void onDefaultWallet(Wallet wallet)
     {
         if (viewModel.checkNewWallet(wallet.address))
@@ -435,7 +478,8 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
     {
         successOverlay = findViewById(R.id.layout_success_overlay);
         successImage = findViewById(R.id.success_image);
-
+        //setTermsLinks();
+        //wallet = getIntent().getParcelableExtra(C.Key.WALLET);
         successOverlay.setOnClickListener(view ->
         {
             //dismiss big green tick
@@ -445,7 +489,7 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
 
     private void showBackupWalletDialog(boolean walletImported)
     {
-        if (!viewModel.isFindWalletAddressDialogShown())
+        if (!isWalletRegistered())
         {
             //check if wallet was imported - in which case no need to display
             if (!walletImported)
@@ -458,12 +502,17 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                         .onClickContentView(R.id.btn_close, view ->
                         {
                             getWindow().setStatusBarColor(statusBarColor);
+                            findViewById(R.id.terms_of_service);
+                            createUserInDB();
                             backupWalletDialog.dismiss();
                         })
                         .onClickContentView(R.id.showcase_layout, view ->
                         {
+                            TextView view2 = findViewById(R.id.terms_of_service);
+                            view2.setText(R.string.nudge_terms_of_service);
+                            view2.setMovementMethod(LinkMovementMethod.getInstance());
                             getWindow().setStatusBarColor(statusBarColor);
-                            backupWalletDialog.dismiss();
+                            //backupWalletDialog.dismiss(); // commenting out to force user to click on accept
                         })
                         .on(R.id.settings_tab)
                         .addCircle()
@@ -478,6 +527,70 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
             }
             viewModel.setFindWalletAddressDialogShown(true);
         }
+    }
+
+    private boolean isWalletRegistered()
+    {
+        if (!preferenceRepository.getWalletIsRegistered())
+        {
+            String walletAddres = "0x64d7af8598d738df9a4c8e22b96b30bc8ffef57c";//getWalletAddress();
+            OkHttpClient client = new OkHttpClient();
+
+            Request request = new Request.Builder()
+                    .url("https://api.bombchain.com/user/" + walletAddres)
+                    .build();
+
+            client.newCall(request).enqueue(new Callback()
+            {
+                @Override
+                public void onFailure(Call call, IOException e)
+                {
+                    e.printStackTrace();
+                }
+
+                @Override
+                public void onResponse(Call call, final Response response) throws IOException
+                {
+                    if (!response.isSuccessful())
+                    {
+                        throw new IOException("Unexpected code " + response);
+                    }
+                    else
+                    {
+                        String jsonResponse = response.body().string();
+
+                        // do something wih the result
+                    }
+                }
+            });
+        }
+        return preferenceRepository.getWalletIsRegistered();
+    }
+
+    private long getLongValue(JSONArray timestamp)
+    {
+        try
+        {
+            return timestamp.getLong(1);
+        }
+        catch (Exception e)
+        {
+            Timber.e(e);
+        }
+
+        return 0;
+    }
+
+
+    private String getWalletAddress()
+    {
+        addressViewModel = new ViewModelProvider(this).get(MyAddressViewModel.class);
+        return addressViewModel.getTokenService().getCurrentAddress();
+    }
+
+    private void createUserInDB()
+    {
+
     }
 
     private void onWalletName(String name)
@@ -1242,6 +1355,73 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
         public int getItemCount()
         {
             return WalletPage.values().length;
+        }
+    }
+
+    public static class User
+    {
+        @JsonProperty("id")
+        private final String id;
+
+        @JsonProperty("wallet")
+        private final String wallet;
+
+        @JsonProperty("referralCode")
+        private final String referralCode;
+
+        @JsonProperty("referredBy")
+        private final String referredBy;
+
+        @JsonProperty("confirmedTerms")
+        private final String confirmedTerms;
+
+        @JsonProperty("createdAt")
+        private final String createdAt;
+
+        @JsonProperty("updatedAt")
+        private final String updatedAt;
+
+        User(String id, String wallet, String referralCode, String referredBy, String confirmedTerms, String createdAt, String updatedAt)
+        {
+            this.id = id;
+            this.wallet = wallet;
+            this.referralCode = referralCode;
+            this.referredBy = referredBy;
+            this.confirmedTerms = confirmedTerms;
+            this.createdAt = createdAt;
+            this.updatedAt = updatedAt;
+        }
+
+        public String getId()
+        {
+            return id;
+        }
+
+        public String getWallet()
+        {
+            return wallet;
+        }
+
+        public String getReferralCode()
+        {
+            return referralCode;
+        }
+
+        public String getReferredBy() {return referredBy;}
+
+        public String getConfirmedTerms()
+        {
+            return confirmedTerms;
+        }
+
+        public String getCreatedAt()
+        {
+            return createdAt;
+        }
+
+        public String getUpdatedAt()
+        {
+            return updatedAt;
         }
     }
 }

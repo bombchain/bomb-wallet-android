@@ -43,16 +43,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <TextView
-            android:id="@+id/text_warning"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingTop="200px"
-            android:text="@string/Warning_bomb_chain"
-            app:layout_constraintBaseline_toBottomOf="@id/qr_image"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="150dp" />
 
         <LinearLayout
             android:id="@+id/copy_address_layout"

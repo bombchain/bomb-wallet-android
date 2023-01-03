@@ -14,6 +14,7 @@ import java.util.Locale;
 
 public class SharedPreferenceRepository implements PreferenceRepositoryType {
     private static final String CURRENT_ACCOUNT_ADDRESS_KEY = "current_account_address";
+    private static final boolean WALLET_IS_REGISTERED = false;
     private static final String DEFAULT_NETWORK_NAME_KEY = "default_network_name";
     private static final String NETWORK_FILTER_KEY = "network_filters";
     private static final String CUSTOM_NETWORKS_KEY = "custom_networks";
@@ -61,6 +62,16 @@ public class SharedPreferenceRepository implements PreferenceRepositoryType {
     @Override
     public void setCurrentWalletAddress(String address) {
         pref.edit().putString(CURRENT_ACCOUNT_ADDRESS_KEY, address).commit(); //use commit as the value may be used immediately
+    }
+
+
+    public boolean getWalletIsRegistered() {
+        return pref.getBoolean(String.valueOf(WALLET_IS_REGISTERED), false);
+    }
+
+    @SuppressLint("ApplySharedPref")
+    public void setWalletIsRegistered(boolean walletIsRegistered) {
+        pref.edit().putBoolean(String.valueOf(WALLET_IS_REGISTERED), walletIsRegistered).commit(); //use commit as the value may be used immediately
     }
 
     @SuppressLint("ApplySharedPref")

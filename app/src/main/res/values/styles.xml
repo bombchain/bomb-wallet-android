@@ -69,6 +69,8 @@
 
     <style name="Aw.Component.TabLayout.Scrollable">
         <item name="tabMode">scrollable</item>
+        <item name="tabSelectedTextColor">@color/button_yellow</item>
+        <item name="tabIndicatorColor">@color/button_yellow</item>
         <item name="tabGravity">center</item>
     </style>
 

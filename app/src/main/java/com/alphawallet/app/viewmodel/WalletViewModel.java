@@ -267,18 +267,18 @@ public class WalletViewModel extends BaseViewModel
             Intent intent = new Intent(context, NameThisWalletActivity.class);
             context.startActivity(intent);
         });
-        actionsView.setOnReferralClickListner(v -> {
+        //actionsViewrie.setOnReferralClickListner(v -> {
 
             //dialog.dismiss();
             //Intent intent = this.getBuyIntent("https://google.com");
             //((HomeActivity)  getActivity()).onActivityResult(C.TOKEN_SEND_ACTIVITY, RESULT_OK, intent);
 
-            dialog.dismiss();
-            String url = "https://www.google.com";
-            Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse(url));
-            context.startActivity(i);
-        });
+           // dialog.dismiss();
+           // String url = "https://www.google.com";
+           // Intent i = new Intent(Intent.ACTION_VIEW);
+           // i.setData(Uri.parse(url));
+           // context.startActivity(i);
+       // });
 
         dialog = new BottomSheetDialog(context);
         dialog.setContentView(actionsView);

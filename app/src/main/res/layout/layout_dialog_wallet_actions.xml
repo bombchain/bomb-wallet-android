@@ -28,10 +28,6 @@
         style="@style/Aw.Component.ActionItem"
         android:text="@string/rename_this_wallet_action" />
 
-    <TextView
-        android:id="@+id/refer_a_friend"
-        style="@style/Aw.Component.ActionItem"
-        android:text="@string/referral" />
 
 </LinearLayout>
 

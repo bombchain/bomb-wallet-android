@@ -1,9 +1,6 @@
 {
   "BOMB":
   [
-    {"address": "0x18a0d1a707308afd50222a9216b5ea8805d460d2", "name": "BBTC", "isPopular": true, "enabled": true, "network": 23254},
-    {"address": "0x1153b8d7b968fd7cc1f4069ea6b2e8eec4f0ad64", "name": "ETHB", "isPopular": true, "network": 23254},
-    {"address": "0xc0b8485449248c054d5e8e98c1f2cc7b4031bd4c", "name": "USDB", "isPopular": true, "network": 23254}
   ],
 "MainNet":
   [

@@ -526,8 +526,8 @@
     <string name="nudge_user_to_backup_wallet">Your funds will be at risk if you do not back up before using your wallet.</string>
     <string name="nudge_accept_seed_phrase_risk">I understand I must securely record my seed phrase and never share it with anyone. I understand that if my seed phrase is lost or compromised my wallet and any funds will not be recoverable. </string>
     <string name="nudge_read_terms">By clicking "Accept", I acknowledge that I have read, understood and agree to the BOMB App Terms of Service and Privacy Policy found below:</string>
-    <string name="nudge_terms_of_service">https://www.bombmoney.com/terms</string>
-    <string name="nudge_privacy_policy">https://www.bombmoney.com/privacy</string>
+    <string name="nudge_terms_of_service">https://www.bomb.app/terms</string>
+    <string name="nudge_privacy_policy">https://www.bomb.app/privacy</string>
     <string name="nudge_risk_information">Risk Information</string>
     <string name="action_close">Close</string>
     <string name="accept">Accept</string>

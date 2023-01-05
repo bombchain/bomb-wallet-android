@@ -85,8 +85,8 @@ android {
         }
     }
     defaultConfig {
-        versionCode 58
-        versionName "0.52.2"
+        versionCode 60
+        versionName "0.60.0"
         applicationId "com.bombmoney.wallet"
         minSdkVersion 23
         targetSdkVersion 32

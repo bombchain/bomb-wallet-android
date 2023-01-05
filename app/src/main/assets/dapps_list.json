@@ -1,6 +1,4 @@
 [ 
-  {"name": "BOMBDEX", "description": "The first token exchange available on BOMB Chain!", "url": "bombdex.com", "category": "Exchange"},
-  {"name": "BOMB Staking", "description": "BOMB Staking and management of validators", "url": "staking.bomb.app", "category": "Tool"},
-  {"name": "BOMB Scan", "description": "The BOMB Chain block explorer!", "url": "https://explorer.bombchain-testnet.ankr.com", "category": "Tool"},
- {"name": "BOMB Faucet", "description": "Faucet for BOMB Chain", "url": "https://faucet.bombchain-testnet.ankr.com/", "category": "Tool"}
+  {"name": "BOMB Swap", "description": "The first token exchange available on BOMB Chain!", "url": "https://bombswap.xyz", "category": "Exchange"},
+  {"name": "BOMB Scan", "description": "The BOMB Chain block explorer!", "url": "https://bombscan.com", "category": "Tool"}
 ]

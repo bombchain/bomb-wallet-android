@@ -24,7 +24,7 @@
         android:extractNativeLibs="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="BOMB"
+        android:label="BOMB Money"
         android:launchMode="singleTask"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"

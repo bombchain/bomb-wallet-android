@@ -2,6 +2,7 @@ package com.alphawallet.app.ui.widget.entity;
 
 import static com.alphawallet.app.service.TickerService.chainPairs;
 import static com.alphawallet.app.service.TickerService.coinGeckoChainIdToAPIName;
+import static com.alphawallet.app.service.TickerService.getNonBombEquivalents;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -102,13 +103,14 @@ public class HistoryChart extends View
 
         static Single<Datasource> fetchHistory(Range range, String tokenId)
         {
+            String nonBombTokenId = getNonBombEquivalents(tokenId);
             return Single.fromCallable(() ->
             {
                 ArrayList<Pair<Long, Float>> entries = new ArrayList<>();
                 try
                 {
                     Request request = new Request.Builder()
-                            .url("https://api.coingecko.com/api/v3/coins/" + tokenId + "/market_chart?days=" + range.value + "&vs_currency=" + TickerService.getCurrencySymbolTxt())
+                            .url("https://api.coingecko.com/api/v3/coins/" + nonBombTokenId + "/market_chart?days=" + range.value + "&vs_currency=" + TickerService.getCurrencySymbolTxt())
                             .get()
                             .build();
                     okhttp3.Response response = httpClient.newCall(request)
@@ -147,6 +149,7 @@ public class HistoryChart extends View
                 return null;
             });
         }
+
 
         long minTime()
         {
@@ -295,7 +298,7 @@ public class HistoryChart extends View
 
         String coingeckoTokenId = token.isEthereum() ? chainPairs.get(token.tokenInfo.chainId)
                 : coinGeckoChainIdToAPIName.get(token.tokenInfo.chainId) + "/contract/" + token.getAddress().toLowerCase();
-
+        coingeckoTokenId = getNonBombEquivalents(coingeckoTokenId);
         if (coingeckoTokenId != null)
         {
             Datasource.fetchHistory(range, coingeckoTokenId)

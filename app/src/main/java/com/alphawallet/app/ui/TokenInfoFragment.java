@@ -3,6 +3,7 @@ package com.alphawallet.app.ui;
 
 import static com.alphawallet.app.service.TickerService.chainPairs;
 import static com.alphawallet.app.service.TickerService.coinGeckoChainIdToAPIName;
+import static com.alphawallet.app.service.TickerService.getNonBombEquivalents;
 
 import android.os.Bundle;
 import android.text.format.DateUtils;
@@ -248,9 +249,9 @@ public class TokenInfoFragment extends BaseFragment {
 
             String coinGeckotokenId = token.isEthereum() ? chainPairs.get(token.tokenInfo.chainId)
                     : coinGeckoChainIdToAPIName.get(token.tokenInfo.chainId) + "/contract/" + token.getAddress().toLowerCase();
-
+            String nonBombTokenId = getNonBombEquivalents(coinGeckotokenId);
             Request request = new Request.Builder()
-                    .url("https://api.coingecko.com/api/v3/coins/" + coinGeckotokenId + "/market_chart?vs_currency=" + TickerService.getCurrencySymbolTxt() + "&days=365")
+                    .url("https://api.coingecko.com/api/v3/coins/" + nonBombTokenId + "/market_chart?vs_currency=" + TickerService.getCurrencySymbolTxt() + "&days=365")
                     .get()
                     .build();
 

@@ -21,7 +21,7 @@
         android:name="com.alphawallet.app.App"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
-        android:label="BOMB"
+        android:label="BOMB Money"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="false"

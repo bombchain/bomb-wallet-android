@@ -655,6 +655,14 @@ public class TickerService
         return BalanceUtils.genCurrencyString(price, "");
     }
 
+    public static String getNonBombEquivalents(String tokenId)
+    {
+        //replace bombBTC with BinanceBTC
+        tokenId = tokenId.replace("0x140f62accc69cb24eabdc0e00b7caac577ca5b24","0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c");
+
+        return tokenId;
+    }
+
     public static String getPercentageConversion(double d)
     {
         return BalanceUtils.getScaledValue(BigDecimal.valueOf(d), 2, 2);

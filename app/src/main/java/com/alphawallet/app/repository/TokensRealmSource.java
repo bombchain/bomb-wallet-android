@@ -192,6 +192,8 @@ public class TokensRealmSource implements TokenLocalSource {
     @Override
     public Token fetchToken(long chainId, Wallet wallet, String address)
     {
+
+        // Something has to happen here???
         try (Realm realm = realmManager.getRealmInstance(wallet))
         {
             RealmToken realmItem = realm.where(RealmToken.class)

@@ -321,7 +321,7 @@ public class EarnFragment extends BaseFragment implements OnSignTransactionListe
         }
         else
         {
-            loadUrl(CustomViewSettings.defaultEarnURL());
+            //loadUrl(CustomViewSettings.defaultEarnURL());
             web3.setWebLoadCallback(this);
         }
 

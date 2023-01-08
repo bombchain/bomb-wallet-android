@@ -321,7 +321,7 @@ public class StakesFragment extends BaseFragment implements OnSignTransactionLis
         }
         else
         {
-            loadUrl(CustomViewSettings.defaultStakesURL());
+            //loadUrl(CustomViewSettings.defaultStakesURL());
             web3.setWebLoadCallback(this);
         }
 

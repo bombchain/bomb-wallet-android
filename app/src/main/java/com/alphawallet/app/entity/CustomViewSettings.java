@@ -36,9 +36,9 @@ public class CustomViewSettings
             //ew TokenInfo("0xBE192A15da3D4004242DE1B215691D08A69543D1", "Wrapped BOMB", "WBOMB", 18, true, EthereumNetworkBase.BOMB_ID),
             //new TokenInfo("0xc0B8485449248c054D5e8E98c1f2cc7B4031BD4c", "USD BOMB", "USDB", 18, true, EthereumNetworkBase.BOMB_ID),
             //new TokenInfo("0x1153b8D7b968fD7CC1F4069EA6b2E8EEC4F0ad64", "ETHERIUM", "ETHB", 18, true, EthereumNetworkBase.BOMB_ID),
-            //new TokenInfo("0x140F62aCCC69cb24eABdC0E00b7caaC577cA5b24", "BITCOIN", "BBTC", 18, true, EthereumNetworkBase.BOMB_ID),
-            new TokenInfo("0x886a4003A7A7279A3Ab342E4BB2F11153b7318a3", "Staked BTC", "sBTC", 18, true, EthereumNetworkBase.BOMB_ID),
-            new TokenInfo("0x9d0719222211c756ba0b88d64b3fca1a5f29f997", "BITCOIN", "BTCB", 18, true, EthereumNetworkBase.BOMB_ID)
+            new TokenInfo("0x140F62aCCC69cb24eABdC0E00b7caaC577cA5b24", "BITCOIN", "BBTC", 18, true, EthereumNetworkBase.BOMB_ID),
+            new TokenInfo("0x886a4003A7A7279A3Ab342E4BB2F11153b7318a3", "Staked BTC", "sBTC", 18, true, EthereumNetworkBase.BOMB_ID)
+            //new TokenInfo("0x9d0719222211c756ba0b88d64b3fca1a5f29f997", "BITCOIN", "WBTC", 18, true, EthereumNetworkBase.BOMB_ID)
             //new TokenInfo("0x522348779DCb2911539e76A1042aA922F9C47Ee3", "BOMB", "BOMB", 18, true, EthereumNetworkBase.BINANCE_MAIN_ID)
     );
 
@@ -46,9 +46,9 @@ public class CustomViewSettings
     //If blank, enable the user filter select dialog, if there are any entries here, the select network dialog is disabled
     //Note: you should always enable the chainId corresponding to the chainIDs in the lockedTokens.
     private static final List<Long> lockedChains = Arrays.asList(
-           //EthereumNetworkBase.BOMB_ID
+           EthereumNetworkBase.BOMB_ID
             //EthereumNetworkBase.MAINNET_ID //EG only show Main, xdai, classic and two testnets. Don't allow user to select any others
-            EthereumNetworkBase.BINANCE_MAIN_ID
+            //EthereumNetworkBase.BINANCE_MAIN_ID
             //EthereumNetworkBase.RINKEBY_ID, //You can mix testnets and mainnets, but probably shouldn't as it may result in people getting scammed
             //EthereumNetworkBase.GOERLI_ID
     );

@@ -155,7 +155,7 @@ public class AdvancedSettingsActivity extends BaseActivity
             advancedSettingsLayout.addView(tokenScript);
 
         advancedSettingsLayout.addView(tokenScriptManagement);
-        advancedSettingsLayout.addView(fullScreenSettings);
+        //advancedSettingsLayout.addView(fullScreenSettings); force crashes every time
         advancedSettingsLayout.addView(refreshTokenDatabase);
         advancedSettingsLayout.addView(eip1559Transactions);
     }

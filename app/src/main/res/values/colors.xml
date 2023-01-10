@@ -55,9 +55,9 @@
     <!-- ?colorControlNormal -->
     <color name="control">@color/black</color>
     <!-- ?colorControlActivated -->
-    <color name="control_activated">@color/accent</color>
+    <color name="control_activated">@color/button_yellow</color>
     <!-- ?colorControlHighlight -->
-    <color name="control_highlight">@color/accent</color>
+    <color name="control_highlight">@color/yellow</color>
     <!-- ?android:textColorPrimary -->
     <color name="text_primary">@color/black</color>
     <!-- ?android:textColorPrimaryInverse -->

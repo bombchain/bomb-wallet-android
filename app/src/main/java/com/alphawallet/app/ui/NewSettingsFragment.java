@@ -346,9 +346,9 @@ public class NewSettingsFragment extends BaseFragment
 
         systemSettingsLayout.addView(changeCurrency, systemIndex++);
 
-        systemSettingsLayout.addView(darkModeSetting, systemIndex++);
+        //systemSettingsLayout.addView(darkModeSetting, systemIndex++);
 
-        systemSettingsLayout.addView(advancedSetting, systemIndex++);
+        //systemSettingsLayout.addView(advancedSetting, systemIndex++);
 
         supportSettingsLayout.addView(supportSetting, supportIndex++);
     }

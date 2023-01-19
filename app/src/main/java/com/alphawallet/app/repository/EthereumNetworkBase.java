@@ -202,7 +202,7 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
             put(BOMB_ID, new NetworkInfo(C.BOMB_NETWORK_NAME, C.BOMB_SYMBOL,
                     BOMB_RPC_URL,
                     "https://bombscan.com/tx/", BOMB_ID,
-                    BOMB_RPC_URL, "https://www.bombchain.com/api?"));
+                    BOMB_RPC_URL, "https://www.bombscan.com/api?"));
             put(MAINNET_ID, new NetworkInfo(C.ETHEREUM_NETWORK_NAME, C.ETH_SYMBOL,
                     MAINNET_RPC_URL,
                     "https://cn.etherscan.com/tx/", MAINNET_ID,

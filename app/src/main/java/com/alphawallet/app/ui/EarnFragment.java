@@ -1,5 +1,6 @@
 package com.alphawallet.app.ui;
 
+import static androidx.core.content.ContextCompat.getSystemService;
 import static com.alphawallet.app.C.ETHER_DECIMALS;
 import static com.alphawallet.app.C.RESET_TOOLBAR;
 import static com.alphawallet.app.entity.CryptoFunctions.sigFromByteArray;
@@ -40,6 +41,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.webkit.ConsoleMessage;
 import android.webkit.GeolocationPermissions;
+import android.webkit.JavascriptInterface;
 import android.webkit.PermissionRequest;
 import android.webkit.ValueCallback;
 import android.webkit.WebBackForwardList;
@@ -1872,6 +1874,13 @@ public class EarnFragment extends BaseFragment implements OnSignTransactionListe
             clipboard.setPrimaryClip(clip);
         }
         Toast.makeText(getActivity(), R.string.copied_to_clipboard, Toast.LENGTH_SHORT).show();
+    }
+
+    @JavascriptInterface
+    public void copyToClipboardFromWeb(String text) {
+        ClipboardManager clipboard = (ClipboardManager) requireActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("demo", text);
+        clipboard.setPrimaryClip(clip);
     }
 
     private boolean checkForMagicLink(String data)

@@ -93,6 +93,7 @@
     <string name="error_wallet_not_selected">Wallet is not selected</string>
     <string name="no_transactions_yet">Activities will appear here</string>
     <string name="unknown_balance_without_symbol" translatable="false">--</string>
+    <string name="where_to_find_stakes">View your staked positions in \"Stakes\""</string>
     <string name="dummy_transaction_value" translatable="false">&#45;&#45;</string>
     <string name="title_dialog_sending">Sending…</string>
     <string name="scan_qr">Get address from QR Code</string>

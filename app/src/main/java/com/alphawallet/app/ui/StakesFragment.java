@@ -79,6 +79,7 @@ import com.alphawallet.app.entity.SignAuthenticationCallback;
 import com.alphawallet.app.entity.URLLoadInterface;
 import com.alphawallet.app.entity.Wallet;
 import com.alphawallet.app.entity.WalletConnectActions;
+import com.alphawallet.app.entity.WalletPage;
 import com.alphawallet.app.entity.WalletType;
 import com.alphawallet.app.entity.tokens.Token;
 import com.alphawallet.app.repository.EthereumNetworkRepository;
@@ -321,7 +322,7 @@ public class StakesFragment extends BaseFragment implements OnSignTransactionLis
         }
         else
         {
-            //loadUrl(CustomViewSettings.defaultStakesURL());
+            loadUrl(CustomViewSettings.defaultStakesURL());
             web3.setWebLoadCallback(this);
         }
 
@@ -349,6 +350,10 @@ public class StakesFragment extends BaseFragment implements OnSignTransactionLis
         }
         loadOnInit = CustomViewSettings.defaultStakesURL();
         return view;
+    }
+
+    public void SwitchToSettings(){
+        ((HomeActivity) getActivity()).onBottomNavigationItemSelected(WalletPage.SETTINGS);
     }
 
     private void attachFragment(String tag)
@@ -1596,6 +1601,26 @@ public class StakesFragment extends BaseFragment implements OnSignTransactionLis
     @Override
     public void onWebpageLoaded(String url, String title)
     {
+
+        if (url.contains("/settings"))
+        {
+            ((HomeActivity) getActivity()).onBottomNavigationItemSelected(WalletPage.SETTINGS);
+        }
+
+        if (url.contains("/earn"))
+        {
+            ((HomeActivity) getActivity()).onBottomNavigationItemSelected(WalletPage.SETTINGS);
+        }
+
+        if (url.contains("/settings"))
+        {
+            ((HomeActivity) getActivity()).onBottomNavigationItemSelected(WalletPage.SETTINGS);
+        }
+        if (url.contains("/settings"))
+        {
+            ((HomeActivity) getActivity()).onBottomNavigationItemSelected(WalletPage.SETTINGS);
+        }
+
         if (getContext() == null) return; //could be a late return from dead fragment
         if (homePressed)
         {

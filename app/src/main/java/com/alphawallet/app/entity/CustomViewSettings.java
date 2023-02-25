@@ -126,6 +126,12 @@ public class CustomViewSettings
         return true;
     }
 
+    //Switch off wallet
+    public static boolean hideWallet()
+    {
+        return true;
+    }
+
     //Hides the filter tab bar at the top of the wallet screen (ALL/CURRENCY/COLLECTIBLES)
     public static boolean hideTabBar()
     {
@@ -157,10 +163,10 @@ public class CustomViewSettings
     public static boolean minimiseEarnURLBar() { return true; }
     public static boolean minimiseStakesURLBar() { return true; }
 
-
+//     public static String defaultEarnURL() {return "https://px-69-share.mobile-bombapp-frontend.pages.dev/#/mobile/earn"; }
     //public static String defaultEarnURL() {return "https://mobile-bombapp-frontend.pages.dev/mobile/positions/btc/new"; }
-    public static String defaultEarnURL() {return "https://mobile-bombapp-frontend.pages.dev/#/mobile/earn"; }
-    public static String defaultStakesURL() {return "https://mobile-bombapp-frontend.pages.dev/#/mobile/staked"; }
+    public static String defaultEarnURL() {return "https://web.bomb.app/#/mobile/earn"; }
+    public static String defaultStakesURL() {return "https://redirectstakestoearn.mobile-bombapp-frontend.pages.dev/#/mobile/staked"; }
     //Allow showing token management view
     public static boolean showManageTokens() { return true; }
 

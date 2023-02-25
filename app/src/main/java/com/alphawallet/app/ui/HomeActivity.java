@@ -284,6 +284,11 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
             removeDappBrowser();
         }
 
+        if (CustomViewSettings.hideWallet())
+        {
+            removeWallet();
+        }
+
         KeyboardVisibilityEvent.setEventListener(
                 this, isOpen ->
                 {
@@ -803,7 +808,7 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                 break;
 
             default:
-                page = WALLET;
+                page = STAKES;
             case WALLET:
                 showToolbar();
                 if (walletTitle == null || walletTitle.isEmpty())
@@ -840,10 +845,10 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
         }
 
         enableDisplayHomeAsHome(enableDisplayAsHome);
+        switchAdapterToPage(SETTINGS);
         switchAdapterToPage(page);
         invalidateOptionsMenu();
         checkWarnings();
-
         signalPageVisibilityChange(oldPage, page);
     }
 

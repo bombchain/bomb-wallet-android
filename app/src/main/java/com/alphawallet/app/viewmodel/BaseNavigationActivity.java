@@ -46,6 +46,11 @@ public class BaseNavigationActivity extends BaseActivity implements AWalletBotto
         nav.hideBrowserTab();
     }
 
+    public void removeWallet()
+    {
+        nav.hideWallet();
+    }
+
     public void hideNavBar() { nav.setVisibility(View.GONE); }
 
     public int getNavBarHeight() { return nav.getHeight(); }

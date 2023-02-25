@@ -237,6 +237,7 @@
     <string name="dialog_process_error">Trade not processed</string>
     <string name="dialog_ok">OK</string>
     <string name="wallet_label">Wallet</string>
+    <string name="Portfolio_label">Portfolio</string>
     <string name="earn_label">Earn</string>
     <string name="stakes_label">Stakes</string>
     <string name="buy_label">Buy</string>
@@ -1002,4 +1003,5 @@
     <string name="vertical_pipe">|</string>
     <string name="eth" translatable="false">ETH</string>
     <string name="zero" translatable="false">0</string>
+    <string name="nav_portfolio_text">Portfolio</string>
 </resources>

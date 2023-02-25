@@ -48,7 +48,7 @@ public class AWalletBottomNavigationView extends LinearLayout
         dappBrowserLabel = findViewById(R.id.nav_browser_text);
         settingsTab = findViewById(R.id.settings_tab);
         earnLabel = findViewById(R.id.nav_earn_text);
-        stakesLabel = findViewById(R.id.nav_stakes_text);
+        stakesLabel =  findViewById(R.id.nav_portfolio_text); //findViewById(R.id.nav_stakes_text);
         settingsLabel = findViewById(R.id.nav_settings_text);
         settingsBadge = findViewById(R.id.settings_badge);
 
@@ -63,7 +63,7 @@ public class AWalletBottomNavigationView extends LinearLayout
         semiboldTypeface = ResourcesCompat.getFont(getContext(), R.font.font_semibold);
 
         // set wallet fragment selected on start
-        setSelectedItem(WALLET);
+        setSelectedItem(STAKES);
     }
 
     public void setListener(OnBottomNavigationItemSelectedListener listener)
@@ -174,6 +174,11 @@ public class AWalletBottomNavigationView extends LinearLayout
     public void hideBrowserTab()
     {
         if (dappBrowserLabel != null) dappBrowserLabel.setVisibility(View.GONE);
+    }
+
+    public void hideWallet()
+    {
+        if (walletLabel != null) walletLabel.setVisibility(View.GONE);
     }
 
     public interface OnBottomNavigationItemSelectedListener

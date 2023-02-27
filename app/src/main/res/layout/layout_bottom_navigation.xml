@@ -36,13 +36,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/stakes_label"
+            android:text="@string/bombapp_label"
             android:layout_marginVertical="10px"
             android:textColor="@color/selector_bottom_navigation"
             app:drawableTint="@color/selector_bottom_navigation"
-            app:drawableTopCompat="@drawable/ic_safe" />
+            app:drawableTopCompat="@drawable/ic_tab_bombchain" />
 
-        <TextView
+       <!-- <TextView
             android:id="@+id/nav_earn_text"
             style="@style/Aw.Typography.TitleSmall"
             android:layout_width="0dp"
@@ -52,7 +52,7 @@
             android:text="@string/earn_label"
             android:textColor="@color/selector_bottom_navigation"
             app:drawableTint="@color/selector_bottom_navigation"
-            app:drawableTopCompat="@drawable/ic_btc" />
+            app:drawableTopCompat="@drawable/ic_btc" /> -->
 
         <TextView
             android:id="@+id/nav_activity_text"
@@ -73,10 +73,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/buy_label"
+            android:text="@string/browser_label"
             android:textColor="@color/selector_bottom_navigation"
             app:drawableTint="@color/selector_bottom_navigation"
-            app:drawableTopCompat="@drawable/ic_pay_card" />
+            app:drawableTopCompat="@drawable/ic_tab_browser2" />
 
         <RelativeLayout
             android:id="@+id/settings_tab"

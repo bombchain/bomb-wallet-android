@@ -318,6 +318,12 @@ public class DappBrowserFragment extends BaseFragment implements OnSignTransacti
         {
             //reboot
             requireActivity().recreate();
+            //load homepage
+            homePressed = true;
+            web3.resetView();
+            web3.loadUrl(getDefaultDappUrl());
+            setUrlText(getDefaultDappUrl());
+            checkBackClickArrowVisibility();
         }
         else
         {
@@ -325,6 +331,7 @@ public class DappBrowserFragment extends BaseFragment implements OnSignTransacti
         }
 
         startBalanceListener();
+
     }
 
     @Nullable

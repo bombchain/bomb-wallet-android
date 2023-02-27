@@ -27,7 +27,7 @@ public class AWalletBottomNavigationView extends LinearLayout
 {
     private final TextView dappBrowserLabel;
     private final TextView walletLabel;
-    private final TextView earnLabel;
+    //private final TextView earnLabel;
     private final TextView stakesLabel;
     private final TextView settingsBadge;
     private final TextView settingsLabel;
@@ -47,14 +47,14 @@ public class AWalletBottomNavigationView extends LinearLayout
         activityLabel = findViewById(R.id.nav_activity_text);
         dappBrowserLabel = findViewById(R.id.nav_browser_text);
         settingsTab = findViewById(R.id.settings_tab);
-        earnLabel = findViewById(R.id.nav_earn_text);
+        //earnLabel = findViewById(R.id.nav_earn_text);
         stakesLabel = findViewById(R.id.nav_stakes_text);
         settingsLabel = findViewById(R.id.nav_settings_text);
         settingsBadge = findViewById(R.id.settings_badge);
 
         walletLabel.setOnClickListener(v -> selectItem(WALLET));
         stakesLabel.setOnClickListener(v -> selectItem(STAKES));
-        earnLabel.setOnClickListener(v -> selectItem(EARN));
+        //earnLabel.setOnClickListener(v -> selectItem(EARN));
         activityLabel.setOnClickListener(v -> selectItem(ACTIVITY));
         dappBrowserLabel.setOnClickListener(v -> selectItem(DAPP_BROWSER));
         settingsTab.setOnClickListener(v -> selectItem(SETTINGS));
@@ -99,10 +99,10 @@ public class AWalletBottomNavigationView extends LinearLayout
                 stakesLabel.setSelected(true);
                 stakesLabel.setTypeface(semiboldTypeface);
                 break;
-            case EARN:
-                earnLabel.setSelected(true);
-                earnLabel.setTypeface(semiboldTypeface);
-                break;
+           // case EARN:
+            //    earnLabel.setSelected(true);
+            //    earnLabel.setTypeface(semiboldTypeface);
+            //    break;
             case SETTINGS:
                 settingsLabel.setSelected(true);
                 settingsLabel.setTypeface(semiboldTypeface);
@@ -122,8 +122,8 @@ public class AWalletBottomNavigationView extends LinearLayout
         walletLabel.setTypeface(regularTypeface);
         stakesLabel.setSelected(false);
         stakesLabel.setTypeface(regularTypeface);
-        earnLabel.setSelected(false);
-        earnLabel.setTypeface(regularTypeface);
+        //earnLabel.setSelected(false);
+        //earnLabel.setTypeface(regularTypeface);
         settingsLabel.setSelected(false);
         settingsLabel.setTypeface(regularTypeface);
         activityLabel.setSelected(false);

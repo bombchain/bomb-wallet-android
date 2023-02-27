@@ -239,6 +239,7 @@
     <string name="wallet_label">Wallet</string>
     <string name="earn_label">Earn</string>
     <string name="stakes_label">Stakes</string>
+    <string name="bombapp_label">Bomb.app</string>
     <string name="buy_label">Buy</string>
     <string name="tx_label">Transactions</string>
     <string name="browser_label">Browser</string>

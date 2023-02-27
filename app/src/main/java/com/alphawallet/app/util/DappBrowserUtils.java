@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import androidx.preference.PreferenceManager;
 
 import com.alphawallet.app.C;
+import com.alphawallet.app.entity.CustomViewSettings;
 import com.alphawallet.app.entity.DApp;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -32,7 +33,7 @@ public class DappBrowserUtils {
     private static final String DAPPS_LIST_FILENAME = "dapps_list.json";
     private static final String MY_DAPPS_FILE = "mydapps";
     private static final String DAPPS_HISTORY_FILE = "dappshistory";
-    private static final String DEFAULT_HOMEPAGE = "https://www.bomb.app/";
+    private static final String DEFAULT_HOMEPAGE = CustomViewSettings.defaultBrowserURL();
     private static final String POLYGON_HOMEPAGE = "https://alphawallet.com/browser-item-category/polygon/";
 
     //TODO: Move to database

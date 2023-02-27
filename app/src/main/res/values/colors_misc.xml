@@ -11,7 +11,7 @@
     <color name="translucent_green">#1975b943</color>
     <color name="button_primary_disabled">@color/mike</color>
     <color name="surface_faded">@color/translucent_light</color>
-    <color name="button_yellow">#f8d12b</color>
+    <color name="button_yellow">#0C4A6E</color> <!-- old yellow = f8d12b -->
 
     <!-- Network Palette  -->
     <color name="mainnet">#2986AF</color>

@@ -344,9 +344,9 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
         if (viewModel.checkNewWallet(wallet.address))
         {
             viewModel.setNewWallet(wallet.address, false);
-            //Intent selectNetworkIntent = new Intent(this, SelectNetworkFilterActivity.class);
-            //selectNetworkIntent.putExtra(C.EXTRA_SINGLE_ITEM, false);
-            //networkSettingsHandler.launch(selectNetworkIntent);
+            Intent selectNetworkIntent = new Intent(this, SelectNetworkFilterActivity.class);
+            selectNetworkIntent.putExtra(C.EXTRA_SINGLE_ITEM, false);
+            networkSettingsHandler.launch(selectNetworkIntent);
         }
     }
 
@@ -490,11 +490,8 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                         {
                             getWindow().setStatusBarColor(statusBarColor);
                             findViewById(R.id.terms_of_service);
-                            try {
-                                createUserInDB(getWalletAddress(),  null);
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                            preferenceRepository.setWalletIsRegistered(true);
+                            //createUserInDB(getWalletAddress(),  null);
                             backupWalletDialog.dismiss();
                         })
                         .onClickContentView(R.id.showcase_layout, view ->

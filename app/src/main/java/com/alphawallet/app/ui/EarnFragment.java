@@ -349,7 +349,8 @@ public class EarnFragment extends BaseFragment implements OnSignTransactionListe
         {
             loadOnInit = getArguments().getString("url");
         }
-        loadOnInit = CustomViewSettings.defaultEarnURL();
+        loadOnInit = getDefaultDappUrl();
+        homePressed();
         return view;
     }
 

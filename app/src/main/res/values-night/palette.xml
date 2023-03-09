@@ -52,5 +52,5 @@
 	<color name="venus">#232323</color>
 	<color name="shark">#232325</color>
 	<color name="atlantis">#7cca42</color>
-	<color name="yellow">#1E293B</color> <!-- 9a8200 -->
+	<color name="yellow">#9a8200</color> <!-- 9a8200   blue = 1E293B-->
 </resources>
